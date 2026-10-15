@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acuerdo de servicio | CONTPAQi® CFDI Facturación en línea +</title>
+  <meta name="description" content="Acuerdo de servicio para la emisión y timbrado de CFDI con CONTPAQi® CFDI Facturación en línea +: definiciones, servicios, soporte, confidencialidad, vigencia y pagos.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="https://www.contpaqi.com/hubfs/favicon-cpi.png">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Acuerdo de servicio · PROPUESTA v1 (página independiente; hereda tokens y clases de marca de CFDI Home V3.10).
+       El texto legal está tal cual lo entregó el cliente; no editar sin autorización de Legal. -->
+  <style>
+    :root {
+      --primary: #317057; --primary-hover: #007649; --mint: #5bc49c;
+      --body: #4a5568; --title: #151c28;
+      --fs-sm: 14px; --fs-base: 16px; --fs-md: 17px; --fs-lg: 20px; --fs-xl: 28px;
+      --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0; --slate-400: #94a3b8; --slate-800: #1e293b; --slate-900: #151c28;
+      --blue-50: #eef7f3;
+      --font: sans-serif; --radius: 12px; --radius-pill: 50px; --gutter: 20px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; -webkit-text-size-adjust: 100%; }
+    body { font-family: var(--font); font-size: var(--fs-base); color: var(--body); background: var(--slate-50); line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    h1, h2, h3 { font-family: var(--font); }
+    a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
+    .footer a:focus-visible { outline-color: #fff; }
+    .skip-link { position: absolute; left: 16px; top: -64px; z-index: 100; background: var(--primary); color: #fff; padding: 12px 20px; border-radius: 6px; font-weight: 600; transition: top .2s; }
+    .skip-link:focus { top: 12px; }
+    .container { width: 100%; max-width: 1250px; margin: 0 auto; padding: 0 var(--gutter); }
+    @media (min-width: 768px) { :root { --gutter: 32px; } }
+    @media (min-width: 1024px) { :root { --gutter: 50px; } }
+
+    /* ---- Clases de marca (idénticas a CFDI Home) ---- */
+    .section-main-title, .product-title {
+      color: var(--title) !important; font-weight: 700 !important; line-height: 1.25 !important;
+      margin: 0 0 15px 0 !important; font-family: var(--font) !important;
+    }
+    .section-main-title { font-size: var(--fs-xl) !important; }
+    .product-title { font-size: var(--fs-md) !important; }
+    .c-desc-main { color: var(--body) !important; font-size: var(--fs-base) !important; line-height: 1.6 !important; margin: 0 0 15px 0 !important; font-family: var(--font) !important; }
+    .btn-custom-pill {
+      display: inline-flex !important; justify-content: center !important; align-items: center !important;
+      background-color: #5bc49c !important; color: #ffffff !important; text-decoration: none !important;
+      font-size: 16px !important; font-weight: 700 !important; padding: 12px 30px !important; border: none !important;
+      border-radius: 50px !important; cursor: pointer !important; transition: all 0.3s ease !important;
+    }
+    .btn-custom-pill:hover { background-color: #007649 !important; transform: translateY(-2px) !important; }
+    @media (max-width: 768px) { :root { --fs-xl: 26px; } }
+
+    /* ---- Header simple (sin anclas de la one-page) ---- */
+    .site-header { background: #fff; border-bottom: 1px solid var(--slate-200); padding: 16px 0; }
+    .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .site-header__logo img { height: 36px; width: auto; }
+    .site-header__actions { display: flex; align-items: center; gap: 24px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-sm); font-weight: 500; color: var(--body); transition: color .2s; min-height: 44px; }
+    .back-link:hover { color: var(--primary); }
+    .site-header .btn-custom-pill { min-height: 44px; white-space: nowrap; }
+    @media (max-width: 639px) { .site-header .btn-custom-pill { display: none !important; } }
+
+    /* ---- Documento legal ---- */
+    .legal-page { padding: 48px 0 72px; }
+    .legal { max-width: 920px; margin: 0 auto; background: #fff; border: 1px solid var(--slate-200); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,.02); padding: 56px 56px 48px; }
+    .legal__head { text-align: center; padding-bottom: 28px; margin-bottom: 8px; border-bottom: 1px solid var(--slate-200); }
+    .legal .section-main-title.legal__title { color: var(--primary) !important; text-transform: uppercase; letter-spacing: .02em; margin: 0 !important; }
+    .legal__updated { margin-top: 32px; font-size: var(--fs-sm); color: var(--slate-400); text-align: right; }
+    .legal section { padding-top: 32px; }
+    .legal h2.product-title { text-transform: uppercase; margin: 0 0 16px !important; padding-left: 14px; border-left: 4px solid var(--mint); }
+    .legal h3 { font-size: var(--fs-base); font-weight: 700; color: var(--title); margin: 24px 0 10px; }
+    .legal p.c-desc-main, .legal li { text-align: justify; hyphens: auto; }
+    .legal a:not(.btn-custom-pill) { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; word-break: break-word; }
+    .legal a:not(.btn-custom-pill):hover { color: var(--primary-hover); }
+    .legal__item { padding-left: 28px; text-indent: -28px; } /* (a), (b)… con sangría francesa */
+    .legal__item span { display: inline-block; width: 28px; text-indent: 0; font-weight: 600; color: var(--title); }
+    .legal__list { margin: 0 0 15px 0; }
+    .legal__list li { position: relative; padding-left: 28px; margin-bottom: 8px; font-size: var(--fs-base); line-height: 1.6; color: var(--body); }
+    .legal__list li::before { content: ""; position: absolute; left: 2px; top: 8px; width: 12px; height: 7px; border-left: 2px solid var(--primary); border-bottom: 2px solid var(--primary); transform: rotate(-45deg); }
+
+    /* Tabla de datos */
+    .legal-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 4px 0 20px; border: 1px solid var(--slate-200); border-radius: var(--radius); overflow: hidden; }
+    .legal-table th { background: var(--blue-50); color: var(--primary); text-align: left; font-size: var(--fs-base); font-weight: 700; padding: 14px 20px; border-bottom: 1px solid var(--slate-200); }
+    .legal-table td { padding: 12px 20px 12px 48px; position: relative; font-size: var(--fs-base); line-height: 1.5; color: var(--body); border-bottom: 1px solid var(--slate-100); text-align: left; }
+    .legal-table tr:last-child td { border-bottom: 0; }
+    .legal-table tbody tr:nth-child(even) td { background: var(--slate-50); }
+    .legal-table td::before { content: ""; position: absolute; left: 22px; top: 19px; width: 12px; height: 7px; border-left: 2px solid var(--primary); border-bottom: 2px solid var(--primary); transform: rotate(-45deg); }
+
+    .legal__cta { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--slate-200); display: flex; justify-content: center; }
+    @media (max-width: 767px) {
+      .legal-page { padding: 24px 0 48px; }
+      .legal { padding: 32px 20px 28px; }
+      .legal p.c-desc-main, .legal li { text-align: left; hyphens: none; } /* justificado solo desde tableta: evita huecos en columnas angostas */
+      .legal-table th, .legal-table td { padding-right: 14px; }
+      .legal-table th { padding-left: 14px; }
+      .legal-table td { padding-left: 40px; }
+      .legal-table td::before { left: 16px; }
+      .legal__cta .btn-custom-pill { width: 100%; }
+    }
+
+
+    /* Acuerdo de servicio: preámbulo, cláusulas numeradas y tabla de definiciones */
+    .legal__preamble { text-transform: none; font-weight: 600; color: var(--title) !important; }
+    .legal h2.legal__clauses { border-left: 0; padding-left: 0; text-align: center; margin: 24px 0 0 !important; }
+    .legal__item--num { padding-left: 52px; text-indent: -52px; }
+    .legal__item--num span { width: 52px; }
+    .legal-table--defs th[scope="col"] { width: 34%; }
+    .legal-table--defs th[scope="row"] { background: transparent; font-size: var(--fs-base); font-weight: 700; color: var(--title); padding: 12px 20px; border-bottom: 1px solid var(--slate-100); vertical-align: top; }
+    .legal-table--defs tbody tr:nth-child(even) th[scope="row"] { background: var(--slate-50); }
+    .legal-table--defs tr:last-child th[scope="row"] { border-bottom: 0; }
+    .legal-table--defs td { padding-left: 20px; vertical-align: top; text-align: left; }
+    .legal-table--defs td::before { display: none; }
+    @media (max-width: 767px) {
+      .legal-table--defs th[scope="col"] { width: auto; }
+      .legal-table--defs th[scope="row"], .legal-table--defs td { padding-left: 14px; padding-right: 14px; font-size: var(--fs-sm); }
+      .legal__item--num { padding-left: 44px; text-indent: -44px; }
+      .legal__item--num span { width: 44px; }
+    }
+
+    /* ---- Footer (igual que CFDI Home) ---- */
+    .footer { background: var(--slate-900); color: var(--slate-400); padding: 64px 0 32px; }
+    .footer__grid { display: grid; grid-template-columns: 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer__logo { display: inline-block; margin-bottom: 24px; }
+    .footer__logo img { height: 40px; width: auto; }
+    .footer__about { font-size: var(--fs-sm); line-height: 1.625; margin-bottom: 24px; }
+    .footer__social { display: flex; gap: 16px; }
+    .footer__social a { color: var(--slate-400); transition: color .2s; display: inline-flex; }
+    .footer__social a:hover { color: #fff; }
+    .footer__social i { font-size: 22px; }
+    .footer__badge { display: block; width: 120px; height: auto; border-radius: 8px; margin-bottom: 20px; }
+    .footer .footer__title { color: #fff; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; font-size: var(--fs-sm); letter-spacing: .05em; }
+    .footer__links { display: flex; flex-direction: column; gap: 12px; }
+    .footer__links a { font-size: var(--fs-sm); transition: color .2s; }
+    .footer__links a:hover { color: #fff; }
+    .footer__bottom { border-top: 1px solid var(--slate-800); padding-top: 32px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 16px; font-size: var(--fs-sm); color: var(--slate-400); text-align: center; }
+    @media (min-width: 768px) {
+      .footer__grid { grid-template-columns: repeat(2, 1fr); }
+      .footer__bottom { flex-direction: row; text-align: left; }
+    }
+    @media (min-width: 1024px) { .footer__grid { grid-template-columns: repeat(4, 1fr); } }
+    .footer__legal { font-size: var(--fs-sm); line-height: 1.6; color: var(--slate-400); margin-bottom: 32px; max-width: 960px; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="https://www.contpaqi.com/" class="site-header__logo" aria-label="CONTPAQi inicio">
+        <img src="https://www.contpaqi.com/hubfs/Inicio/logo_contpaqi.png" alt="CONTPAQi">
+      </a>
+      <div class="site-header__actions">
+        <!-- En producción: href="/" -->
+        <a href="./index.html" class="back-link"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i>Volver al inicio</a>
+        <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn-custom-pill" data-cta="legal-header-comprar">Comprar ahora</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="legal-page">
+    <div class="container">
+      <article class="legal" aria-labelledby="legal-title">
+        <header class="legal__head">
+          <h1 id="legal-title" class="section-main-title legal__title">Acuerdo de servicio</h1>
+        </header>
+
+        <section aria-label="Partes del acuerdo">
+          <p class="c-desc-main legal__preamble">ACUERDO DE SERVICIO ENTRE EL CONTRIBUYENTE EMISOR DE COMPROBANTE(S) FISCAL(ES) DIGITAL(ES) A TRAVÉS DE INTERNET (CFDI), QUE UTILIZA EL SERVICIO "CONTPAQi® CFDI Facturación en línea +" DE EMISIÓN Y TIMBRADO, EN ADELANTE "EL CONTRIBUYENTE", "MASFACTURACION, S. DE R.L DE C.V.", COMO PROVEEDOR DE CERTIFICACIÓN DE CFDI, AUTORIZADO POR EL SERVICIO DE ADMINISTRACIÓN TRIBUTARIA (SAT), EN ADELANTE "MASFACTURACIÓN", Y "COMPUTACIÓN EN ACCIÓN, S.A. DE C.V.", COMO EL PRESTADOR DE SERVICIOS ADICIONALES EN LA EMISIÓN Y TIMBRADO DE CFDI, EN ADELANTE "CONTPAQi®", QUIENES SERAN LAS "LAS PARTES", AL TENOR DE LAS SIGUIENTES</p>
+          <h2 class="product-title legal__clauses">CLÁUSULAS:</h2>
+        </section>
+
+        <section aria-labelledby="c1">
+          <h2 id="c1" class="product-title">1. Definiciones</h2>
+          <p class="c-desc-main">El Contribuyente que acepte los términos y condiciones de este Acuerdo aprueba que las siglas, abreviaturas o palabras que a continuación se enlistan, tendrán en este instrumento los significados que para las mismas se señalan:</p>
+          <table class="legal-table legal-table--defs">
+            <thead><tr><th scope="col">Sigla</th><th scope="col">Significado</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">CFDI o CFDI’s</th><td>Comprobante Fiscal Digital a través de Internet</td></tr>
+              <tr><th scope="row">CFF</th><td>Código Fiscal de la Federación</td></tr>
+              <tr><th scope="row">CSD</th><td>Certificado de sello Digital del Contribuyente</td></tr>
+              <tr><th scope="row">SAT</th><td>Servicios de Administración Tributaria</td></tr>
+              <tr><th scope="row">UUID</th><td>"Universally Unique Identifier" que en español significa “Identificador Universal Único”.</td></tr>
+              <tr><th scope="row">CONTPAQi®</th><td>Nombre comercial con que se identifica al grupo de empresas al cual pertenecen COMPUTACION EN ACCION, S.A. DE C.V., y MASFACTURACION S. de R.L. de C.V.; a las que en plural serán referidas como se indicó, y en singular a esta última como “MASFACTURACION”.</td></tr>
+              <tr><th scope="row">APLICACIÓN "CONTPAQi® CFDI Facturación en línea +"</th><td>Programa de Cómputo que se ofrece como herramienta de trabajo, que permite al "CONTRIBUYENTE", el servicio de captura, emisión, timbrado, recepción y envío de Comprobantes Fiscales Digitales "CFDI".</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section aria-labelledby="c2">
+          <h2 id="c2" class="product-title">2. Descripción de servicios</h2>
+          <p class="c-desc-main">Servicio para la Certificación de Comprobantes Fiscales Digitales por Internet (CFDI) que capture El Contribuyente a través de la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +" para la emisión, timbrado y recepción de CFDI, así como su envió al SAT de manera inmediata o en un plazo que no exceda las 72 (setenta y dos) horas contadas a partir de la certificación del comprobante.</p>
+          <p class="c-desc-main">Servicio de Certificación se refiere a validación y timbrado de Comprobantes Fiscales Digitales por Internet (CFDI).</p>
+          <p class="c-desc-main">"CONTPAQi®" para prestar el servicio, a través de la APLICACIÓN "CONTPAQi® CFDI Facturación en línea+", de validación, generación, captura, emisión, timbrado, resguardo y envío de los comprobantes fiscales digitales por internet ("CFDI"), a favor de terceros en relación a las operaciones comerciales del Contribuyente, lo realizara a través de la empresa "MASFACTURACION",  la cual se encuentra autorizada como Proveedor de Certificación por el Servicio de Administración Tributaria (SAT), por tal motivo COMPUTACIÓN EN ACCIÓN, S.A. DE C.V., será la empresa que emita la factura por dichos servicios.</p>
+        </section>
+
+        <section aria-labelledby="c3">
+          <h2 id="c3" class="product-title">3. Servicio de validación, generación, captura, emisión, timbrado, resguardo y envio.</h2>
+          <h3>3.1 Funcionalidad:</h3>
+          <ul class="legal__list">
+            <li>Tendrá funcionalidad para la captura y el procesamiento ágil y eficiente del CDFI.</li>
+            <li>Permite cargar el Certificado de Sello Digital (CSD) del Contribuyente, para el sellado de sus comprobantes.</li>
+            <li>Permitirá precargar los datos fiscales del Contribuyente emisor.</li>
+            <li>Generará el documento para su validación y certificación, cumpliendo con la especificación técnica establecida en el Anexo 20 de la Resolución Miscelánea Fiscal vigente.</li>
+            <li>Entregará al Contribuyente emisor del comprobante certificado o acuse de rechazo.</li>
+            <li>Enviar copia del CFDI al SAT de manera inmediata o en un plazo que no exceda las 72 (setenta y dos) horas contadas a partir de la certificación del comprobante.</li>
+            <li>Almacenar los comprobantes digitales por 12 (doce) meses a partir de la certificación del comprobante.</li>
+            <li>Permite al Contribuyente consultar, guardar o imprimir los comprobantes durante los 12 (doce) meses siguientes a partir de la certificación del comprobante.</li>
+            <li>Enviará al receptor de la factura un correo electrónico que incluye una liga para descargar el comprobante.</li>
+            <li>Permitirá registrar o dar de alta los datos de los catálogos de Clientes, Productos y Sucursales.</li>
+            <li>Identificar y conocer cuáles son las facturas pagadas y cuáles hacen faltan de cobrar o aplicar pagos.</li>
+            <li>Incluye formatos de facturas con cuatro plantillas permitiendo seleccionar la que más se adapte al contribuyente y agregar un logotipo de empresa.</li>
+            <li>Permite facturar de acuerdo con el tipo de moneda que le soliciten.</li>
+          </ul>
+          <h3>3.2 Disponibilidad:</h3>
+          <p class="c-desc-main">La disponibilidad en el servicio es durante los 365 (trescientos sesenta y cinco) días del año calendario, con una disponibilidad del 99.3% (noventa y nueve punto tres por ciento), donde el 0.7 % (cero punto siete por ciento) es el período de tiempo máximo donde la aplicación podría no estar disponible por causas no planeadas ni imputables a "MASFACTURACION" o “CONTPAQi®”.</p>
+          <h3>3.3 Mantenimiento:</h3>
+          <p class="c-desc-main">"MASFACTURACION", a su sola discreción se reserva el derecho, sin responsabilidad alguna de su parte, para realizar actualizaciones, mejoras y mantenimiento continuo a la infraestructura y a la aplicación de Servicio de emisión y timbrado. Para lo cual "MASFACTURACION" planeará y ejecutará mantenimientos trimestrales de máximo 24 (veinticuatro) horas o actualizaciones de emergencia de máximo 8 (ocho) horas, lo anterior será notificado al El Contribuyente a través de la página de Internet de <a href="https://www.cfdi.com.mx/login" target="_blank" rel="noopener noreferrer">www.cfdi.com.mx/login</a> con una anticipación de por lo menos 60 (sesenta) días.</p>
+          <h3>3.4 Navegadores soportados</h3>
+          <p class="c-desc-main">El servicio es compatible con los siguientes navegadores siempre que estos se encuentren en la versión más actualizada:</p>
+          <ul class="legal__list">
+            <li>Firefox.</li>
+            <li>Google Chrome.</li>
+            <li>Opera.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="c4">
+          <h2 id="c4" class="product-title">4. Cancelaciones de CFDI´s</h2>
+          <p class="c-desc-main">En caso de que El Contribuyente requiera efectuar cancelaciones de CFDI que haya emitido a través de la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +", estas podrán realizarse, con el CSD del propio Contribuyente dentro de la página de internet del SAT, o utilizando la contraseña de la llave privada del CSD de El Contribuyente en la opción que ofrece la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +", para la captura, emisión y timbrado.</p>
+          <p class="c-desc-main">El SAT es la autoridad que, en su caso, procederá a autorizar la cancelación.</p>
+        </section>
+
+        <section aria-labelledby="c5">
+          <h2 id="c5" class="product-title">5. Soporte técnico</h2>
+          <p class="c-desc-main">El Contribuyente podrá realizar solicitudes de soporte técnico y quejas desde la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +" o utilizando el enlace <a href="https://www.cfdi.com.mx/soporte" target="_blank" rel="noopener noreferrer">www.cfdi.com.mx/soporte</a>.</p>
+          <p class="c-desc-main">Estas solicitudes o quejas podrán ser registradas durante los 365 (trescientos sesenta y cinco) días del año calendario.</p>
+          <p class="c-desc-main">"MASFACTURACION" se compromete a atender de manera general, primer contacto, en un plazo no mayor a 2 (dos) horas, mismas que procurará resolver dentro de un plazo no mayor de 8 (ocho) horas hábiles (entendidas las comprendidas entre las 08:00 (ocho dos puntos cero cero) horas y las 18:00 (dieciocho dos puntos cero cero) horas del día de Lunes a Viernes exceptuando días festivos), siempre y cuando no implique cambios mayores a la aplicación, se trate de consultas y El Contribuyente haya proporcionado la suficiente información que permita su análisis y solución.</p>
+          <p class="c-desc-main">Las solicitudes de cambios particulares, es decir, que apliquen a una minoría de Contribuyentes, serán tomados como sugerencias.</p>
+        </section>
+
+        <section aria-labelledby="c6">
+          <h2 id="c6" class="product-title">6. Eliminación de comprobantes</h2>
+          <p class="c-desc-main">Los comprobantes se conservarán durante los últimos 12 (doce) meses, después de este periodo se eliminarán del Servicio "CONTPAQi® CFDI Facturación en línea +".</p>
+          <p class="c-desc-main">"MASFACTURACION" no cuenta con servicio o procesos de restauración de comprobantes eliminados.</p>
+          <p class="c-desc-main">Es responsabilidad de El Contribuyente, respaldarlos en un medio diferente al proporcionado de conformidad con esta cláusula a fin de no perderlos.</p>
+        </section>
+
+        <section aria-labelledby="c7">
+          <h2 id="c7" class="product-title">7. Baja de cuentas de usuario del servicio de emisión y timbrado</h2>
+          <p class="c-desc-main">El Contribuyente tiene la opción de dar de baja su cuenta cuando así lo requiera, utilizando la opción que se encuentra disponible dentro de la herramienta de la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +".</p>
+          <p class="c-desc-main">Además, la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +"dará de baja las cuentas de forma automática cuando se cumplan los siguientes criterios:</p>
+          <ul class="legal__list">
+            <li>Cuentas que no completaron el registro con más de 30 (treinta) días desde su fecha de creación.</li>
+            <li>Cuentas que completaron el registro con más de 180 (ciento ochenta) días sin haber instalado su certificado.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="c8">
+          <h2 id="c8" class="product-title">8. Seguridad</h2>
+          <p class="c-desc-main">"MASFACTURACION" se compromete con la seguridad de la información de El Contribuyente, implementando los sistemas y acciones requeridas por el SAT, con el objetivo de minimizar riesgos en la infraestructura donde se almacena la información.</p>
+        </section>
+
+        <section aria-labelledby="c9">
+          <h2 id="c9" class="product-title">9. Confidencialidad</h2>
+          <p class="c-desc-main legal__item legal__item--num"><span>9.1</span>El Contribuyente está de acuerdo con entregar a "MASFACTURACION" información, quien la utilizará para llevar a cabo el servicio de Certificación o para analizar y tratar de resolver algún problema o consulta realizada por El Contribuyente.</p>
+          <p class="c-desc-main legal__item legal__item--num"><span>9.2</span>"MASFACTURACION" se compromete a que la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +", realice los servicios de certificación de manera automática, sin necesidad de que alguna persona acceda o manipule la información de El Contribuyente.</p>
+          <p class="c-desc-main legal__item legal__item--num"><span>9.3</span>"MASFACTURACION" está de acuerdo en conservar la información que se hubiese entregado encriptada y a no hacer mal uso de ella. Además, se compromete a limitar el acceso de la información únicamente a aquellas personas que, para los propósitos descritos en este convenio, sea necesario e informarles acerca de la información suministrada.</p>
+          <p class="c-desc-main legal__item legal__item--num"><span>9.4</span>"MASFACTURACION" a partir de la fecha de celebración del presente convenio, respecto de la información, se obliga a no revelarla, publicarla, mostrarla, darla a conocer, transmitirla o de alguna otra forma divulgarla o proporcionarla, no permitiendo figura alguna de uso sin el consentimiento expreso de El Contribuyente, salvo lo dispuesto en la Ley y en este acuerdo.</p>
+          <p class="c-desc-main legal__item legal__item--num"><span>9.5</span>El Contribuyente manifiesta expresamente su conformidad de tener conocimiento y otorgar su autorización para que "MASFACTURACION", en su carácter de proveedor de servicios de certificación de CFDI, entregue al SAT copia de los comprobantes que le certifique.</p>
+        </section>
+
+        <section aria-labelledby="c10">
+          <h2 id="c10" class="product-title">10. Aviso de privacidad</h2>
+          <p class="c-desc-main">Para el cumplimiento del objeto de este contrato, es necesario que MASFACTURACIÓN realice un tratamiento de los datos personales del USUARIO, entendido éste último como una persona física, este tratamiento se realiza bajo los principios de licitud, consentimiento, información, calidad, finalidad, lealtad, proporcionalidad y responsabilidad, y estándares de seguridad y confidencialidad de conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), en este sentido, MASFACTURACION  será considerado como el “Responsable” y el USUARIO, siempre que sea una persona física, será considerado como el “Titular del Dato”.</p>
+          <p class="c-desc-main">Su datos personales serán tratados únicamente para las siguientes finalidades: (i) prestar los servicios de Certificación de Documentos Digitales y enviar a través de medios electrónicos los documentos digitales recibidos de Ud., para ser remitidos al Servicios de Administración Tributaria (SAT) (ii) cumplir las obligaciones establecidas en el Acuerdo de Servicio celebrado entre Usted (Cliente) y MASFACTURACION y realizar las acciones que nos permitan operar nuestra relación contractual, (iii) administrar las cuentas dentro de las aplicaciones o portales de la empresa; (iv) identificar al titular en nuestro sitio web y aplicaciones de la línea MASFACTURACION; (v) enviar comunicaciones y/o notificaciones relacionadas con el cumplimiento del contrato de licencia; (vi) ofrecer soporte técnico; (vii) dar atención al cliente y evaluar la calidad en el servicio; y (viii) facturar los productos y servicios de MASFACTURACION; (ix) mejorar su experiencia como cliente de MASFACTURACION y brindarle servicios y atención personalizada.</p>
+          <p class="c-desc-main">Si usted desea hacer ejercicio de sus derechos ARCO, favor de revisar el procedimiento que se indica en nuestro Aviso de Privacidad Integral, y en cualquier momento, usted podrá hacer llegar sus dudas al correo: [<a href="mailto:derechosarco@masfacturacion.com">derechosarco@masfacturacion.com</a>]</p>
+          <p class="c-desc-main">Para los efectos de la LFPDPPP, el Responsable tiene su domicilio en: Av. Lázaro Cárdenas número 3469, piso 6 local 5, Colonia Jardines de los Arcos, Código Postal 44500, en la Ciudad de Guadalajara, Estado de Jalisco, MASFACTURACION hace del conocimiento del USUARIO que el sitio <a href="https://www.cfdi.com.mx/login" target="_blank" rel="noopener noreferrer">www.cfdi.com.mx/login</a> utiliza cookies propias, a través de las cuales es posible hacer funcional la página y brindarle un mejor servicio y experiencia personalizada en su navegación.</p>
+          <p class="c-desc-main">Nuestro Aviso de Privacidad Integral y política sobre uso de cookies e identificadores con tecnologías similares se encuentra disponible en: <a href="https://www.cfdi.com.mx/login" target="_blank" rel="noopener noreferrer">www.cfdi.com.mx/login</a>,cualquier modificación o actualización a nuestro aviso de privacidad, será dado a conocer a través de dicho enlace.</p>
+          <p class="c-desc-main">Al contratar nuestros productos y servicios, a través de la firma de esta licencia, usted otorga su consentimiento expreso y por escrito para que MASFACTURACION realice el tratamiento de datos personales aquí referido.</p>
+        </section>
+
+        <section aria-labelledby="c11">
+          <h2 id="c11" class="product-title">11. Propiedad</h2>
+          <p class="c-desc-main">La prestación de servicios ADICIONALES EN LA EMISIÓN Y TIMBRADO DE CFDI a través de la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +", son propiedad de CONTPAQi®, con domicilio en Av. Lázaro Cárdenas número 3469, piso 9, Colonia Jardines de los Arcos, Código Postal 44500, en la Ciudad de Guadalajara, Estado de Jalisco, México.</p>
+          <p class="c-desc-main">Los comprobantes digitales son propiedad de El Contribuyente.</p>
+        </section>
+
+        <section aria-labelledby="c12">
+          <h2 id="c12" class="product-title">12. Responsabilidades de El Contribuyente</h2>
+          <p class="c-desc-main legal__item legal__item--num"><span>12.1</span>El Contribuyente se compromete a utilizar los servicios ADICIONALES EN LA EMISION Y TIMBRADO DE CFDI a través de la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +", de conformidad con la Ley, la moral, las buenas costumbres y el orden público y, a abstenerse de utilizarlo con fines ilícitos, lesivos a los intereses de CONTPAQ i® y/o de terceros, o que de cualquier forma puedan dañar, inutilizar o deteriorar la aplicación y/o sus equipos informáticos como los de otros usuarios de Internet (hardware o software). De incurrir El Contribuyente en estos supuestos, independientemente del derecho que tendrá CONTPAQi® de suspender el servicio a El Contribuyente y del ilícito en que él mismo llegaré a incurrir, El Contribuyente se obliga a resarcir los daños y perjuicios que le cause a CONTPAQi® y, en su caso, a cualquier tercero.</p>
+          <p class="c-desc-main legal__item legal__item--num"><span>12.2</span>El Contribuyente se obliga a proporcionar y asentar la información requerida por los servicios ADICIONALES EN LA EMISIÓN Y TIMBRADO DE CFDI a través de la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +" de forma completa, veraz y actualizada; en caso contrario, CONTPAQi® se reserva el derecho de cancelar y dar por terminado el servicio de manera inmediata y sin ninguna responsabilidad para "CONTPAQi®".</p>
+          <p class="c-desc-main legal__item legal__item--num"><span>12.3</span>Es responsabilidad exclusiva de El Contribuyente hacer un uso diligente de las claves de acceso, compuestas por la clave de usuario y contraseña, y demás datos que permitan el acceso a su información, captura o emisión de comprobantes a su nombre, así como a asumir cualquier riesgo de acceso a las mismas por un tercero, no pudiendo responsabilizar a CONTPAQi® de cualquier daño o pérdida suscitada.</p>
+        </section>
+
+        <section aria-labelledby="c13">
+          <h2 id="c13" class="product-title">13. Inicio de la vigencia, pagos y renovación</h2>
+          <p class="c-desc-main">El presente acuerdo de servicios ADICIONALES EN LA EMISIÓN Y TIMBRADO DE CFDI, entrará en vigor una vez que el Contribuyente  active la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +" a través de su equipo de cómputo o dispositivo móvil, para lo cual el Contribuyente debió haberse registrado, obteniendo su número de cuenta y contraseña para uso de la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +", el cual estará vigente por un año, o por cualquier causa de rescisión prevista en este acuerdo. El costo de los servicios estará determinado por el número de empresas y número de usuarios, de acuerdo con las políticas de venta y el tabulador de precios de "CONTPAQi®", que se encuentran en el portal de Internet <a href="https://www.contpaqi.com" target="_blank" rel="noopener noreferrer">www.contpaqi.com</a>. El pago de los servicios será anual conforme a las políticas de FORMA de PAGO establecidas por "CONTPAQi®", teniendo la obligación el Contribuyente de realizarlo cada año, caso contrario se suspenderán los servicios a los que tiene derecho hasta el día en que se efectué el pago correspondiente. Los servicios se cobrarán por anualidad completa, en el entendido de que, si el pago se realizara fuera de la época convenida, no habrá compensación alguna en los servicios. La fecha en que se active la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +", determinará la fecha para el pago del siguiente año.</p>
+          <p class="c-desc-main">En caso de que el Contribuyente no realice el pago correspondiente, podrá seguir utilizando la aplicación dentro del SERVICIO GRATUITO DE EMISIÓN Y TIMBRADO.</p>
+          <p class="c-desc-main">Este ACUERDO se celebra entre Las Partes de buena fe, "CONTPAQi®" no asume responsabilidad por cualquier falla debida a causas de fuerza mayor o caso fortuito. El Contribuyente excluye y libera a MasFacturación S. de R.L. de C.V., y a Computación en Acción, S.A. de C.V, de cualquier responsabilidad por daños y perjuicios de toda naturaleza que puedan deberse a la falta de disponibilidad y continuidad de funcionamiento de la aplicación de Servicio de Emisión y Timbrado a través de la APLICACIÓN "CONTPAQi® CFDI Facturación en línea +"; así como a las fallas de trasmisión, difusión, almacenamiento, puesta a disposición, recepción, obtención o acceso a los contenidos de sus páginas web, que en su caso se le llegaren a originar a El Contribuyente o a cualquier tercero ajeno a este Acuerdo, incluyendo en ello al receptor o destinatario del CFDI.</p>
+          <p class="c-desc-main">Las Partes convienen en que el presente acuerdo contiene su voluntad expresa en cuanto a lo que en el mismo se especifica y refiere, acordando que éste se regirá por lo aquí estipulado y en lo que no estuviere previsto, por las disposiciones legales aplicables.</p>
+          <p class="c-desc-main"><strong>Jurisdicción.</strong> Para caso de controversia sobre la interpretación o cumplimiento del presente acuerdo, las partes se someten expresamente a la jurisdicción y competencia de los Tribunales competentes ubicados en el Primer Partido Judicial del Estado de Jalisco, México y en su caso, del Instituto Nacional del Derecho de Autor y el Instituto Mexicano de la Propiedad Industrial, con sede en la Ciudad de México, Distrito Federal, México, renunciando al fuero o jurisdicción, que pudiere corresponderles por razón de sus domicilios presentes o futuros.</p>
+          <p class="c-desc-main">Leído que fue el presente Acuerdo por El Contribuyente, el mismo se obliga en términos de su contenido, dando su conformidad vía electrónica a través de su suscripción mediante firma autógrafa, o bien a través de Firma Electrónica Avanzada en términos de la legislación vigente.</p>
+        </section>
+
+        <div class="legal__cta">
+          <a href="./index.html" class="btn-custom-pill">Volver al inicio</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo"><img src="https://www.contpaqi.com/hubfs/Logo-Contpaqi-Blanco-color-2026.png" alt="CONTPAQi" loading="lazy"></div>
+          <p class="footer__about">El software favorito de los contadores y empresarios en México. Soluciones de facturación, nómina y contabilidad.</p>
+
+          <img class="footer__badge" src="https://www.contpaqi.com/hs-fs/hubfs/CONTPAQi-PAC.jpg?width=200&height=256&name=CONTPAQi-PAC.jpg" alt="" width="120" height="154" loading="lazy">
+
+          <div class="footer__social">
+            <a href="https://www.linkedin.com/company/contpaqi1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/CONTPAQi" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/contpaqimx/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://x.com/CONTPAQi" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/contpaqi1" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Producto</h2>
+          <ul class="footer__links">
+            <li><a href="./index.html#perfiles">Para ti</a></li>
+            <li><a href="./index.html#beneficios">Beneficios</a></li>
+            <li><a href="./index.html#planes">Planes y precios</a></li>
+            <li><a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer">Iniciar sesión</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Soporte</h2>
+          <ul class="footer__links">
+            <li><a href="./index.html#faq">Preguntas frecuentes</a></li>
+            <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer">Soporte técnico</a></li>
+            <li><a href="https://www.contpaqi.com/contactanos">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="./aviso-de-privacidad.html">Aviso de privacidad</a></li>
+            <li><a href="./acuerdo-de-servicio.html" aria-current="page">Acuerdo de servicio</a></li>
+            <li><a href="https://www.contpaqi.com/certificaciones">Seguridad</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer__legal">Precios públicos por licencia anual en moneda nacional. Los Signos Distintivos CONTPAQi® y PAQ® son marcas registradas propiedad de COMPUTACIÓN EN ACCIÓN, S.A. DE C.V., que distinguen, entre otros, programas de cómputo, su diseño y programación.</p>
+
+      <div class="footer__bottom">
+        <p>© 2026 Computación en Acción, S.A. de C.V. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

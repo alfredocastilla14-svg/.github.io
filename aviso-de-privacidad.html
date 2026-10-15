@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviso de privacidad | CONTPAQi Vende® Inicial</title>
+  <meta name="description" content="Aviso de privacidad de CONTPAQi Vende® Inicial: responsable del tratamiento, datos personales, finalidades, transferencias y derechos ARCO.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/png" href="https://www.contpaqi.com/hubfs/favicon-cpi.png">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Aviso de privacidad · PROPUESTA v1 (página independiente; hereda tokens y clases de marca de CFDI Home V3.10).
+       El texto legal está tal cual lo entregó el cliente; no editar sin autorización de Legal. -->
+  <style>
+    :root {
+      --primary: #317057; --primary-hover: #007649; --mint: #5bc49c;
+      --body: #4a5568; --title: #151c28;
+      --fs-sm: 14px; --fs-base: 16px; --fs-md: 17px; --fs-lg: 20px; --fs-xl: 28px;
+      --slate-50: #f8fafc; --slate-100: #f1f5f9; --slate-200: #e2e8f0; --slate-400: #94a3b8; --slate-800: #1e293b; --slate-900: #151c28;
+      --blue-50: #eef7f3;
+      --font: sans-serif; --radius: 12px; --radius-pill: 50px; --gutter: 20px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; -webkit-text-size-adjust: 100%; }
+    body { font-family: var(--font); font-size: var(--fs-base); color: var(--body); background: var(--slate-50); line-height: 1.5; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    h1, h2, h3 { font-family: var(--font); }
+    a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
+    .footer a:focus-visible { outline-color: #fff; }
+    .skip-link { position: absolute; left: 16px; top: -64px; z-index: 100; background: var(--primary); color: #fff; padding: 12px 20px; border-radius: 6px; font-weight: 600; transition: top .2s; }
+    .skip-link:focus { top: 12px; }
+    .container { width: 100%; max-width: 1250px; margin: 0 auto; padding: 0 var(--gutter); }
+    @media (min-width: 768px) { :root { --gutter: 32px; } }
+    @media (min-width: 1024px) { :root { --gutter: 50px; } }
+
+    /* ---- Clases de marca (idénticas a CFDI Home) ---- */
+    .section-main-title, .product-title {
+      color: var(--title) !important; font-weight: 700 !important; line-height: 1.25 !important;
+      margin: 0 0 15px 0 !important; font-family: var(--font) !important;
+    }
+    .section-main-title { font-size: var(--fs-xl) !important; }
+    .product-title { font-size: var(--fs-md) !important; }
+    .c-desc-main { color: var(--body) !important; font-size: var(--fs-base) !important; line-height: 1.6 !important; margin: 0 0 15px 0 !important; font-family: var(--font) !important; }
+    .btn-custom-pill {
+      display: inline-flex !important; justify-content: center !important; align-items: center !important;
+      background-color: #5bc49c !important; color: #ffffff !important; text-decoration: none !important;
+      font-size: 16px !important; font-weight: 700 !important; padding: 12px 30px !important; border: none !important;
+      border-radius: 50px !important; cursor: pointer !important; transition: all 0.3s ease !important;
+    }
+    .btn-custom-pill:hover { background-color: #007649 !important; transform: translateY(-2px) !important; }
+    @media (max-width: 768px) { :root { --fs-xl: 26px; } }
+
+    /* ---- Header simple (sin anclas de la one-page) ---- */
+    .site-header { background: #fff; border-bottom: 1px solid var(--slate-200); padding: 16px 0; }
+    .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .site-header__logo img { height: 36px; width: auto; }
+    .site-header__actions { display: flex; align-items: center; gap: 24px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: var(--fs-sm); font-weight: 500; color: var(--body); transition: color .2s; min-height: 44px; }
+    .back-link:hover { color: var(--primary); }
+    .site-header .btn-custom-pill { min-height: 44px; white-space: nowrap; }
+    @media (max-width: 639px) { .site-header .btn-custom-pill { display: none !important; } }
+
+    /* ---- Documento legal ---- */
+    .legal-page { padding: 48px 0 72px; }
+    .legal { max-width: 920px; margin: 0 auto; background: #fff; border: 1px solid var(--slate-200); border-radius: var(--radius); box-shadow: 0 4px 6px rgba(0,0,0,.02); padding: 56px 56px 48px; }
+    .legal__head { text-align: center; padding-bottom: 28px; margin-bottom: 8px; border-bottom: 1px solid var(--slate-200); }
+    .legal .section-main-title.legal__title { color: var(--primary) !important; text-transform: uppercase; letter-spacing: .02em; margin: 0 !important; }
+    .legal__updated { margin-top: 32px; font-size: var(--fs-sm); color: var(--slate-400); text-align: right; }
+    .legal section { padding-top: 32px; }
+    .legal h2.product-title { text-transform: uppercase; margin: 0 0 16px !important; padding-left: 14px; border-left: 4px solid var(--mint); }
+    .legal h3 { font-size: var(--fs-base); font-weight: 700; color: var(--title); margin: 24px 0 10px; }
+    .legal p.c-desc-main, .legal li { text-align: justify; hyphens: auto; }
+    .legal a:not(.btn-custom-pill) { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; word-break: break-word; }
+    .legal a:not(.btn-custom-pill):hover { color: var(--primary-hover); }
+    .legal__item { padding-left: 28px; text-indent: -28px; } /* (a), (b)… con sangría francesa */
+    .legal__item span { display: inline-block; width: 28px; text-indent: 0; font-weight: 600; color: var(--title); }
+    .legal__list { margin: 0 0 15px 0; }
+    .legal__list li { position: relative; padding-left: 28px; margin-bottom: 8px; font-size: var(--fs-base); line-height: 1.6; color: var(--body); }
+    .legal__list li::before { content: ""; position: absolute; left: 2px; top: 8px; width: 12px; height: 7px; border-left: 2px solid var(--primary); border-bottom: 2px solid var(--primary); transform: rotate(-45deg); }
+
+    /* Tabla de datos */
+    .legal-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 4px 0 20px; border: 1px solid var(--slate-200); border-radius: var(--radius); overflow: hidden; }
+    .legal-table th { background: var(--blue-50); color: var(--primary); text-align: left; font-size: var(--fs-base); font-weight: 700; padding: 14px 20px; border-bottom: 1px solid var(--slate-200); }
+    .legal-table td { padding: 12px 20px 12px 48px; position: relative; font-size: var(--fs-base); line-height: 1.5; color: var(--body); border-bottom: 1px solid var(--slate-100); text-align: left; }
+    .legal-table tr:last-child td { border-bottom: 0; }
+    .legal-table tbody tr:nth-child(even) td { background: var(--slate-50); }
+    .legal-table td::before { content: ""; position: absolute; left: 22px; top: 19px; width: 12px; height: 7px; border-left: 2px solid var(--primary); border-bottom: 2px solid var(--primary); transform: rotate(-45deg); }
+
+    .legal__cta { margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--slate-200); display: flex; justify-content: center; }
+    @media (max-width: 767px) {
+      .legal-page { padding: 24px 0 48px; }
+      .legal { padding: 32px 20px 28px; }
+      .legal p.c-desc-main, .legal li { text-align: left; hyphens: none; } /* justificado solo desde tableta: evita huecos en columnas angostas */
+      .legal-table th, .legal-table td { padding-right: 14px; }
+      .legal-table th { padding-left: 14px; }
+      .legal-table td { padding-left: 40px; }
+      .legal-table td::before { left: 16px; }
+      .legal__cta .btn-custom-pill { width: 100%; }
+    }
+
+    /* ---- Footer (igual que CFDI Home) ---- */
+    .footer { background: var(--slate-900); color: var(--slate-400); padding: 64px 0 32px; }
+    .footer__grid { display: grid; grid-template-columns: 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer__logo { display: inline-block; margin-bottom: 24px; }
+    .footer__logo img { height: 40px; width: auto; }
+    .footer__about { font-size: var(--fs-sm); line-height: 1.625; margin-bottom: 24px; }
+    .footer__social { display: flex; gap: 16px; }
+    .footer__social a { color: var(--slate-400); transition: color .2s; display: inline-flex; }
+    .footer__social a:hover { color: #fff; }
+    .footer__social i { font-size: 22px; }
+    .footer__badge { display: block; width: 120px; height: auto; border-radius: 8px; margin-bottom: 20px; }
+    .footer .footer__title { color: #fff; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; font-size: var(--fs-sm); letter-spacing: .05em; }
+    .footer__links { display: flex; flex-direction: column; gap: 12px; }
+    .footer__links a { font-size: var(--fs-sm); transition: color .2s; }
+    .footer__links a:hover { color: #fff; }
+    .footer__bottom { border-top: 1px solid var(--slate-800); padding-top: 32px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 16px; font-size: var(--fs-sm); color: var(--slate-400); text-align: center; }
+    @media (min-width: 768px) {
+      .footer__grid { grid-template-columns: repeat(2, 1fr); }
+      .footer__bottom { flex-direction: row; text-align: left; }
+    }
+    @media (min-width: 1024px) { .footer__grid { grid-template-columns: repeat(4, 1fr); } }
+    .footer__legal { font-size: var(--fs-sm); line-height: 1.6; color: var(--slate-400); margin-bottom: 32px; max-width: 960px; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="https://www.contpaqi.com/" class="site-header__logo" aria-label="CONTPAQi inicio">
+        <img src="https://www.contpaqi.com/hubfs/Inicio/logo_contpaqi.png" alt="CONTPAQi">
+      </a>
+      <div class="site-header__actions">
+        <!-- En producción: href="/" -->
+        <a href="./index.html" class="back-link"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i>Volver al inicio</a>
+        <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn-custom-pill" data-cta="legal-header-comprar">Comprar ahora</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="legal-page">
+    <div class="container">
+      <article class="legal" aria-labelledby="legal-title">
+        <header class="legal__head">
+          <h1 id="legal-title" class="section-main-title legal__title">Aviso de privacidad</h1>
+        </header>
+
+        <section aria-labelledby="s1">
+          <h2 id="s1" class="product-title">I. La identidad del responsable que los recaba.</h2>
+          <p class="c-desc-main">MASFACTURACION, S. DE R.L DE C.V., (en adelante MASFACTURACION), con domicilio en la Av. Lázaro Cárdenas número 3469, piso 6 local 5, Colonia Jardines de los Arcos, Código Postal 44500, en la Ciudad de Guadalajara, Estado de Jalisco, es responsable del tratamiento de sus datos personales.</p>
+        </section>
+
+        <section aria-labelledby="s2">
+          <h2 id="s2" class="product-title">II. Objeto e interés legítimo.</h2>
+          <p class="c-desc-main">Este Aviso de Privacidad está dirigido a los usuarios finales de MASFACTURACION, en adelante Titular de los Datos, y su objetivo es informar sobre las condiciones en que ocurre el tratamiento de sus datos personales por cuenta de MASFACTURACION, en su calidad de Responsable.</p>
+          <p class="c-desc-main">La relación entre el Responsable y el Titular de los Datos está basada en el contrato de licencia que ha sido suscrito entre las partes y por ello existe un interés legítimo para el tratamiento de los datos personales del cliente por cuenta del responsable.</p>
+        </section>
+
+        <section aria-labelledby="s3">
+          <h2 id="s3" class="product-title">III. Datos personales que forman parte del tratamiento.</h2>
+          <table class="legal-table">
+            <thead><tr><th scope="col">Datos sobre la identidad:</th></tr></thead>
+            <tbody>
+              <tr><td>Nombre completo y apellidos.</td></tr>
+              <tr><td>Nombre o Razón Social de la empresa de la que es propietario o para la que trabaja.</td></tr>
+              <tr><td>Registro Federal de Contribuyentes (RFC) personal y/o de la empresa de la que es propietario.</td></tr>
+              <tr><td>Llave pública contenida en el archivo .CER*.</td></tr>
+              <tr><td>Llave privada contenida en el archivo .KEY*</td></tr>
+            </tbody>
+          </table>
+          <p class="c-desc-main">Para el caso de la Llave Pública, el Responsable hace del conocimiento del titular que NO almacena la Contraseña de la Llave Privada, y únicamente se encuentra en posesión del titular al momento de hacer uso del servicio que el Responsable le proporciona durante la prestación del mismo.</p>
+        </section>
+
+        <section aria-labelledby="s4">
+          <h2 id="s4" class="product-title">IV. Datos sensibles.</h2>
+          <p class="c-desc-main">De conformidad con el artículo 112 del Reglamento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, se hace de su conocimiento que MASFACTURACION trata los datos marcados con asterisco (*) para brindarle el servicio de Certificación de Documentos Digitales, mismos que en todo momento se encuentran en posesión del titular de los datos personales sin que sean almacenados en la plataforma tecnológica que para tal efecto brinda el Responsable; sin embargo, debido al perfilamiento generado, dicho tratamiento es susceptible de ser considerado como un tratamiento de Datos Personales Sensibles, en los términos señalados en la Fracción VI del Artículo 3° de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares vigente. Al aceptar este aviso de privacidad, usted otorga su consentimiento expreso y por escrito, materializado en la casilla de selección, para que ocurra el tratamiento de este tipo de datos personales sensibles.</p>
+          <p class="c-desc-main">En caso de que el Responsable recabe y trate datos sensibles del Titular y otros datos necesarios o convenientes para los fines del tratamiento arriba indicados, se lo hará saber previamente al Titular. En todo caso, los datos personales sensibles serán mantenidos y tratados con estricta seguridad y confidencialidad para fines relacionados conforme al presente Aviso de Privacidad y la legislación, reglamentos y normatividad mexicana aplicable y el derecho internacional.</p>
+        </section>
+
+        <section aria-labelledby="s5">
+          <h2 id="s5" class="product-title">V. Vigencia del aviso de privacidad.</h2>
+          <p class="c-desc-main">El presente Aviso de Privacidad entrará en vigor a partir del momento en que el Titular de los Datos Personales suscribe el Acuerdo de Servicio y será exigible en tanto se encuentre vigente dicho contrato, salvo que el titular opte por ejercer su derecho de revocación, cancelación o de oposición siempre que se refiera a aquellas finalidades que no sean necesarias para el cumplimiento de las obligaciones derivadas del Acuerdo de Servicio celebrado entre las partes.</p>
+          <p class="c-desc-main">Conforme al artículo 25 de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares y 37 de su Reglamento, los plazos de conservación de los datos personales no deberán exceder aquéllos que sean necesarios para el cumplimiento de las finalidades que justificaron el tratamiento y que más adelante se señalan, tomando en cuenta los aspectos administrativos, contables, fiscales, jurídicos e históricos de la información. Una vez cumplida la o las finalidades del tratamiento, y cuando no exista disposición legal o reglamentaria que establezca lo contrario, el responsable deberá proceder a la cancelación de los datos en su posesión previo bloqueo de los mismos, para su posterior supresión.</p>
+          <p class="c-desc-main">Ahora bien, si el Titular de los Datos Personales es residente en cualquiera de los países que conforman la Unión Europea, conforme al artículo 6º fracción 1 del REGLAMENTO (UE) 2016/679 DEL PARLAMENTO EUROPEO Y DEL CONSEJO de 27 de abril de 2016 con entrada en vigor el día 25 de Mayo de 2018, el presente Aviso de Privacidad entrará en vigor a partir de la fecha de celebración del contrato principal de servicios firmado entre el Responsable del tratamiento y el Titular de los Datos Personales que serán sometidos a su tratamiento y por la duración de dicho contrato.</p>
+        </section>
+
+        <section aria-labelledby="s6">
+          <h2 id="s6" class="product-title">VI. La naturaleza y finalidades del tratamiento de datos.</h2>
+          <h3>Finalidades primarias.</h3>
+          <p class="c-desc-main">Se hace del conocimiento del Titular que sus Datos Personales serán utilizados exclusivamente para: (i) prestar los servicios de Certificación de Documentos Digitales y enviar a través de medios electrónicos los documentos digitales recibidos de Ud., para ser remitidos al Servicio de Administración Tributaria (SAT) (ii) cumplir las obligaciones establecidas en el Acuerdo de Servicio celebrado entre Usted (Cliente) y MASFACTURACION y realizar las acciones que nos permitan operar nuestra relación contractual, (iii) administrar las cuentas dentro de las aplicaciones o portales de la empresa; (iv) identificar al titular en nuestro sitio web y aplicaciones de la línea MASFACTURACION; (v) enviar comunicaciones y/o notificaciones relacionadas con el cumplimiento del Acuerdo de Servicio; (vi) ofrecer soporte técnico exclusivamente para el servicio de validación, timbrado y resguardo de CFDi; (vii) dar atención al cliente y evaluar la calidad en el servicio de validación, timbrado y resguardo de CFDi; y (viii) facturar los productos y servicios de MASFACTURACION; (ix) mejorar su experiencia como cliente de MASFACTURACION y brindarle servicios y atención personalizada.</p>
+        </section>
+
+        <section aria-labelledby="s7">
+          <h2 id="s7" class="product-title">VII. Transferencias y remisiones de información.</h2>
+          <h3>A. Transferencias</h3>
+          <p class="c-desc-main">Para cumplir con las obligaciones del Acuerdo de Servicio es necesario compartir sus datos con:</p>
+          <p class="c-desc-main legal__item"><span>(a)</span>Al Servicio de Administración Tributaria (SAT).</p>
+          <p class="c-desc-main">Las transferencias antes citadas son necesarias para el cumplimiento de las obligaciones entre el responsable y el titular, se realizan conforme a lo dispuesto en el artículo 37 de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares y no requieren de su consentimiento.</p>
+          <p class="c-desc-main">Cualquier otra transferencia de datos personales sólo será llevada a cabo con su consentimiento y previa información al respecto.</p>
+          <h3>B. Remisiones:</h3>
+          <p class="c-desc-main">Durante este tratamiento, se comunicarán sus datos personales con nuestros Encargados, esta remisión se realiza conforme a lo dispuesto en el artículo 53 del Reglamento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares y no requieren de su consentimiento.</p>
+        </section>
+
+        <section aria-labelledby="s8">
+          <h2 id="s8" class="product-title">VIII. Las opciones y medios para limitar el uso o divulgación de los datos.</h2>
+          <p class="c-desc-main">El tratamiento de sus datos se realiza bajo estándares de seguridad y confidencialidad. Por otro lado, se le informa que, en caso de querer revocar su consentimiento respecto al tratamiento de sus Datos Personales, será a través de los siguientes medios:</p>
+          <p class="c-desc-main legal__item"><span>(a)</span>Usted podrá enviar su solicitud al correo electrónico <a href="mailto:derechosarco@masfacturacion.com">derechosarco@masfacturacion.com</a>, en dicho correo atenderemos y resolveremos su petición conforme a la Ley.;</p>
+          <p class="c-desc-main">La revocación únicamente es aplicable para aquellas finalidades que no son necesarias para el cumplimiento de las obligaciones derivadas del Acuerdo de Servicio. En cualquier caso, el procedimiento para la revocación del consentimiento será el mismo que el establecido en el apartado IX, que se refiere a los medios para ejercer los derechos ARCO.</p>
+          <p class="c-desc-main">El responsable, se reserva el derecho de efectuar en cualquier momento, modificaciones al presente Aviso de Privacidad para cumplir con actualizaciones legislativas, jurisprudenciales, políticas internas, en el entendido de que toda modificación al mismo se le dará a conocer por medio de la publicación en la dirección electrónica <a href="https://www.cfdi.com.mx/login" target="_blank" rel="noopener noreferrer">https://www.cfdi.com.mx/login</a>.</p>
+        </section>
+
+        <section aria-labelledby="s9">
+          <h2 id="s9" class="product-title">IX. Los medios para ejercer los derechos de acceso, rectificación, cancelación u oposición, (derechos ARCO).</h2>
+          <p class="c-desc-main">Para el ejercicio de sus derechos ARCO y/o modificación y/o la revocación de su consentimiento para el tratamiento de sus datos personales, en caso de que estos sean inexactos o incompletos u oponerse a su tratamiento para ciertos fines, favor de presentar una solicitud por escrito (Solicitud de ejercicio de derechos ARCO) a la dirección electrónica o física anotada en el punto VIII que antecede, y que deberá contener la siguiente información:</p>
+          <p class="c-desc-main legal__item"><span>a)</span>Datos fiscales del titular (RFC, razón social y domicilio fiscal).</p>
+          <p class="c-desc-main legal__item"><span>b)</span>La descripción clara y precisa de los datos personales sobre los que se pretende ejercer algún derecho ARCO.</p>
+          <p class="c-desc-main legal__item"><span>c)</span>Cualquier otro elemento o documento que facilite la localización de los datos personales y dar atención a la solicitud.</p>
+        </section>
+
+        <section aria-labelledby="s10">
+          <h2 id="s10" class="product-title">X. El procedimiento y medio por el cual el responsable comunicará a los titulares de cambios al aviso de privacidad.</h2>
+          <p class="c-desc-main">El responsable, se reserva el derecho de efectuar en cualquier momento, modificaciones al presente Aviso de Privacidad para cumplir con actualizaciones legislativas, jurisprudenciales, políticas internas, en el entendido de que toda modificación al mismo se le dará a conocer por medio de la publicación en la dirección electrónica <a href="https://www.cfdi.com.mx/login" target="_blank" rel="noopener noreferrer">https://www.cfdi.com.mx/login</a>.</p>
+        </section>
+
+        <section aria-labelledby="s11">
+          <h2 id="s11" class="product-title">XI. Cookies, web beacons u otras tecnologías similares</h2>
+          <p class="c-desc-main">El Responsable hace del conocimiento del Titular que el sitio <a href="https://www.cfdi.com.mx/login" target="_blank" rel="noopener noreferrer">https://www.cfdi.com.mx/login</a>, utiliza cookies propias, a través de las cuales es posible hacer funcional la página y brindarle un mejor servicio y experiencia personalizada en su navegación.</p>
+        </section>
+
+        <section aria-labelledby="s12">
+          <h2 id="s12" class="product-title">XII. Derecho de información de los interesados.</h2>
+          <p class="c-desc-main">Se le informa al titular de datos personales sobre el derecho que le asiste para acudir al Instituto Nacional de Transparencia, Acceso a la información y Protección de Datos Personales en caso de considerar que su derecho a la protección de datos personales ha sido vulnerado.</p>
+          <p class="c-desc-main">Corresponde al responsable del tratamiento de datos personales, facilitar la información a las personas afectadas por las operaciones de tratamiento, en el momento en que tenga conocimiento del daño, pérdida, alteración, destrucción o el uso, acceso o tratamiento no autorizado de los datos personales de la persona que corresponda, para lo cual el responsable deberá adoptar y tomar las medidas necesarias de seguridad, administrativas, técnicas y físicas, con el fin de proteger y resguardar la información.</p>
+          <p class="c-desc-main">Usted puede inscribirse ante el Registro Público para Evitar Publicidad (REPEP) para limitar el uso y divulgación de sus datos personales, puede obtener más información en el sitio: <a href="https://repep.profeco.gob.mx/" target="_blank" rel="noopener noreferrer">https://repep.profeco.gob.mx/</a></p>
+        </section>
+
+        <section aria-labelledby="s13">
+          <h2 id="s13" class="product-title">XIII Destino final de los datos.</h2>
+          <p class="c-desc-main">Todo tratamiento de datos personales estará sujeto al consentimiento de su titular, salvo las excepciones establecidas en la Ley de la materia y su reglamento. Advertimos que de conformidad con el Artículo 8° de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares vigente, el titular consiente tácitamente el tratamiento de sus datos personales, si no manifiesta su oposición.</p>
+          <p class="c-desc-main">Una vez cumplida la o las finalidades del tratamiento, y habiendo procedido a la cancelación de la información que contenga datos personales, el Responsable procederá a eliminar, borrar o destruir dicha información bajo medidas de seguridad previstas en la empresa conforma a la Ley de la materia.</p>
+        </section>
+
+        <p class="legal__updated">Fecha última actualización 12/01/2024</p>
+
+        <div class="legal__cta">
+          <a href="./index.html" class="btn-custom-pill">Volver al inicio</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo"><img src="https://www.contpaqi.com/hubfs/Logo-Contpaqi-Blanco-color-2026.png" alt="CONTPAQi" loading="lazy"></div>
+          <p class="footer__about">El software favorito de los contadores y empresarios en México. Soluciones de facturación, nómina y contabilidad.</p>
+
+          <img class="footer__badge" src="https://www.contpaqi.com/hs-fs/hubfs/CONTPAQi-PAC.jpg?width=200&height=256&name=CONTPAQi-PAC.jpg" alt="" width="120" height="154" loading="lazy">
+
+          <div class="footer__social">
+            <a href="https://www.linkedin.com/company/contpaqi1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/CONTPAQi" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/contpaqimx/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://x.com/CONTPAQi" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/contpaqi1" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Producto</h2>
+          <ul class="footer__links">
+            <li><a href="./index.html#perfiles">Para ti</a></li>
+            <li><a href="./index.html#beneficios">Beneficios</a></li>
+            <li><a href="./index.html#planes">Planes y precios</a></li>
+            <li><a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer">Iniciar sesión</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Soporte</h2>
+          <ul class="footer__links">
+            <li><a href="./index.html#faq">Preguntas frecuentes</a></li>
+            <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer">Soporte técnico</a></li>
+            <li><a href="https://www.contpaqi.com/contactanos">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="./aviso-de-privacidad.html" aria-current="page">Aviso de privacidad</a></li>
+            <li><a href="./acuerdo-de-servicio.html">Acuerdo de servicio</a></li>
+            <li><a href="https://www.contpaqi.com/certificaciones">Seguridad</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer__legal">Precios públicos por licencia anual en moneda nacional. Los Signos Distintivos CONTPAQi® y PAQ® son marcas registradas propiedad de COMPUTACIÓN EN ACCIÓN, S.A. DE C.V., que distinguen, entre otros, programas de cómputo, su diseño y programación.</p>
+
+      <div class="footer__bottom">
+        <p>© 2026 Computación en Acción, S.A. de C.V. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
