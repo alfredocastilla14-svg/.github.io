@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTPAQi Vende® Inicial | Factura CFDI 4.0 en la nube</title>
+  <meta name="description" content="Factura electrónica en línea con CFDI 4.0: timbres ilimitados, autofacturación para clientes y respaldo en la nube. CONTPAQi Vende® Inicial, sin instalar nada.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:title" content="CONTPAQi Vende® Inicial | Factura CFDI 4.0 en la nube">
+  <meta property="og:description" content="Factura electrónica en línea con CFDI 4.0: timbres ilimitados, autofacturación para clientes y respaldo en la nube. CONTPAQi Vende® Inicial, sin instalar nada.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CONTPAQi Vende® Inicial | Factura CFDI 4.0 en la nube">
+  <meta name="twitter:description" content="Factura electrónica en línea con CFDI 4.0: timbres ilimitados, autofacturación para clientes y respaldo en la nube. CONTPAQi Vende® Inicial, sin instalar nada.">
+  <!-- V3: en producción, reemplaza los valores dinámicos por URL canónica definitiva si se requiere SSR. -->
+  <link rel="canonical" id="canonical-url" href="">
+  <meta property="og:url" id="og-url" content="">
+  <meta property="og:image" content="https://www.contpaqi.com/hubfs/Backgrounds/Background-Administraci%C3%B3n-2026-Green.jpg">
+  <meta name="twitter:image" content="https://www.contpaqi.com/hubfs/Backgrounds/Background-Administraci%C3%B3n-2026-Green.jpg">
+  <script>
+    (function () {
+      var canonical = new URL(window.location.pathname, window.location.origin).href;
+      document.getElementById('canonical-url').href = canonical;
+      document.getElementById('og-url').content = canonical;
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="https://www.contpaqi.com/hubfs/favicon-cpi.png">
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <!-- LCP: imagen de fondo del hero -->
+  <link rel="preload" as="image" href="https://www.contpaqi.com/hubfs/Backgrounds/Background-Administraci%C3%B3n-2026-Green.jpg" fetchpriority="high">
+
+  <!-- Font Awesome (iconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- CFDI Home V3.10 (V3.9 + legales propios en footer y Soporte técnico en header): tipografía unificada (cuerpos 16px), clases de marca aplicadas, iframe de YouTube corregido, HTML autónomo. -->
+  <style>
+    /* =========================================================
+       VARIABLES (cambia colores aquí)
+       ========================================================= */
+    :root {
+      --primary: #317057;
+      --primary-hover: #007649;
+      --secondary: #317057;
+      --secondary-hover: #007649;
+      --secondary-glow: 49, 112, 87;
+      --check: var(--primary);
+      --mint: #5bc49c;
+      --body: #4a5568;   /* cuerpo de texto */
+      --title: #151c28;  /* títulos */
+      --gutter: 20px;
+      /* Escala tipográfica única (antes había 17 tamaños distintos) */
+      --fs-sm: 14px;     /* etiquetas, nav, footer, textos de apoyo */
+      --fs-base: 16px;   /* TODOS los cuerpos de texto (párrafos, lead), botones, respuestas */
+      --fs-md: 17px;     /* títulos de tarjeta y preguntas (nunca cuerpos de texto) */
+      --fs-lg: 20px;     /* subtítulos: perfiles, planes */
+      --fs-xl: 28px;     /* títulos de sección (móvil 26) */
+      --fs-2xl: 32px;    /* título principal (móvil 30) */
+      --fs-price: 34px;  /* precio */
+      --radius: 12px;
+      --radius-pill: 50px;
+
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #151c28; /* títulos y fondo de footer */
+      --blue-50: #eef7f3;
+      --blue-100: #d5eadf;
+
+      --font: sans-serif; /* tipografía de marca (sans-serif del sistema) */
+      --font-title: var(--font);
+      --font-body: var(--font);
+      --header-h: 80px;
+      --container-narrow: 1180px; /* ancho máximo (con sangría) de las secciones; hero y cierre usan 1250px */
+    }
+
+    /* =========================================================
+       RESET / BASE
+       ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font-body);
+      font-size: var(--fs-base);
+      color: var(--body);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.menu-open { overflow: hidden; }
+    body { overflow-x: clip; } /* V2.5: evita scroll horizontal por elementos decorativos en móvil */
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul, ol { list-style: none; }
+    button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+    h1, h2, h3 { font-family: var(--font-title); }
+    ::selection { background: var(--primary); color: #fff; }
+    a:focus-visible, summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
+    .cta a:focus-visible, .benefits a:focus-visible, .footer a:focus-visible { outline-color: #fff; }
+    .skip-link { position: absolute; left: 16px; top: -64px; z-index: 100; background: var(--primary); color: #fff; padding: 12px 20px; border-radius: 6px; font-weight: 600; transition: top .2s; }
+    .skip-link:focus { top: 12px; }
+
+    .container { width: 100%; max-width: 1250px; margin: 0 auto; padding: 0 var(--gutter); }
+
+    .icon { font-size: 24px; line-height: 1; width: 1em; text-align: center; flex-shrink: 0; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* =========================================================
+       BOTONES
+       ========================================================= */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      white-space: nowrap; border-radius: var(--radius-pill); font-weight: 700; font-size: var(--fs-base); border: 1px solid transparent; transition: all .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: scale(.98); }
+    .btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+    .btn .icon { font-size: 16px; }
+
+    /* Color, forma y hover del botón: clase de marca .btn-custom-pill (sección "ADN VISUAL" más abajo).
+       Aquí solo queda la estructura (.btn) y los tamaños (.btn-md / .btn-lg / .btn-xl). */
+
+    /* V2.5 · BOTONES: ancho ajustado al texto en escritorio; 100% solo en móvil (área táctil) */
+    .btn-md, .btn-lg, .btn-xl { width: auto; max-width: 100%; text-align: center; }
+    .btn-md { min-height: 44px; padding: 0 28px; }
+    .btn-lg { min-height: 52px; padding: 0 36px; }
+    .btn-xl { min-height: 48px; padding: 0 32px; }
+    .plan .btn-xl { width: 100%; } /* dentro de la tarjeta de plan sí ocupa el ancho de la tarjeta */
+    @media (max-width: 639px) {
+      .btn-md, .btn-lg { width: 100%; }
+    }
+    .btn-lg .icon { font-size: 20px; margin-left: 4px; }
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(255,255,255,.9);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      padding: 20px 0; transition: all .3s ease;
+    }
+    .header.scrolled { padding: 12px 0; box-shadow: 0 1px 12px rgba(15,23,42,.08); }
+    /* El header crea su propio stacking context: al abrir el menú debe quedar por encima para que el botón X siga clicable */
+    body.menu-open .header { z-index: 60; }
+    .header .container { display: flex; align-items: center; justify-content: space-between; }
+    .header__logo { position: relative; z-index: 60; display: flex; align-items: center; }
+    .header__logo img { height: 32px; width: auto; }
+
+    .nav { display: none; align-items: center; gap: 32px; }
+    .nav__list { display: flex; align-items: center; gap: 24px; }
+    .nav__link { font-size: var(--fs-sm); font-weight: 500; color: var(--body); transition: color .2s; }
+    .nav__link:hover { color: var(--primary); }
+    .nav__ext { font-size: 11px; margin-left: 6px; opacity: .7; }
+    .nav__actions { display: flex; align-items: center; gap: 16px; border-left: 1px solid var(--slate-200); padding-left: 32px; }
+    .nav__login { display: flex; align-items: center; gap: 8px; font-size: var(--fs-sm); font-weight: 500; color: var(--body); transition: color .2s; }
+    .nav__login:hover { color: var(--primary); }
+    .nav__login .icon { font-size: 16px; }
+
+    .burger { position: relative; z-index: 60; padding: 10px; min-width: 44px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; color: var(--body); }
+    .burger .icon-close { display: none; }
+    .burger[aria-expanded="true"] .icon-open { display: none; }
+    .burger[aria-expanded="true"] .icon-close { display: block; }
+
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 55; background: #fff;
+      display: flex; flex-direction: column; padding: 96px 24px 24px;
+      transform: translateX(100%); visibility: hidden;
+      transition: transform .3s ease-in-out, visibility .3s;
+    }
+    .mobile-menu.open { transform: translateX(0); visibility: visible; }
+    .mobile-menu__list { display: flex; flex-direction: column; gap: 24px; font-size: var(--fs-base); font-weight: 500; }
+    .mobile-menu__list li { border-bottom: 1px solid var(--slate-100); padding-bottom: 16px; }
+    .mobile-menu__list a { display: block; color: var(--body); }
+    .mobile-menu__list a:hover { color: var(--primary); }
+    .mobile-menu__actions { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .mobile-menu__actions .btn { width: 100%; height: 48px; }
+    .btn-outline-m { border: 1px solid var(--slate-200); background: #fff; font-weight: 500; }
+    .btn-outline-m:hover { background: var(--slate-50); }
+
+    @media (min-width: 768px) { .header__logo img { height: 40px; } }
+    @media (min-width: 1024px) {
+      .nav { display: flex; }
+      .burger, .mobile-menu { display: none; }
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+    .hero { position: relative; overflow: hidden; padding: 120px 0 60px; }
+    .hero__bg { position: absolute; inset: 0; z-index: 0; background: #e9f4ee url('https://www.contpaqi.com/hubfs/Backgrounds/Background-Administraci%C3%B3n-2026-Green.jpg') center / cover no-repeat; }
+    .hero .container { position: relative; z-index: 1; }
+    .hero__grid { display: grid; gap: 48px; align-items: center; }
+
+    .hero__copy { max-width: 672px; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px;
+      border-radius: 999px; background: var(--primary); color: #fff;
+      font-size: var(--fs-sm); font-weight: 500; margin-bottom: 24px;
+    }
+    .badge__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
+
+    .hero__lead { max-width: 576px; }
+    .hero__cta { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+    .hero__checks { display: flex; flex-direction: column; gap: 16px; font-size: var(--fs-sm); color: var(--slate-500); }
+    .hero__checks li { display: flex; align-items: center; gap: 8px; }
+    .hero__checks .icon { font-size: 20px; color: var(--check); }
+
+    .mock { position: relative; width: 100%; max-width: 500px; margin: 0 auto; }
+    .mock__glow {
+      position: absolute; top: 50%; left: 50%; width: 120%; height: 120%;
+      transform: translate(-50%, -50%); z-index: -1; border-radius: 50%; filter: blur(40px);
+      background: linear-gradient(to top right, rgba(49,112,87,.1), transparent);
+    }
+    .mock__title { font-size: var(--fs-sm); font-weight: 700; color: var(--slate-800); }
+    .mock__sub { font-size: var(--fs-sm); color: var(--slate-500); }
+
+    .mock__toast {
+      position: absolute; right: 0; top: 128px; display: flex; align-items: center; gap: 16px;
+      background: #fff; border: 1px solid var(--slate-100); border-radius: 12px;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,.12); padding: 16px; transform: rotate(2deg);
+    }
+    .mock__toast-icon { width: 40px; height: 40px; border-radius: 50%; background: #dcfce7; color: #16a34a; display: flex; align-items: center; justify-content: center; }
+    .mock__toast-icon .icon { font-size: 24px; }
+
+    @media (min-width: 768px) {
+
+      .mock__toast { right: -24px; }
+    }
+    @media (min-width: 640px) {
+      .hero__cta { flex-direction: row; }
+      .hero__checks { flex-direction: row; align-items: center; gap: 32px; }
+    }
+    @media (min-width: 1024px) {
+      .hero { padding: 160px 0 80px; }
+      .hero__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+
+      .mock { max-width: none; }
+    }
+
+    /* =========================================================
+       FRANJA DE CIFRAS
+       ========================================================= */
+    .stats__title {
+      text-align: center; margin-bottom: 40px; font-size: var(--fs-sm); font-weight: 700;
+      color: var(--slate-500); text-transform: uppercase; letter-spacing: .05em;
+    }
+    /* V2.5 · 4 pilares: 1 col móvil · 2 tablet · 4 escritorio */
+    .stats__grid { display: grid; grid-template-columns: 1fr; gap: 16px; text-align: center; }
+    .stat { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 16px; border-radius: 12px; border: 1px solid transparent; transition: background .2s, transform .2s; }
+    .stat:hover { background: var(--slate-50); }
+    .stat .icon { font-size: 28px; color: var(--check); margin-bottom: 12px; }
+    .stat__big { font-family: var(--font-title); font-size: var(--fs-xl); font-weight: 800; line-height: 1.15; color: var(--primary); margin-bottom: 8px; }
+    .stat__txt { font-size: var(--fs-sm); font-weight: 500; color: var(--slate-500); }
+    /* Tarjeta destacada: Ecosistema Cloud */
+    .stat--cloud { position: relative; overflow: hidden; background: linear-gradient(to bottom right, var(--mint), var(--primary)); box-shadow: 0 12px 24px -8px rgba(var(--secondary-glow), .45); }
+    .stat--cloud::before { content: ''; position: absolute; top: -40px; right: -40px; width: 140px; height: 140px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.35) 0%, transparent 70%); }
+    .stat--cloud:hover { background: linear-gradient(to bottom right, var(--mint), var(--primary)); transform: translateY(-4px); }
+    .stat--cloud .icon, .stat--cloud .stat__big, .stat--cloud .stat__txt { position: relative; color: #fff; }
+    .stat--cloud .icon { font-size: 34px; }
+    .stat--cloud .stat__big { font-size: var(--fs-md); }
+    .stat--cloud .stat__txt { color: rgba(255,255,255,.95); }
+    @media (min-width: 640px) { .stats__grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+    @media (min-width: 1024px) { .stats__grid { grid-template-columns: repeat(4, 1fr); gap: 24px; } }
+
+    /* =========================================================
+       CARACTERÍSTICAS
+       ========================================================= */
+    .section-head { text-align: center; max-width: 768px; margin: 0 auto 40px; }
+    .eyebrow { color: var(--primary); font-weight: 700; letter-spacing: .025em; text-transform: uppercase; font-size: var(--fs-sm); margin-bottom: 12px; font-family: var(--font-title); }
+
+
+    .features { padding: 60px 0; background: var(--slate-50); }
+    .features__grid { display: grid; gap: 32px; }
+    /* Caja, borde, sombra y hover de la tarjeta: clase de marca .product-card (sección "ADN VISUAL"). */
+    .product-card__icon { width: 48px; height: 48px; border-radius: 12px; background: var(--blue-50); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; color: var(--primary); }
+
+    @media (min-width: 768px) { .features__grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .features__grid { grid-template-columns: repeat(3, 1fr); } }
+
+    /* =========================================================
+       BENEFICIOS
+       ========================================================= */
+    .benefits { position: relative; overflow: hidden; padding: 60px 0; background: linear-gradient(to bottom right, rgba(91, 196, 156, 1), rgba(49, 112, 87, 1)) !important; color: #fff; }
+    .benefits__blob { position: absolute; border-radius: 50%; opacity: .5; }
+    .benefits__blob--1 { top: 0; right: 0; width: 800px; height: 800px; background: radial-gradient(circle, rgba(255,255,255,.35) 0%, transparent 70%); transform: translate(33%, -50%); }
+    .benefits__blob--2 { bottom: 0; left: 0; width: 600px; height: 600px; background: radial-gradient(circle, rgba(23,64,49,.5) 0%, transparent 70%); transform: translate(-25%, 33%); }
+    .benefits .container { position: relative; z-index: 1; }
+    .benefits__grid { display: grid; gap: 64px; align-items: center; }
+
+    .benefits__lead { text-wrap: pretty; }
+    .benefits__list { display: flex; flex-direction: column; gap: 24px; }
+    .benefit { display: flex; gap: 16px; }
+    .benefit__icon { flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; color: #fff; }
+
+
+    .orbit { position: relative; display: flex; justify-content: center; }
+    .orbit__ring { position: relative; width: 100%; max-width: 448px; aspect-ratio: 1; border-radius: 50%; border: 4px solid rgba(255,255,255,.1); display: flex; align-items: center; justify-content: center; }
+    .orbit__ring::before, .orbit__ring::after { content: ''; position: absolute; border-radius: 50%; }
+    .orbit__ring::before { inset: 0; border: 1px solid rgba(255,255,255,.2); animation: spin 60s linear infinite; }
+    .orbit__ring::after { inset: 16px; border: 1px solid rgba(255,255,255,.3); animation: spin 40s linear infinite reverse; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .cert { position: relative; z-index: 1; background: #fff; color: var(--primary); border-radius: var(--radius); padding: 32px; max-width: 384px; width: 100%; text-align: center; box-shadow: 0 25px 50px -12px rgba(0,0,0,.25); }
+    .cert__badge { display: block; width: 120px; height: auto; margin: 0 auto 16px; border-radius: 8px; }
+    .cert p { color: var(--slate-500); font-size: var(--fs-sm); margin-bottom: 24px; }
+    .cert__folio { padding: 12px 16px; background: var(--slate-50); border: 1px solid var(--slate-100); border-radius: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: var(--fs-sm); color: var(--body); }
+    @media (min-width: 1024px) { .benefits__grid { grid-template-columns: 65fr 35fr; gap: 48px; } }
+    @media (prefers-reduced-motion: reduce) { .orbit__ring::before, .orbit__ring::after { animation: none; } html { scroll-behavior: auto; } }
+
+    /* =========================================================
+       PLANES
+       ========================================================= */
+    .plans { padding: 60px 0; background: var(--blue-50); }
+    .plans__grid { display: grid; gap: 32px; max-width: 520px; margin: 0 auto; align-items: center; }
+    .plan { position: relative; overflow: hidden; display: flex; flex-direction: column; border-radius: var(--radius); padding: 32px; background: #fff; }
+    .plan--basic { border: 1px solid var(--slate-200); box-shadow: 0 4px 6px rgba(0,0,0,.02); transition: transform .3s ease, box-shadow .3s ease; }
+    .plan--basic:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,.08); }
+    .plan--pro {
+      border: 2px solid var(--secondary); padding: 48px 36px 40px;
+      box-shadow: 0 24px 48px -12px rgba(var(--secondary-glow), .35), 0 12px 24px -8px rgba(15,23,42,.12);
+    }
+    .plan--pro::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--secondary); }
+    .plan__head { margin-bottom: 24px; }
+
+    .plan__desc { color: var(--slate-500); line-height: 1.45; font-size: var(--fs-base); }
+    .tag { display: inline-flex; padding: 4px 12px; border-radius: 999px; background: var(--secondary); color: #fff; font-size: var(--fs-sm); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; white-space: nowrap; }
+    .plan__price { margin-bottom: 24px; }
+    .plan__price strong { font-family: var(--font-body); font-size: var(--fs-price); font-weight: 800; color: var(--slate-900); }
+    .plan__price span { font-weight: 500; color: var(--slate-500); }
+    .plan__list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; flex: 1; }
+    .plan__list li { display: flex; align-items: flex-start; gap: 12px; color: var(--body); line-height: 1.4; }
+    .plan__list .icon { font-size: 16px; margin-top: 3px; color: var(--check); }
+    .plan__list li.is-strong { font-weight: 700; color: var(--slate-900); }
+
+    @media (min-width: 1024px) {
+      .plans__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 1120px; }
+    }
+
+    /* =========================================================
+       FAQ
+       ========================================================= */
+    .faq { padding: 60px 0; background: var(--slate-50); }
+
+    .faq__head { text-align: center; margin-bottom: 48px; }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .footer { background: var(--slate-900); color: var(--slate-400); padding: 64px 0 32px; }
+    .footer__grid { display: grid; grid-template-columns: 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer__logo { display: inline-block; margin-bottom: 24px; }
+    .footer__logo img { height: 40px; width: auto; }
+    .footer__about { font-size: var(--fs-sm); line-height: 1.625; margin-bottom: 24px; }
+    .footer__social { display: flex; gap: 16px; }
+    .footer__social a { color: var(--slate-400); transition: color .2s; display: inline-flex; }
+    .footer__social a:hover { color: #fff; }
+    .footer__social i { font-size: 22px; }
+    .footer__badge { display: block; width: 120px; height: auto; border-radius: 8px; margin-bottom: 20px; }
+    .footer .footer__title { color: #fff; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; font-size: var(--fs-sm); letter-spacing: .05em; }
+    .footer__links { display: flex; flex-direction: column; gap: 12px; }
+    .footer__links a { font-size: var(--fs-sm); transition: color .2s; }
+    .footer__links a:hover { color: #fff; }
+    .footer__bottom { border-top: 1px solid var(--slate-800); padding-top: 32px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 16px; font-size: var(--fs-sm); color: var(--slate-400); text-align: center; }
+    @media (min-width: 768px) {
+      .footer__grid { grid-template-columns: repeat(2, 1fr); }
+      .footer__bottom { flex-direction: row; text-align: left; }
+    }
+    @media (min-width: 1024px) { .footer__grid { grid-template-columns: repeat(4, 1fr); } }
+
+    /* =========================================================
+       V3 · PERFILES
+       ========================================================= */
+
+
+
+
+    /* V3 · franja "El software favorito…" dentro de Beneficios */
+    .proof { margin-top: 48px; background: #fff; border: 1px solid var(--slate-100); border-radius: var(--radius); padding: 32px 24px; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+    .proof .stats__title { margin-bottom: 28px; }
+
+    /* =========================================================
+       V3 · CIERRE (CTA antes del footer)
+       ========================================================= */
+    .cta { position: relative; overflow: hidden; background: linear-gradient(to bottom right, rgba(91, 196, 156, 1), rgba(49, 112, 87, 1)) !important; color: #fff; padding: 80px 0; }
+    .cta__blob { position: absolute; border-radius: 50%; opacity: .5; }
+    .cta__blob--1 { top: 0; right: 0; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,255,255,.35) 0%, transparent 70%); transform: translate(33%, -50%); }
+    .cta__blob--2 { bottom: 0; left: 0; width: 500px; height: 500px; background: radial-gradient(circle, rgba(23,64,49,.5) 0%, transparent 70%); transform: translate(-25%, 40%); }
+    .cta .container { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 32px; }
+
+    .cta__actions { display: flex; flex-direction: column; gap: 14px; width: 100%; max-width: 380px; flex-shrink: 0; }
+    .cta__actions .btn { width: 100%; white-space: normal; text-align: center; }
+    @media (min-width: 1024px) {
+      .cta { padding: 80px 0; }
+      .cta .container { flex-direction: row; align-items: center; justify-content: space-between; gap: 48px; }
+      .cta__copy { max-width: 720px; }
+    }
+
+    .footer__legal { font-size: var(--fs-sm); line-height: 1.6; color: var(--slate-400); margin-bottom: 32px; max-width: 960px; }
+
+    /* V2.2 · nuevos elementos */
+
+    /* =========================================================
+       V2.3 · CARRUSELES EN MÓVIL (3 tarjetas por fila en escritorio)
+       Perfiles y planes: hasta 1023px · Beneficios: hasta 767px
+       ========================================================= */
+    .carousel__dots { display: none; justify-content: center; gap: 2px; margin-top: 8px; }
+    .carousel__dot { position: relative; flex: 0 0 44px; width: 44px; height: 44px; padding: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; background: transparent; }
+    .carousel__dot::after { content: ''; display: block; width: 10px; height: 10px; border-radius: 5px; background: var(--slate-300); transition: width .2s, background .2s; } /* área táctil real: 44 × 44 px */
+    .carousel__dot[aria-current="true"]::after { width: 24px; background: var(--primary); }
+     .carousel__dot:focus-visible { outline: 2px solid var(--primary); outline-offset: -3px; }
+    .carousel:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; border-radius: 8px; }
+    @media (max-width: 1023px) {
+      .carousel--lg { display: flex; align-items: stretch; gap: 16px; position: relative; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; max-width: none; margin: 0 calc(var(--gutter) * -1); padding: 16px var(--gutter) 40px; }
+      .carousel--lg::-webkit-scrollbar { display: none; }
+      .carousel--lg > * { flex: 0 0 min(86%, 380px); scroll-snap-align: center; }
+      .carousel__dots--lg { display: flex; }
+    }
+    @media (max-width: 767px) {
+      .carousel--md { display: flex; align-items: stretch; gap: 16px; position: relative; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch; margin: 0 calc(var(--gutter) * -1); padding: 8px var(--gutter) 16px; }
+      .carousel--md::-webkit-scrollbar { display: none; }
+      .carousel--md > * { flex: 0 0 min(86%, 380px); scroll-snap-align: center; }
+      .carousel__dots--md { display: flex; }
+    }
+
+    /* =========================================================
+       V3.1 · INTRO (video + texto) y plan secundario
+       ========================================================= */
+    .intro { padding: 60px 0; background: #fff; }
+    .intro__layout { display: grid; gap: 32px; align-items: start; }
+    .video-embed { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: var(--slate-900); box-shadow: 0 25px 50px -12px rgba(0,0,0,.25); }
+    .video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .intro__copy .section-main-title { margin-bottom: 16px !important; }
+    @media (min-width: 1024px) { .intro__layout { grid-template-columns: 4fr 5fr; gap: 56px; } .intro__video { position: sticky; top: 110px; } }
+    .plan__consult { display: flex; align-items: center; justify-content: center; min-height: 40px; font-size: var(--fs-sm); font-weight: 500; color: var(--slate-500); text-align: center; }
+
+    /* V3.2 · imagen del hero */
+    .mock__img { display: block; width: 100%; height: auto; filter: drop-shadow(0 25px 30px rgba(0,0,0,.18)); }
+
+    /* V3.2 · bloque "Edición Inicial" (prefijo .vp-) */
+    .intro .vp-section { margin: 28px 0 0; }
+    .vp-section { --vp-green: var(--primary); --vp-green-soft: var(--blue-50); --vp-ink: var(--title); --vp-body: var(--body); --vp-line: var(--slate-200); color: var(--vp-ink); }
+    .vp-card { background: #fff; border: 1px solid var(--vp-line); border-radius: 16px; padding: 32px 32px 26px; }
+    .vp-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .vp-icon { width: 56px; height: 56px; border-radius: 50%; background: var(--vp-green-soft); display: grid; place-items: center; color: var(--vp-green); }
+    .vp-icon svg { width: 24px; height: 24px; }
+    .vp-tag { font-size: var(--fs-sm); font-weight: 700; letter-spacing: .12em; color: var(--vp-green); }
+    .vp-title { font-size: var(--fs-lg); font-weight: 700; line-height: 1.25; margin: 0 0 10px; color: var(--vp-ink); }
+    .vp-hook { font-size: var(--fs-base); line-height: 1.55; color: var(--vp-body); margin: 0 0 22px; max-width: 60ch; }
+    .vp-for { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 28px; padding: 0; list-style: none; }
+    .vp-for li { font-size: var(--fs-sm); font-weight: 600; color: var(--vp-green); background: var(--vp-green-soft); border-radius: 999px; padding: 7px 14px; }
+    .vp-list { list-style: none; margin: 0 0 28px; padding: 0; display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .vp-list li { position: relative; padding-left: 28px; font-size: var(--fs-base); line-height: 1.5; color: var(--vp-body); }
+    .vp-list li::before { content: ""; position: absolute; left: 2px; top: 5px; width: 12px; height: 7px; border-left: 2px solid var(--vp-green); border-bottom: 2px solid var(--vp-green); transform: rotate(-45deg); }
+    .vp-foot { border-top: 1px solid var(--vp-line); padding-top: 20px; }
+    .vp-note { font-size: var(--fs-sm); line-height: 1.5; color: var(--vp-body); margin: 0; }
+    .vp-note strong { color: var(--vp-green); }
+    @media (max-width: 640px) { .vp-card { padding: 28px 22px 24px; } .vp-list { grid-template-columns: 1fr; } }
+
+    /* V3.4 · Pasos para empezar (entre Planes y FAQ) */
+    .steps { padding: 60px 0; background: #fff; }
+    .steps__grid { display: grid; gap: 32px; margin-bottom: 40px; }
+    .step { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 0 12px; }
+    .step__num { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; background: var(--blue-50); border: 2px solid var(--primary); color: var(--primary); font-family: var(--font-title); font-size: var(--fs-lg); font-weight: 800; }
+    .steps__cta { display: flex; justify-content: center; }
+    @media (min-width: 768px) {
+      .steps__grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+      .step:not(:last-child)::after { content: ''; position: absolute; top: 28px; left: calc(50% + 40px); width: calc(100% - 56px); border-top: 2px dashed var(--mint); }
+    }
+
+    /* V3.5 · secciones con contenido más angosto (~15% menos que el hero) */
+    .intro .container, .features .container, .benefits .container, .plans .container, .steps .container, .faq .container { max-width: var(--container-narrow); }
+
+    /* V3.6 · detalles */
+    /* Plan Inicial: título + etiqueta en una fila, descripción debajo */
+    .plan__title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .plan__title-row .section-sub-title { margin: 0 !important; }
+    /* Light y Equipos: menos peso visual (tonos grises, más compactos, sin elevación) */
+    .plan--basic { background: var(--slate-50); border-color: var(--slate-100); box-shadow: none; padding: 24px 28px; }
+    .plan--basic:hover { transform: none; box-shadow: none; }
+    .plan--basic .section-sub-title { font-size: var(--fs-md) !important; color: var(--slate-600) !important; }
+    .plan--basic .plan__desc { font-size: var(--fs-sm); color: var(--slate-500); }
+    .plan--basic .plan__price strong { font-size: var(--fs-xl); color: var(--slate-600); }
+    .plan--basic .plan__price span { font-size: var(--fs-sm); color: var(--slate-500); }
+    .plan--basic .plan__list li { font-size: var(--fs-sm); color: var(--slate-500); }
+    .plan--basic .plan__list .icon { color: var(--slate-400); }
+    /* Seguridad: tarjeta del SAT más contenida dentro del anillo */
+    .cert { width: 82%; padding: 24px 20px; }
+    /* Beneficios: tarjetas más compactas */
+    .features__grid { gap: 20px; }
+    .features .product-card { padding: 24px !important; } /* tarjetas compactas (V3.6) */
+    .product-card__icon { width: 40px; height: 40px; margin-bottom: 16px; }
+    /* Sangría lateral de las secciones: 20px móvil · 32px tableta · 50px escritorio */
+    .intro, .features, .benefits, .plans, .steps, .faq { --gutter: 20px; }
+    @media (min-width: 768px) { .intro, .features, .benefits, .plans, .steps, .faq { --gutter: 32px; } }
+    @media (min-width: 1024px) { .intro, .features, .benefits, .plans, .steps, .faq { --gutter: 50px; } }
+
+    /* V2.3 · botones sobre fondos con degradado */
+    .cta .btn-custom-pill { background-color: #fff !important; color: var(--primary) !important; }
+    .cta .btn-custom-pill:hover { background-color: var(--blue-50) !important; }
+
+     /* V3 · Estilos del one-page: solamente selectores usados por esta landing. */
+    @media (max-width: 768px) { :root { --fs-xl: 26px; --fs-2xl: 30px; } }
+
+    /* ---- 1. TIPOGRAFÍA Y UTILIDADES ---- */
+    .hero-title, .section-main-title, .section-sub-title, .product-title, .feature-title, .faq-question, .plan-main-title {
+        color: var(--title) !important;
+        font-weight: 700 !important;
+        line-height: 1.25 !important;
+        margin: 0 0 15px 0 !important;
+        font-family: var(--font) !important;
+    }
+    .hero-title { font-size: var(--fs-2xl) !important; }
+    .section-main-title { font-size: var(--fs-xl) !important; }
+    .section-sub-title { font-size: var(--fs-lg) !important; }
+    .product-title, .feature-title, .faq-question { font-size: var(--fs-md) !important; }
+    .plan-main-title { font-size: var(--fs-price) !important; }
+
+    .c-desc-main, .product-description, .solution-item-text, .plan-tag-description, .faq-answer p, .c-desc-columns li {
+        color: var(--body) !important;
+        font-size: var(--fs-base) !important;
+        line-height: 1.6 !important;
+        margin: 0 0 15px 0 !important;
+        font-family: var(--font) !important;
+    }
+    .text-white { color: #ffffff !important; }
+    svg path { transition: fill 0.3s ease !important; }
+
+
+    /* ---- 2. ADN VISUAL: TARJETAS Y BOTONES (clases de marca, con !important) ---- */
+    .product-card, .faq-item {
+        background-color: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02) !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    }
+    .product-card:hover { transform: translateY(-5px) !important; box-shadow: 0 12px 24px rgba(0,0,0,0.08) !important; }
+    .product-card { padding: 35px 30px !important; display: flex !important; flex-direction: column !important; align-items: flex-start !important; }
+
+    .btn-custom-pill {
+        display: inline-flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background-color: #5bc49c !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        padding: 12px 30px !important;
+        border: none !important;
+        border-radius: 50px !important;
+        cursor: pointer !important;
+        transition: all 0.3s ease !important;
+    }
+    .btn-custom-pill:hover { background-color: #007649 !important; transform: translateY(-2px) !important; }
+
+    /* ---- V3.7 · VARIANTES DE CONTEXTO de .c-desc-main (mayor especificidad que la clase base) ---- */
+    .hero__lead.c-desc-main { margin: 0 0 32px !important; }
+    .section-head .c-desc-main, .faq__head .c-desc-main { margin: 0 !important; }
+    .intro__text.c-desc-main { margin: 0 !important; }
+    .intro__lead.c-desc-main { color: var(--title) !important; font-weight: 700; line-height: 1.4 !important; margin: 0 0 12px !important; }
+    .vp-hook.c-desc-main { margin: 0 0 22px !important; max-width: 60ch; }
+    .product-card .c-desc-main, .step .c-desc-main { margin: 0 !important; }
+    /* Sobre fondo verde: texto claro */
+    .benefits__lead.c-desc-main { color: rgba(255,255,255,.95) !important; margin: 0 0 40px !important; }
+    .benefit .c-desc-main { color: rgba(255,255,255,.95) !important; line-height: 1.625 !important; margin: 0 !important; }
+    .cta .c-desc-main { color: rgba(255,255,255,.95) !important; margin: 0 !important; line-height: 1.5 !important; }
+    /* Títulos de marca dentro de componentes propios */
+    .vp-title.section-sub-title { margin: 0 0 10px !important; }
+
+    /* ---- 8. FAQ ---- */
+    .faq-container { display: flex !important; flex-direction: column !important; gap: 15px !important; max-width: 800px !important; margin: 0 auto !important; font-family: var(--font) !important; }
+    .faq-item { padding: 0 20px !important; }
+    .faq-item[open] { border-color: rgba(49, 112, 87, 0.4) !important; background-color: rgba(49, 112, 87, 0.03) !important; }
+    .faq-summary { display: flex !important; justify-content: space-between !important; align-items: center !important; gap: 16px !important; cursor: pointer !important; padding: 18px 0 !important; list-style: none !important; }
+    .faq-question { margin: 0 !important; }
+    .faq-summary:focus-visible { outline: 2px solid var(--primary) !important; outline-offset: 2px !important; border-radius: 4px !important; }
+    .faq-summary::-webkit-details-marker { display: none !important; }
+    .faq-summary:hover .faq-question { color: var(--primary) !important; }
+    .faq-icon { color: var(--mint) !important; font-size: var(--fs-sm) !important; flex-shrink: 0 !important; transition: transform 0.3s ease, color 0.3s ease !important; }
+    .faq-item[open] .faq-icon { transform: rotate(180deg) !important; color: var(--primary) !important; }
+    .faq-answer { padding-bottom: 20px !important; animation: fadeInDown 0.4s ease-in-out !important; }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { .faq-answer { animation: none !important; } }
+
+  
+    /* Logotipo de producto: respetar la composicion del Hero */
+    .hero__product-logo { display: block; margin-bottom: 10px; }
+    .hero__product-logo img { display: block; width: 240px; max-width: 100%; height: auto; }
+    @media (max-width: 639px) { .hero__product-logo img { width: 200px; } }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.contpaqi.com/#organization",
+      "name": "CONTPAQi",
+      "legalName": "Computación en Acción, S.A. de C.V.",
+      "url": "https://www.contpaqi.com/",
+      "logo": "https://www.contpaqi.com/hubfs/Inicio/logo_contpaqi.png",
+      "foundingDate": "1984",
+      "areaServed": "MX",
+      "description": "Más de 42 años desarrollando software fiscal, contable y administrativo en México. Proveedor Autorizado de Certificación (PAC) ante el SAT.",
+      "knowsAbout": [
+        "Facturación electrónica CFDI 4.0",
+        "Contabilidad",
+        "Nómina",
+        "Cumplimiento fiscal en México"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/contpaqi1/",
+        "https://www.facebook.com/CONTPAQi",
+        "https://www.instagram.com/contpaqimx/",
+        "https://x.com/CONTPAQi",
+        "https://www.youtube.com/contpaqi1"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "#vende-page",
+      "name": "CONTPAQi Vende® Inicial | Factura CFDI 4.0 en la nube",
+      "inLanguage": "es-MX",
+      "publisher": {
+        "@id": "https://www.contpaqi.com/#organization"
+      },
+      "about": {
+        "@id": "https://www.contpaqi.com/#vende-inicial"
+      },
+      "hasPart": {
+        "@id": "https://www.contpaqi.com/#faq"
+      }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://www.contpaqi.com/#vende-inicial",
+      "name": "CONTPAQi Vende® Inicial",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Facturación electrónica CFDI 4.0",
+      "operatingSystem": "Web (Cloud, desde el navegador)",
+      "softwareRequirements": "Navegador web con conexión a internet",
+      "inLanguage": "es-MX",
+      "description": "Software de facturación electrónica CFDI 4.0 100% en la nube con timbres ilimitados, autofacturación con CONTPAQi® Mi Factura y control de cobranza.",
+      "featureList": [
+        "100% en la nube, sin instalación",
+        "Timbrado ilimitado",
+        "Autofacturación para clientes con CONTPAQi® Mi Factura",
+        "Control de cuentas por cobrar y estado de cuenta interactivo",
+        "Factura global, complemento de pago y retenciones",
+        "Respaldo automático en la nube"
+      ],
+      "publisher": {
+        "@id": "https://www.contpaqi.com/#organization"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "CONTPAQi"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "MXN",
+        "lowPrice": "690",
+        "highPrice": "2790",
+        "offerCount": "3",
+        "availability": "https://schema.org/InStock",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Vende Light",
+            "price": "690",
+            "priceCurrency": "MXN"
+          },
+          {
+            "@type": "Offer",
+            "name": "Vende Inicial",
+            "price": "1690",
+            "priceCurrency": "MXN"
+          },
+          {
+            "@type": "Offer",
+            "name": "Vende Equipos",
+            "price": "2790",
+            "priceCurrency": "MXN"
+          }
+        ]
+      },
+      "mainEntityOfPage": {
+        "@id": "#vende-page"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.contpaqi.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Qué es CONTPAQi Vende® Inicial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CONTPAQi Vende® Inicial es el software de facturación CFDI 4.0 en la nube para negocios con 1 RFC. Incluye timbrado ilimitado, cobranza y autofacturación con CONTPAQi® Mi Factura."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo emitir facturas ilimitadas con CONTPAQi Vende® Inicial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Incluye timbrado ilimitado durante la vigencia de tu licencia anual, sin paquetes de timbres ni pago por comprobante."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo facturar en la nube sin instalar ningún programa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Funciona 100% en la nube: entras desde el navegador de cualquier dispositivo con internet, sin instalar nada, y las actualizaciones fiscales se aplican solas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es seguro guardar mis facturas y datos fiscales en la nube?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CONTPAQi® es Proveedor Autorizado de Certificación (PAC) con más de 42 años de experiencia. Tus comprobantes se respaldan automáticamente y tu información se administra con acceso protegido."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Mi sistema cumple con la versión vigente del CFDI y los cambios fiscales?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Vende emite CFDI 4.0, que exige RFC, nombre o razón social, código postal y régimen fiscal del receptor. Revisa estos datos antes de timbrar y aplica las actualizaciones fiscales automáticamente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es el CSD y qué necesito para empezar a facturar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El CSD (Certificado de Sello Digital) son los archivos .cer y .key, con su contraseña, que tramitas sin costo ante el SAT para firmar tus facturas. Para empezar necesitas además tu RFC, régimen fiscal y código postal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué tipos de CFDI puedo emitir con CONTPAQi Vende®?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CFDI de ingreso, egreso (notas de crédito), pago (complemento de pago o REP) y traslado, conforme a CFDI 4.0, además de facturas PUE y PPD, factura global y facturas a clientes extranjeros."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es CONTPAQi® Mi Factura y viene incluido?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CONTPAQi® Mi Factura es un portal de autofacturación: tu cliente captura los datos de su nota de remisión y genera su CFDI a cualquier hora. Está incluido en Vende Inicial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo genero una factura global con CONTPAQi Vende®?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vende genera la factura global a partir de tus notas de remisión, sin recapturar ventas. Ampara las ventas al público en general que no pidieron factura individual."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo traer las facturas que emití en otro sistema?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Carga hasta 500 XML emitidos previamente; Vende crea tus catálogos de clientes y productos y te permite asignar saldos pendientes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Uso CONTPAQi® CFDI Facturación en Línea+. ¿Vende es para mí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Vende es la evolución de CFDI en Línea+: sigues facturando como hoy y sumas dashboard, notas de remisión, estado de cuenta y autofacturación, con una herramienta para traer tus catálogos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo enviar mis facturas por WhatsApp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Envía XML y PDF por WhatsApp o correo electrónico, y personaliza el texto de tus correos con plantillas por tipo de documento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo cancelar una factura?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. Solicitas la cancelación desde Vende conforme al proceso vigente del SAT y das seguimiento a su estatus hasta que se confirme."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántos usuarios y RFC incluye CONTPAQi Vende® Inicial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "1 usuario y 1 RFC. Para más usuarios o varias empresas, la edición Equipos incluye 2 usuarios y multi-RFC."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta CONTPAQi Vende® Inicial y qué incluye mi pago?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vende Inicial cuesta $1,690 MXN por licencia anual. Incluye timbrado ilimitado, CONTPAQi® Mi Factura, carga de 500 XML históricos y las actualizaciones fiscales del periodo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo probar CONTPAQi Vende® antes de comprar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí. La prueba gratuita dura 20 días e incluye 15 timbres para que emitas tus primeras facturas y conozcas el sistema."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué pasa si mi negocio crece?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cambias de edición sin cambiar de sistema: Equipos suma módulo de ventas (cotizaciones, pedidos y agentes), addendas y complementos; Empresarial y Corporativo agregan inventarios y compras."
+          }
+        }
+      ],
+      "about": {
+        "@id": "https://www.contpaqi.com/#vende-inicial"
+      },
+      "isPartOf": {
+        "@id": "#vende-page"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+  <header class="header" id="header">
+    <div class="container">
+      <a href="https://www.contpaqi.com/" class="header__logo" aria-label="CONTPAQi inicio">
+        <img src="https://www.contpaqi.com/hubfs/Inicio/logo_contpaqi.png" alt="CONTPAQi">
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <ul class="nav__list">
+          <li><a href="#perfiles" class="nav__link">Para ti</a></li>
+          <li><a href="#beneficios" class="nav__link">Beneficios</a></li>
+          <li><a href="#planes" class="nav__link">Planes</a></li>
+          <li><a href="#faq" class="nav__link">Preguntas</a></li>
+          <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer" class="nav__link" data-cta="header-soporte">Soporte técnico<i class="fa-solid fa-arrow-up-right-from-square nav__ext" aria-hidden="true"></i><span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+        </ul>
+        <div class="nav__actions">
+          <a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer" class="nav__login">
+            <i class="icon fa-solid fa-right-to-bracket" aria-hidden="true"></i>Iniciar sesión</a>
+          <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-md" data-cta="header-comprar">Comprar ahora</a>
+        </div>
+      </nav>
+
+      <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="mobileMenu">
+        <i class="icon icon-open fa-solid fa-bars" aria-hidden="true"></i>
+        <i class="icon icon-close fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Menú móvil (fuera del header para que position:fixed cubra toda la pantalla) -->
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
+    <ul class="mobile-menu__list">
+      <li><a href="#perfiles">Para ti</a></li>
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#planes">Planes</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+      <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer" data-cta="menu-movil-soporte">Soporte técnico<i class="fa-solid fa-arrow-up-right-from-square nav__ext" aria-hidden="true"></i><span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+    </ul>
+    <div class="mobile-menu__actions">
+      <a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-m">
+        <i class="icon fa-solid fa-right-to-bracket" aria-hidden="true"></i>Iniciar sesión</a>
+      <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill" data-cta="menu-movil-comprar">Comprar ahora</a>
+    </div>
+  </nav>
+
+  <main id="contenido">
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <!-- Logotipo oficial CONTPAQi Vende -->
+            <div class="hero__product-logo">
+              <img src="https://www.contpaqi.com/hs-fs/hubfs/Logotipos%202026/Administracion/CONTPAQi-Vende%C2%AE-2026.png?width=329&height=90&name=CONTPAQi-Vende%C2%AE-2026.png" alt="CONTPAQi Vende®" width="329" height="90" decoding="async">
+            </div>
+            <div class="badge"><span class="badge__dot"></span>Facturación electrónica CFDI 4.0</div>
+            <h1 class="hero-title">Factura sin límites, sin pagar por cada timbre</h1>
+            <p class="hero__lead c-desc-main">Emite y timbra tus facturas desde cualquier lugar con un precio fijo. Ideal si apenas te diste de alta, facturas por honorarios o vendes al público.</p>
+            <div class="hero__cta">
+              <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="hero-comprar">
+                Comprar ahora<i class="icon fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <ul class="hero__checks">
+              <li><i class="icon fa-regular fa-circle-check" aria-hidden="true"></i><span>Emisión y timbrado en línea</span></li>
+              <li><i class="icon fa-regular fa-circle-check" aria-hidden="true"></i><span>Respaldo en la nube</span></li>
+            </ul>
+          </div>
+
+          <div class="mock">
+            <img class="mock__img" src="https://www.contpaqi.com/hubfs/imagen%20(6).png" alt="Pantalla de CONTPAQi Vende® emitiendo una factura CFDI 4.0" fetchpriority="high" decoding="async">
+            <div class="mock__toast" aria-hidden="true">
+              <div class="mock__toast-icon"><i class="icon fa-regular fa-circle-check" aria-hidden="true"></i></div>
+              <div>
+                <div class="mock__title">Timbrado exitoso</div>
+                <div class="mock__sub">Hace 2 segundos</div>
+              </div>
+            </div>
+            <div class="mock__glow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PERFILES ("Pensado para ti")
+         ========================================================= -->
+    <section id="perfiles" class="intro">
+      <div class="container">
+        <div class="intro__layout">
+          <div class="intro__video">
+            <!-- V3.7 · Iframe limpio (sin referrerpolicy, sin ?si=, sin width/height/frameborder). Contenedor 16:9 responsivo:
+                 .video-embed (aspect-ratio: 16/9) equivale a "aspect-video" de Tailwind. Para probar, abrir desde http(s); desde file:// YouTube puede devolver Error 153. -->
+            <div class="video-embed aspect-video">
+              <iframe src="https://www.youtube.com/embed/VL5vTWCEuIc" title="CONTPAQi Vende®: video de presentación" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="intro__copy">
+            <p class="eyebrow">Pensado para ti</p>
+            <h2 class="section-main-title">Descubre cómo Vende impulsa tu negocio</h2>
+            <p class="intro__lead c-desc-main">Controla tu facturación electrónica, tus compras, ventas y cobranza desde la nube.</p>
+            <p class="intro__text c-desc-main">CONTPAQi Vende® centraliza la emisión de CFDI, las cotizaciones, los pedidos, las compras, los cobros y el seguimiento de cuentas por cobrar en una sola plataforma. Trabaja desde cualquier lugar, consulta información actualizada y toma mejores decisiones para impulsar el crecimiento de tu negocio.</p>
+            <div class="vp-section" role="region" aria-label="CONTPAQi Vende® Inicial">
+              <article class="vp-card">
+                <div class="vp-head">
+                  <span class="vp-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l3 3v15H6z"/><path d="M15 3v3h3"/><path d="M9 11h6M9 14h6M9 17h4"/></svg>
+                  </span>
+                  <span class="vp-tag">EDICIÓN INICIAL</span>
+                </div>
+                <h3 class="section-sub-title vp-title">Factura bien desde el primer día, sin límite todo el año</h3>
+                <p class="vp-hook c-desc-main">Para quien factura por su cuenta y no puede darse el lujo de equivocarse ni de perder tiempo.</p>
+                <ul class="vp-for" aria-label="Ideal para">
+                  <li>Recién inscritos al RFC</li>
+                  <li>Profesionistas por honorarios</li>
+                  <li>Micronegocios con venta al público</li>
+                </ul>
+                <ul class="vp-list">
+                  <li>Un asistente te guía para cargar tu CSD y configurar tu cuenta.</li>
+                  <li>Catálogos SAT integrados y vista previa antes de timbrar.</li>
+                  <li>Retenciones de ISR e IVA, facturas PPD y complemento de pago.</li>
+                  <li>Tus clientes generan su CFDI 24/7 con CONTPAQi® Mi Factura.</li>
+                  <li>Factura global desde tus notas de remisión, sin recapturar.</li>
+                  <li>Envía XML y PDF por WhatsApp o correo y descárgalos para tu cierre.</li>
+                </ul>
+                <div class="vp-foot">
+                  <p class="vp-note"><strong>Facturas ilimitadas</strong> · Compra en línea, sin trámites</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         BENEFICIOS (características + cifras)
+         ========================================================= -->
+    <section id="beneficios" class="features">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Beneficios</p>
+          <h2 class="section-main-title">Más que emitir facturas: control de tu facturación y tu cobranza</h2>
+          <p class="c-desc-main">Lo que el portal gratuito y las hojas de cálculo no te dan, en una sola plataforma.</p>
+        </div>
+        <div class="features__grid carousel carousel--md" data-carousel role="region" aria-roledescription="carrusel" aria-label="Beneficios" tabindex="0">
+          <article class="product-card">
+            <div class="product-card__icon"><i class="icon fa-solid fa-infinity" aria-hidden="true"></i></div>
+            <h3 class="product-title">Factura sin contar timbres</h3>
+            <p class="c-desc-main">Timbrado ilimitado incluido en tu licencia anual, sin comprar paquetes.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__icon"><i class="icon fa-solid fa-user-check" aria-hidden="true"></i></div>
+            <h3 class="product-title">Tus clientes se facturan solos</h3>
+            <p class="c-desc-main">Con CONTPAQi® Mi Factura, tu cliente genera su CFDI a cualquier hora, sin que tú intervengas.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__icon"><i class="icon fa-solid fa-hand-holding-dollar" aria-hidden="true"></i></div>
+            <h3 class="product-title">Cobra a tiempo</h3>
+            <p class="c-desc-main">Dashboard de lo que te deben, calendario de cobranza y estado de cuenta por cliente.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__icon"><i class="icon fa-solid fa-clipboard-check" aria-hidden="true"></i></div>
+            <h3 class="product-title">Menos errores ante el SAT</h3>
+            <p class="c-desc-main">Validaciones CFDI 4.0, catálogos del SAT integrados y vista previa antes de timbrar.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__icon"><i class="icon fa-solid fa-file-pdf" aria-hidden="true"></i></div>
+            <h3 class="product-title">Tu marca en cada factura</h3>
+            <p class="c-desc-main">PDF con tu logo y tus datos, listo para enviar por correo o WhatsApp.</p>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__icon"><i class="icon fa-solid fa-clock-rotate-left" aria-hidden="true"></i></div>
+            <h3 class="product-title">Trae tu historial</h3>
+            <p class="c-desc-main">Carga hasta 500 XML de otros sistemas y crea tus catálogos a partir de ellos.</p>
+          </article>
+        </div>
+
+        <div class="proof">
+          <h3 class="stats__title">El software favorito de los contadores y empresarios</h3>
+          <ul class="stats__grid">
+          <li class="stat"><i class="icon fa-solid fa-award" aria-hidden="true"></i><span class="stat__big">+42 años</span><span class="stat__txt">de experiencia desarrollando software fiscal en México</span></li>
+          <li class="stat"><i class="icon fa-solid fa-users" aria-hidden="true"></i><span class="stat__big">+1 millón</span><span class="stat__txt">de empresas usuarias confían en CONTPAQi®</span></li>
+          <li class="stat stat--cloud"><i class="icon fa-solid fa-cloud" aria-hidden="true"></i><span class="stat__big">Ecosistema 100% Cloud</span><span class="stat__txt">Tu despacho desde cualquier lugar</span></li>
+          <li class="stat"><i class="icon fa-solid fa-flag" aria-hidden="true"></i><span class="stat__big">100%</span><span class="stat__txt">Hecho en México</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SEGURIDAD
+         ========================================================= -->
+    <section id="seguridad" class="benefits">
+      <div class="benefits__blob benefits__blob--1"></div>
+      <div class="benefits__blob benefits__blob--2"></div>
+      <div class="container">
+        <div class="benefits__grid">
+          <div>
+            <h2 class="section-main-title text-white">Factura con tranquilidad y cumple con el SAT</h2>
+            <p class="benefits__lead c-desc-main">Los cambios fiscales estresan. La plataforma te ayuda a capturar, validar y emitir tus comprobantes con la información que exige CFDI 4.0.</p>
+            <ul class="benefits__list">
+              <li class="benefit">
+                <div class="benefit__icon"><i class="icon fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="product-title text-white">Validación estricta</h3>
+                  <p class="c-desc-main">Cada factura se revisa antes de timbrar para ayudarte a detectar datos incompletos.</p>
+                </div>
+              </li>
+              <li class="benefit">
+                <div class="benefit__icon"><i class="icon fa-solid fa-cloud" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="product-title text-white">Respaldo automático en la nube</h3>
+                  <p class="c-desc-main">Tus comprobantes se respaldan en la nube y los consultas 24/7 desde cualquier dispositivo.</p>
+                </div>
+              </li>
+              <li class="benefit">
+                <div class="benefit__icon"><i class="icon fa-solid fa-lock" aria-hidden="true"></i></div>
+                <div>
+                  <h3 class="product-title text-white">Privacidad de datos</h3>
+                  <p class="c-desc-main">Tu información y la de tus clientes se administran con acceso protegido.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="orbit">
+            <div class="orbit__ring">
+              <div class="cert">
+                <img class="cert__badge" src="https://www.contpaqi.com/hs-fs/hubfs/CONTPAQi-PAC.jpg?width=200&height=256&name=CONTPAQi-PAC.jpg" alt="CONTPAQi®, Proveedor Autorizado de Certificación (PAC) del SAT" width="120" height="154" loading="lazy" decoding="async">
+                <p>Proveedor Autorizado de Certificación (PAC)</p>
+                <div class="cert__folio">Folio SAT: 54555</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PLANES
+         ========================================================= -->
+    <section id="planes" class="plans">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Planes</p>
+          <h2 class="section-main-title">Planes y precios de CONTPAQi Vende®, facturación electrónica</h2>
+          <p class="c-desc-main">Precios públicos por licencia anual en pesos mexicanos.</p>
+        </div>
+
+        <div class="plans__grid carousel carousel--lg" data-carousel data-carousel-start="1" role="region" aria-roledescription="carrusel" aria-label="Planes" tabindex="0">
+          <!-- Light -->
+          <article class="plan plan--basic">
+            <div class="plan__head">
+              <h3 class="section-sub-title">Light</h3>
+              <p class="plan__desc">Para profesionistas que emiten hasta 4 facturas al mes.</p>
+            </div>
+            <div class="plan__price"><strong>$690</strong><span> MXN / año</span></div>
+            <ul class="plan__list">
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>50 timbres</span></li>
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>250 XML históricos</span></li>
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>1 RFC · 1 usuario</span></li>
+            </ul>
+            <p class="plan__consult">Consulta con tu distribuidor</p>
+          </article>
+
+          <!-- Inicial (recomendado) -->
+          <article class="plan plan--pro">
+            <div class="plan__head">
+              <div class="plan__title-row">
+                <h3 class="section-sub-title">Inicial</h3>
+                <span class="tag">Recomendado</span>
+              </div>
+              <p class="plan__desc">Para negocios que facturan todos los días y quieren cobrar a tiempo.</p>
+            </div>
+            <div class="plan__price"><strong>$1,690</strong><span> MXN / año</span></div>
+            <ul class="plan__list">
+              <li class="is-strong"><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Timbres ilimitados</span></li>
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>500 XML históricos</span></li>
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>1 RFC · 1 usuario</span></li>
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>CONTPAQi® Mi Factura incluido</span></li>
+            </ul>
+            <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-xl" data-cta="plan-inicial-comprar">Comprar Vende Inicial</a>
+          </article>
+
+          <!-- Equipos -->
+          <article class="plan plan--basic">
+            <div class="plan__head">
+              <h3 class="section-sub-title">Equipos</h3>
+              <p class="plan__desc">Para negocios con equipo de ventas o varias empresas.</p>
+            </div>
+            <div class="plan__price"><strong>$2,790</strong><span> MXN / año</span></div>
+            <ul class="plan__list">
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Timbres ilimitados</span></li>
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>1,000 XML históricos</span></li>
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Multi-RFC · 2 usuarios</span></li>
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Módulo de ventas, addendas y complementos</span></li>
+            </ul>
+            <p class="plan__consult">Consulta con tu distribuidor</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PASOS PARA EMPEZAR
+         ========================================================= -->
+    <section id="pasos" class="steps" aria-labelledby="pasos-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Empieza hoy</p>
+          <h2 id="pasos-title" class="section-main-title">Empieza a facturar en 3 pasos</h2>
+        </div>
+        <ol class="steps__grid">
+          <li class="step">
+            <span class="step__num" aria-hidden="true">1</span>
+            <h3 class="product-title">Compra en línea</h3>
+            <p class="c-desc-main">Sin trámites ni intermediarios.</p>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">2</span>
+            <h3 class="product-title">Configura tu cuenta</h3>
+            <p class="c-desc-main">Un asistente te guía para cargar tu CSD.</p>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">3</span>
+            <h3 class="product-title">Emite tu primera factura</h3>
+            <p class="c-desc-main">Con vista previa antes de timbrar.</p>
+          </li>
+        </ol>
+        <div class="steps__cta">
+          <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="pasos-comprar">Comprar Vende Inicial</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PREGUNTAS FRECUENTES (AEO/GEO)
+         - Acordeón nativo <details name="faq">: solo una abierta a la vez, sin JavaScript.
+         - Cada pregunta es un <h3> dentro de <summary>; la respuesta empieza con la respuesta directa.
+         - El texto debe coincidir EXACTO con el FAQPage del JSON-LD del <head>.
+         ========================================================= -->
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="faq__head">
+          <h2 id="faq-title" class="section-main-title">Preguntas frecuentes sobre facturación electrónica CFDI 4.0</h2>
+          <p class="c-desc-main">Respuestas directas antes de comprar CONTPAQi Vende®.</p>
+        </div>
+
+        <div class="faq-container">
+          <!-- TODO FAQ (requieren respuesta oficial de Producto/Legal): ¿Cómo renuevo mi licencia anual? · ¿Qué formas de pago aceptan? ·
+               ¿Qué soporte incluye? · ¿Qué pasa con mis facturas y datos si no renuevo? · ¿Hay política de uso razonable en timbres ilimitados? -->
+          <details class="faq-item" name="faq" open>
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Qué es CONTPAQi Vende® Inicial?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>CONTPAQi Vende® Inicial es el software de facturación CFDI 4.0 en la nube para negocios con 1 RFC. Incluye timbrado ilimitado, cobranza y autofacturación con CONTPAQi® Mi Factura.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Puedo emitir facturas ilimitadas con CONTPAQi Vende® Inicial?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>Sí. Incluye timbrado ilimitado durante la vigencia de tu licencia anual, sin paquetes de timbres ni pago por comprobante.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Puedo facturar en la nube sin instalar ningún programa?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>Sí. Funciona 100% en la nube: entras desde el navegador de cualquier dispositivo con internet, sin instalar nada, y las actualizaciones fiscales se aplican solas.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Es seguro guardar mis facturas y datos fiscales en la nube?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>CONTPAQi® es Proveedor Autorizado de Certificación (PAC) con más de 42 años de experiencia. Tus comprobantes se respaldan automáticamente y tu información se administra con acceso protegido.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Mi sistema cumple con la versión vigente del CFDI y los cambios fiscales?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>Sí. Vende emite CFDI 4.0, que exige RFC, nombre o razón social, código postal y régimen fiscal del receptor. Revisa estos datos antes de timbrar y aplica las actualizaciones fiscales automáticamente.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Qué es el CSD y qué necesito para empezar a facturar?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>El CSD (Certificado de Sello Digital) son los archivos .cer y .key, con su contraseña, que tramitas sin costo ante el SAT para firmar tus facturas. Para empezar necesitas además tu RFC, régimen fiscal y código postal.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Qué tipos de CFDI puedo emitir con CONTPAQi Vende®?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>CFDI de ingreso, egreso (notas de crédito), pago (complemento de pago o REP) y traslado, conforme a CFDI 4.0, además de facturas PUE y PPD, factura global y facturas a clientes extranjeros.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Qué es CONTPAQi® Mi Factura y viene incluido?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>CONTPAQi® Mi Factura es un portal de autofacturación: tu cliente captura los datos de su nota de remisión y genera su CFDI a cualquier hora. Está incluido en Vende Inicial.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Cómo genero una factura global con CONTPAQi Vende®?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>Vende genera la factura global a partir de tus notas de remisión, sin recapturar ventas. Ampara las ventas al público en general que no pidieron factura individual.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Puedo traer las facturas que emití en otro sistema?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>Sí. Carga hasta 500 XML emitidos previamente; Vende crea tus catálogos de clientes y productos y te permite asignar saldos pendientes.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">Uso CONTPAQi® CFDI Facturación en Línea+. ¿Vende es para mí?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>Sí. Vende es la evolución de CFDI en Línea+: sigues facturando como hoy y sumas dashboard, notas de remisión, estado de cuenta y autofacturación, con una herramienta para traer tus catálogos.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Puedo enviar mis facturas por WhatsApp?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>Sí. Envía XML y PDF por WhatsApp o correo electrónico, y personaliza el texto de tus correos con plantillas por tipo de documento.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Puedo cancelar una factura?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>Sí. Solicitas la cancelación desde Vende conforme al proceso vigente del SAT y das seguimiento a su estatus hasta que se confirme.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Cuántos usuarios y RFC incluye CONTPAQi Vende® Inicial?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>1 usuario y 1 RFC. Para más usuarios o varias empresas, la edición Equipos incluye 2 usuarios y multi-RFC.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Cuánto cuesta CONTPAQi Vende® Inicial y qué incluye mi pago?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>Vende Inicial cuesta $1,690 MXN por licencia anual. Incluye timbrado ilimitado, CONTPAQi® Mi Factura, carga de 500 XML históricos y las actualizaciones fiscales del periodo.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Puedo probar CONTPAQi Vende® antes de comprar?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>Sí. La prueba gratuita dura 20 días e incluye 15 timbres para que emitas tus primeras facturas y conozcas el sistema.</p></div>
+          </details>
+          <details class="faq-item" name="faq">
+            <summary class="faq-summary">
+              <h3 class="faq-question">¿Qué pasa si mi negocio crece?</h3>
+              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+            </summary>
+            <div class="faq-answer"><p>Cambias de edición sin cambiar de sistema: Equipos suma módulo de ventas (cotizaciones, pedidos y agentes), addendas y complementos; Empresarial y Corporativo agregan inventarios y compras.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+  <!-- =========================================================
+       CIERRE (CTA antes del footer)
+       ========================================================= -->
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="cta__blob cta__blob--1"></div>
+    <div class="cta__blob cta__blob--2"></div>
+    <div class="container">
+      <div class="cta__copy">
+        <h2 id="cta-title" class="section-main-title text-white">Tu facturación y tu cobranza, bajo control desde hoy</h2>
+        <p class="c-desc-main">Timbres ilimitados, autofacturación 24/7 y cobranza clara por $1,690 MXN al año.</p>
+      </div>
+      <div class="cta__actions">
+        <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="cierre-comprar">Comprar Vende Inicial</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo"><img src="https://www.contpaqi.com/hubfs/Logo-Contpaqi-Blanco-color-2026.png" alt="CONTPAQi" loading="lazy"></div>
+          <p class="footer__about">El software favorito de los contadores y empresarios en México. Soluciones de facturación, nómina y contabilidad.</p>
+
+          <img class="footer__badge" src="https://www.contpaqi.com/hs-fs/hubfs/CONTPAQi-PAC.jpg?width=200&height=256&name=CONTPAQi-PAC.jpg" alt="" width="120" height="154" loading="lazy">
+
+          <div class="footer__social">
+            <a href="https://www.linkedin.com/company/contpaqi1/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+            <a href="https://www.facebook.com/CONTPAQi" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/contpaqimx/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://x.com/CONTPAQi" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+            <a href="https://www.youtube.com/contpaqi1" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Producto</h2>
+          <ul class="footer__links">
+            <li><a href="#perfiles">Para ti</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#planes">Planes y precios</a></li>
+            <li><a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer">Iniciar sesión</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Soporte</h2>
+          <ul class="footer__links">
+            <li><a href="#faq">Preguntas frecuentes</a></li>
+            <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer">Soporte técnico</a></li>
+            <li><a href="https://www.contpaqi.com/contactanos">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="footer__title">Legal</h2>
+          <ul class="footer__links">
+            <li><a href="./aviso-de-privacidad.html">Aviso de privacidad</a></li>
+            <li><a href="./acuerdo-de-servicio.html">Acuerdo de servicio</a></li>
+            <li><a href="https://www.contpaqi.com/certificaciones">Seguridad</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer__legal">Precios públicos por licencia anual en moneda nacional. Los Signos Distintivos CONTPAQi® y PAQ® son marcas registradas propiedad de COMPUTACIÓN EN ACCIÓN, S.A. DE C.V., que distinguen, entre otros, programas de cómputo, su diseño y programación.</p>
+
+      <div class="footer__bottom">
+        <p>© 2026 Computación en Acción, S.A. de C.V. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- V3: navegación móvil accesible, sin framework. -->
+  <script>
+    (function () {
+      var header = document.getElementById('header');
+      var burger = document.getElementById('burger');
+      var menu = document.getElementById('mobileMenu');
+      var inertTargets = document.querySelectorAll('main, .footer');
+      var lastFocus = null;
+      var openState = false;
+      function onScroll() { header.classList.toggle('scrolled', window.scrollY > 10); }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+      function setMenu(open, options) {
+        options = options || {};
+        if (open === openState) return;
+        openState = open;
+        if (open) lastFocus = document.activeElement;
+        menu.classList.toggle('open', open);
+        menu.inert = !open;
+        inertTargets.forEach(function (el) { el.inert = open; });
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        document.body.classList.toggle('menu-open', open);
+        if (open) {
+          var first = menu.querySelector('a');
+          if (first) first.focus();
+        } else if (options.anchorTarget) {
+          var target = document.querySelector(options.anchorTarget);
+          if (target) {
+            var hadTabindex = target.hasAttribute('tabindex');
+            if (!hadTabindex) target.setAttribute('tabindex', '-1');
+            target.focus({ preventScroll: true });
+            if (!hadTabindex) target.addEventListener('blur', function clean() { target.removeAttribute('tabindex'); target.removeEventListener('blur', clean); }, { once: true });
+          } else burger.focus();
+        } else if (options.restoreFocus !== false) {
+          if (burger.offsetParent !== null) burger.focus();
+          else if (lastFocus && lastFocus.isConnected) lastFocus.focus();
+        }
+      }
+      menu.inert = true;
+      burger.addEventListener('click', function () { setMenu(!openState); });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          var href = a.getAttribute('href') || '';
+          setMenu(false, href.charAt(0) === '#' ? { anchorTarget: href } : {});
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (!openState) return;
+        if (e.key === 'Escape') { e.preventDefault(); setMenu(false); return; }
+        if (e.key === 'Tab') {
+          var elements = [burger].concat([].slice.call(menu.querySelectorAll('a:not([inert])')));
+          var first = elements[0], last = elements[elements.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 1024) setMenu(false, { restoreFocus: false });
+      });
+    })();
+  </script>
+
+  <!-- V3: carrusel nativo en JavaScript con controles accesibles. -->
+  <script>
+    /* Carruseles (solo activos en móvil por CSS): puntos de navegación y tarjeta inicial */
+    (function () {
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll('[data-carousel]').forEach(function (el) {
+        var items = [].slice.call(el.children);
+        var dots = document.createElement('div');
+        dots.className = 'carousel__dots ' + (el.classList.contains('carousel--md') ? 'carousel__dots--md' : 'carousel__dots--lg');
+        function go(i, smooth) {
+          var c = items[i];
+          el.scrollTo({ left: c.offsetLeft - (el.clientWidth - c.offsetWidth) / 2, behavior: (smooth && !reduce) ? 'smooth' : 'auto' });
+        }
+        var btns = items.map(function (_, i) {
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'carousel__dot';
+          b.setAttribute('aria-label', 'Ir a la tarjeta ' + (i + 1) + ' de ' + items.length);
+          b.addEventListener('click', function () { go(i, true); });
+          dots.appendChild(b); return b;
+        });
+        el.parentNode.insertBefore(dots, el.nextSibling);
+        function sync() {
+          var mid = el.scrollLeft + el.clientWidth / 2, best = 0, d = Infinity;
+          items.forEach(function (c, i) {
+            var cd = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid);
+            if (cd < d) { d = cd; best = i; }
+          });
+          btns.forEach(function (b, i) { b.setAttribute('aria-current', i === best ? 'true' : 'false'); });
+        }
+        var raf;
+        el.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(sync); }, { passive: true });
+        window.addEventListener('resize', sync);
+        if (el.scrollWidth > el.clientWidth + 1) go(parseInt(el.getAttribute('data-carousel-start') || '0', 10), false);
+        sync();
+      });
+    })();
+  </script>
+
+</body>
+</html>
