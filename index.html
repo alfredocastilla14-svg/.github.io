@@ -602,6 +602,40 @@
     .hero__product-logo { display: block; margin-bottom: 10px; }
     .hero__product-logo img { display: block; width: 240px; max-width: 100%; height: auto; }
     @media (max-width: 639px) { .hero__product-logo img { width: 200px; } }
+
+    /* =========================================================
+       V3.14 · FLOATING DE LOGIN ("Entra a mi login")
+       Cambia los colores aquí: --fl-a (claro), --fl-b (oscuro) y --fl-glow (RGB del brillo).
+       Opción verde de marca: --fl-a:#5bc49c; --fl-b:#317057; --fl-glow:49,112,87;  ·  V3.12: azul del floating institucional
+       ========================================================= */
+    .float-login { --fl-a: #00a2e8; --fl-b: #0057c2; --fl-glow: 0, 110, 215; position: fixed; z-index: 45; display: flex; align-items: center; color: #fff; font-family: var(--font); font-weight: 700; background: linear-gradient(160deg, var(--fl-a), var(--fl-b)); transition: transform .25s ease, box-shadow .25s ease, filter .25s ease; }
+    .float-login:hover { filter: brightness(1.08); }
+    .float-login:focus-visible { outline: 3px solid var(--title); outline-offset: 3px; }
+    .float-login__icon { font-size: 20px; line-height: 1; flex-shrink: 0; }
+    body.menu-open .float-login { opacity: 0; pointer-events: none; }
+
+    /* Escritorio y tableta: pestaña vertical delgada pegada al borde derecho, un poco más abajo del centro.
+       Anclada al borde: en lugar de saltar, "respira" (delgada → un poco más ancha) y al pasar el mouse se ensancha
+       hacia la izquierda con el mismo azul, sin dejar corte blanco. */
+    @media (min-width: 768px) {
+      .float-login { right: 0; top: 70%; transform: translateY(-50%); flex-direction: column; justify-content: center; gap: 14px; padding: 26px 0; width: 44px; border-radius: 16px 0 0 16px; font-size: 14px; letter-spacing: .03em; box-shadow: -4px 8px 22px rgba(var(--fl-glow), .30); transition: width .25s ease, box-shadow .25s ease, filter .25s ease; animation: fl-breathe 3.8s ease-in-out 1.5s infinite; }
+      .float-login__icon { font-size: 17px; }
+      .float-login:hover, .float-login:focus-visible { width: 58px; animation: none; box-shadow: -8px 12px 28px rgba(var(--fl-glow), .45); }
+      .float-login__text { writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; }
+      .float-login__tail { display: none; }
+    }
+    @keyframes fl-breathe { 0%, 100% { width: 44px; } 50% { width: 56px; } }
+
+    /* Móvil: burbuja flotante abajo (estilo chat) */
+    @media (max-width: 767px) {
+      .float-login { left: 16px; bottom: 20px; gap: 10px; padding: 11px 18px 11px 12px; border-radius: 18px; min-height: 52px; font-size: 15px; line-height: 1.15; letter-spacing: .01em; box-shadow: 0 10px 26px rgba(var(--fl-glow), .45); animation: fl-in .5s ease-out 1.2s both, fl-bob 3s ease-in-out 2.5s infinite; }
+      .float-login__icon { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,.22); font-size: 16px; }
+      .float-login__text { display: block; max-width: 120px; }
+      .float-login__tail { position: absolute; left: 20px; bottom: -7px; width: 16px; height: 16px; background: var(--fl-b); border-radius: 0 0 4px 0; transform: rotate(45deg); z-index: -1; }
+    }
+    @keyframes fl-in { from { opacity: 0; transform: translateY(24px) scale(.9); } to { opacity: 1; transform: none; } }
+    @keyframes fl-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    @media (prefers-reduced-motion: reduce) { .float-login { animation: none !important; transition: none; } }
   </style>
   <script type="application/ld+json">
 {
@@ -904,6 +938,13 @@
       <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill" data-cta="menu-movil-comprar">Comprar ahora</a>
     </div>
   </nav>
+
+  <!-- V3.11 · Floating de login: pestaña lateral en escritorio, burbuja abajo en móvil -->
+  <a class="float-login" href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer" data-cta="floating-login" aria-label="Entra a mi login (se abre en una pestaña nueva)">
+    <i class="float-login__icon fa-solid fa-key" aria-hidden="true"></i>
+    <span class="float-login__text">Entra a mi login</span>
+    <span class="float-login__tail" aria-hidden="true"></span>
+  </a>
 
   <main id="contenido">
 
