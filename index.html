@@ -1808,8 +1808,8 @@
 
   var STORAGE_KEY = 'vendeTransitionModalShown';
   var PREVIEW_MODE = new URLSearchParams(window.location.search).get('modalPreview') === '1';
-  var DELAY_MS = 2500;
-  var RETRY_MS = 1000;            // si el menú móvil está abierto justo a los 2500 ms
+  var DELAY_MS = 2000;
+  var RETRY_MS = 1000;            // si el menú móvil está abierto justo a los 2000 ms
   var DIALOG_ID = 'modal-transition-vende';
 
   var dialog = null;
@@ -1931,7 +1931,7 @@
     unlockScroll();
   });
 
-  // 2500 ms después de DOMContentLoaded (o al ejecutarse el script si el evento ya ocurrió).
+  // 2000 ms después de DOMContentLoaded (o al ejecutarse el script si el evento ya ocurrió).
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', bind, { once: true });
   } else {
