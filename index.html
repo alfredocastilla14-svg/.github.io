@@ -1009,7 +1009,7 @@
   color: var(--mt-title);
   font-family: var(--mt-font-title);
   font-size: clamp(22px, 4.5vw, 28px);
-  font-weight: 800;
+  font-weight: 700;        /* igual que los títulos de la landing (.section-main-title) */
   line-height: 1.25;
 }
 
@@ -1047,18 +1047,18 @@
   transition: background-color .2s, border-color .2s, color .2s;
 }
 .modal-transition__btn--primary {
-  background: var(--mt-accent);
-  border-color: var(--mt-accent);
+  background: var(--mint, #5bc49c);   /* mismo verde que .btn-custom-pill de la landing */
+  border-color: var(--mint, #5bc49c);
   color: #fff;
 }
-.modal-transition__btn--primary:hover,
-.modal-transition__btn--primary:focus-visible { background: var(--mt-accent-hover); border-color: var(--mt-accent-hover); color: #fff; }
-.modal-transition__btn--secondary {
-  background: transparent;
-  border-color: var(--mt-accent);
+.modal-transition__btn--primary:hover { background: var(--mt-accent-hover); border-color: var(--mt-accent-hover); color: #fff; }
+.modal-transition__btn--secondary {   /* mismo estilo que .btn-outline-m ("Ya tengo una cuenta") */
+  background: #fff;
+  border: 1px solid var(--mt-line);
   color: var(--mt-accent);
+  font-weight: 500;
 }
-.modal-transition__btn--secondary:hover { background: var(--mt-tint); }
+.modal-transition__btn--secondary:hover { background: var(--slate-50, #f8fafc); border-color: var(--slate-300, #cbd5e1); }
 
 .modal-transition button:focus-visible,
 .modal-transition a:focus-visible {
