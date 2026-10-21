@@ -888,6 +888,190 @@
   ]
 }
   </script>
+  <!-- Modal de transición CFDI en línea + → Vende: estilos -->
+  <style>
+/* Todas las reglas están encapsuladas con .modal-transition. */
+
+.modal-transition {
+  --mt-card: #fff;
+  --mt-title: var(--title, #151c28);
+  --mt-text: var(--body, #4a5568);
+  --mt-accent: var(--primary, #317057);
+  --mt-accent-hover: var(--primary-hover, #007649);
+  --mt-tint: var(--blue-50, #eef7f3);
+  --mt-line: var(--slate-200, #e2e8f0);
+  --mt-font-title: var(--font-title, "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif);
+  --mt-font-body: var(--font-body, "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif);
+
+  /* El <dialog> es un contenedor transparente; la tarjeta lleva el diseño.
+     Así un clic con target === dialog siempre es un clic en el overlay. */
+  position: fixed;
+  inset: 0;
+  margin: auto;            /* centrado explícito: resets globales con "* { margin: 0 }" anulan el auto nativo */
+  height: fit-content;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--mt-text);
+  max-width: none;
+  max-height: none;
+  width: min(520px, calc(100vw - 32px));
+  overflow: visible;
+}
+
+.modal-transition::backdrop {
+  background: rgba(15, 23, 42, 0.75); /* fallback sin backdrop-filter */
+}
+@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .modal-transition::backdrop {
+    background: rgba(15, 23, 42, 0.55);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+
+.modal-transition:not([open]) { display: none; }
+
+.modal-transition *,
+.modal-transition *::before,
+.modal-transition *::after { box-sizing: border-box; }
+
+.modal-transition__card {
+  position: relative;
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 40px 32px 32px;
+  background: var(--mt-card);
+  border: 1px solid var(--mt-line);
+  border-top: 4px solid var(--mt-accent);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.30);
+  font-family: var(--mt-font-body);
+  text-align: left;
+}
+
+.modal-transition__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--mt-text);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .2s, color .2s;
+}
+.modal-transition__close:hover { background: var(--mt-tint); color: var(--mt-accent); }
+
+.modal-transition__icon {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  background: var(--mt-tint);
+  color: var(--mt-accent);
+  font-size: 18px;
+}
+
+.modal-transition__eyebrow {
+  margin: 0 0 8px;
+  color: var(--mt-accent);
+  font-family: var(--mt-font-title);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+}
+
+.modal-transition__title {
+  margin: 0 0 14px;
+  padding-right: 24px;
+  color: var(--mt-title);
+  font-family: var(--mt-font-title);
+  font-size: clamp(22px, 4.5vw, 28px);
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.modal-transition__body {
+  margin: 0 0 28px;
+  color: var(--mt-text);
+  font-family: var(--mt-font-body);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.modal-transition__actions {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.modal-transition__btn {
+  flex: 1 1 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  margin: 0;
+  padding: 12px 20px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill, 50px);
+  font-family: var(--mt-font-body);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .2s, border-color .2s, color .2s;
+}
+.modal-transition__btn--primary {
+  background: var(--mt-accent);
+  border-color: var(--mt-accent);
+  color: #fff;
+}
+.modal-transition__btn--primary:hover,
+.modal-transition__btn--primary:focus-visible { background: var(--mt-accent-hover); border-color: var(--mt-accent-hover); color: #fff; }
+.modal-transition__btn--secondary {
+  background: transparent;
+  border-color: var(--mt-accent);
+  color: var(--mt-accent);
+}
+.modal-transition__btn--secondary:hover { background: var(--mt-tint); }
+
+.modal-transition button:focus-visible,
+.modal-transition a:focus-visible {
+  outline: 2px solid var(--mt-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 560px) {
+  .modal-transition__card { padding: 36px 20px 24px; }
+  .modal-transition__actions { flex-direction: column; }
+  .modal-transition__btn { flex: 0 0 auto; width: 100%; min-height: 52px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .modal-transition[open] .modal-transition__card { animation: modal-transition-in .28s ease-out both; }
+  @keyframes modal-transition-in {
+    from { opacity: 0; transform: translateY(12px) scale(.98); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+</style>
 </head>
 <body>
 
@@ -1563,6 +1747,178 @@
       });
     })();
   </script>
+
+  <!-- Modal de transición CFDI en línea + → Vende -->
+  <dialog class="modal-transition" id="modal-transition-vende"
+        aria-labelledby="modal-transition-title"
+        aria-describedby="modal-transition-body">
+  <div class="modal-transition__card">
+
+    <button type="button" class="modal-transition__close" data-modal-transition-close
+            aria-label="Cerrar aviso">
+      <span aria-hidden="true">&times;</span>
+    </button>
+
+    <span class="modal-transition__icon" aria-hidden="true">
+      <i class="fa-solid fa-arrow-right-arrow-left"></i>
+    </span>
+
+    <p class="modal-transition__eyebrow">Evolucionamos para ti</p>
+
+    <h2 class="modal-transition__title" id="modal-transition-title">Tu plataforma cambió de nombre. Tu acceso sigue contigo.</h2>
+
+    <p class="modal-transition__body" id="modal-transition-body">CFDI en línea + ahora es CONTPAQi Vende®, edición Inicial. Tus datos, historial y accesos siguen intactos para que continúes trabajando con tranquilidad.</p>
+
+    <div class="modal-transition__actions">
+      <a class="modal-transition__btn modal-transition__btn--primary"
+         href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer"
+         data-modal-transition-login>Iniciar sesión</a>
+      <button type="button" class="modal-transition__btn modal-transition__btn--secondary"
+              data-modal-transition-close>Conocer la nueva edición</button>
+    </div>
+
+  </div>
+</dialog>
+
+  <script>
+(function () {
+  'use strict';
+
+  // Evita doble inicialización si el script se ejecuta más de una vez.
+  if (window.__vendeTransitionModalInit) return;
+  window.__vendeTransitionModalInit = true;
+
+  var STORAGE_KEY = 'vendeTransitionModalShown';
+  var DELAY_MS = 2500;
+  var RETRY_MS = 1000;            // si el menú móvil está abierto justo a los 2500 ms
+  var DIALOG_ID = 'modal-transition-vende';
+
+  var dialog = null;
+  var timerId = null;
+  var shownInMemory = false;      // respaldo si sessionStorage no está disponible
+  var lastFocused = null;
+  var scrollLock = null;
+
+  function wasShown() {
+    if (shownInMemory) return true;
+    try { return window.sessionStorage.getItem(STORAGE_KEY) !== null; }
+    catch (e) { return false; }
+  }
+
+  function markShown() {
+    shownInMemory = true;
+    try { window.sessionStorage.setItem(STORAGE_KEY, '1'); } catch (e) { /* storage bloqueado */ }
+  }
+
+  /* ---- Bloqueo de scroll: guarda y restaura solo lo que este componente modifica ---- */
+  function lockScroll() {
+    if (scrollLock) return;
+    var html = document.documentElement, body = document.body;
+    var gap = window.innerWidth - html.clientWidth;
+    scrollLock = {
+      htmlOverflow: html.style.overflow,
+      bodyPaddingRight: body.style.paddingRight
+    };
+    html.style.overflow = 'hidden';
+    if (gap > 0) {
+      var current = parseFloat(window.getComputedStyle(body).paddingRight) || 0;
+      body.style.paddingRight = (current + gap) + 'px';
+    }
+  }
+
+  function unlockScroll() {
+    if (!scrollLock) return;
+    document.documentElement.style.overflow = scrollLock.htmlOverflow;
+    document.body.style.paddingRight = scrollLock.bodyPaddingRight;
+    scrollLock = null;
+  }
+
+  /* ---- Limpieza común (se ejecuta con el evento "close" del <dialog>) ---- */
+  function onClosed() {
+    unlockScroll();
+    document.removeEventListener('keydown', onFallbackKeydown, true);
+    if (lastFocused && typeof lastFocused.focus === 'function' && document.contains(lastFocused)) {
+      try { lastFocused.focus({ preventScroll: true }); } catch (e) { /* noop */ }
+    }
+    lastFocused = null;
+  }
+
+  function closeModal() {
+    if (!dialog || !dialog.hasAttribute('open')) return;
+    if (typeof dialog.close === 'function') {
+      dialog.close();               // dispara "close" → onClosed
+    } else {
+      dialog.removeAttribute('open');
+      onClosed();
+    }
+  }
+
+  // Solo se usa si el navegador no soporta showModal(): Escape manual.
+  function onFallbackKeydown(e) {
+    if (e.key === 'Escape') { e.preventDefault(); closeModal(); }
+  }
+
+  function openModal() {
+    timerId = null;
+    if (!dialog || dialog.hasAttribute('open') || wasShown()) return;
+
+    // Si el menú móvil de la landing está abierto, no se le encima el modal: se reintenta.
+    if (document.body.classList.contains('menu-open')) {
+      timerId = window.setTimeout(openModal, RETRY_MS);
+      return;
+    }
+
+    lastFocused = document.activeElement;
+    lockScroll();
+
+    if (typeof dialog.showModal === 'function') {
+      try { dialog.showModal(); }
+      catch (e) { unlockScroll(); lastFocused = null; return; }
+    } else {
+      dialog.setAttribute('open', '');
+      dialog.setAttribute('aria-modal', 'true');
+      dialog.setAttribute('role', 'dialog');
+      document.addEventListener('keydown', onFallbackKeydown, true);
+    }
+
+    markShown();   // se marca al abrir efectivamente, no al programar
+
+    var primary = dialog.querySelector('[data-modal-transition-login]');
+    if (primary) { try { primary.focus({ preventScroll: true }); } catch (e) { /* noop */ } }
+  }
+
+  function bind() {
+    dialog = document.getElementById(DIALOG_ID);
+    if (!dialog) return;
+
+    dialog.addEventListener('click', function (e) {
+      if (e.target === dialog) { closeModal(); return; }   // clic en el overlay (fuera de la tarjeta)
+      var closer = e.target.closest ? e.target.closest('[data-modal-transition-close]') : null;
+      if (closer) { e.preventDefault(); closeModal(); return; }
+      var login = e.target.closest ? e.target.closest('[data-modal-transition-login]') : null;
+      if (login) { closeModal(); }   // el enlace abre el login en otra pestaña; el modal se cierra aquí
+    });
+
+    // Escape nativo: <dialog> dispara "cancel" y luego "close".
+    dialog.addEventListener('close', onClosed);
+
+    if (wasShown()) return;   // comprobar la llave ANTES de programar
+    timerId = window.setTimeout(openModal, DELAY_MS);
+  }
+
+  window.addEventListener('pagehide', function () {
+    if (timerId !== null) { window.clearTimeout(timerId); timerId = null; }
+    unlockScroll();
+  });
+
+  // 2500 ms después de DOMContentLoaded (o al ejecutarse el script si el evento ya ocurrió).
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bind, { once: true });
+  } else {
+    bind();
+  }
+})();
+</script>
 
 </body>
 </html>
