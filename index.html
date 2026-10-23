@@ -11,34 +11,31 @@
   <meta property="og:description" content="Compra CONTPAQi Vende® Inicial por $1,890 MXN al año. Factura CFDI 4.0 con timbres ilimitados, autofacturación para clientes y respaldo en la nube, sin instalar programas.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
+  <meta property="og:site_name" content="CONTPAQi">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#317057">
   <meta name="twitter:title" content="Compra CONTPAQi Vende® | Facturación CFDI 4.0 ilimitada">
   <meta name="twitter:description" content="Compra CONTPAQi Vende® Inicial por $1,890 MXN al año. Factura CFDI 4.0 con timbres ilimitados, autofacturación para clientes y respaldo en la nube, sin instalar programas.">
-  <!-- V3: en producción, reemplaza los valores dinámicos por URL canónica definitiva si se requiere SSR. -->
-  <link rel="canonical" id="canonical-url" href="">
-  <meta property="og:url" id="og-url" content="">
+  <!-- URL PUBLICACION: ajustar canonical y JSON-LD si la ruta final no es https://www.cfdi.com.mx/ -->
+  <link rel="canonical" href="https://www.cfdi.com.mx/">
+  <meta property="og:url" content="https://www.cfdi.com.mx/">
   <meta property="og:image" content="https://www.contpaqi.com/hubfs/Backgrounds/Background-Administraci%C3%B3n-2026-Green.jpg">
+  <meta property="og:image:alt" content="CONTPAQi Vende® Inicial: facturación CFDI 4.0 en la nube">
   <meta name="twitter:image" content="https://www.contpaqi.com/hubfs/Backgrounds/Background-Administraci%C3%B3n-2026-Green.jpg">
-  <script>
-    (function () {
-      var canonical = new URL(window.location.pathname, window.location.origin).href;
-      document.getElementById('canonical-url').href = canonical;
-      document.getElementById('og-url').content = canonical;
-    })();
-  </script>
+  <meta name="twitter:image:alt" content="CONTPAQi Vende® Inicial: facturación CFDI 4.0 en la nube">
   <link rel="icon" type="image/png" href="https://www.contpaqi.com/hubfs/favicon-cpi.png">
 
+  <link rel="preconnect" href="https://www.contpaqi.com">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="dns-prefetch" href="https://js.hs-scripts.com">
   <link rel="dns-prefetch" href="https://contpaqi.my.site.com">
   <link rel="dns-prefetch" href="https://www.clarity.ms">
   <!-- LCP: imagen de fondo del hero -->
   <link rel="preload" as="image" href="https://www.contpaqi.com/hubfs/Backgrounds/Background-Administraci%C3%B3n-2026-Green.jpg" fetchpriority="high">
 
-  <!-- Font Awesome (iconos) -->
+  <!-- Font Awesome (iconos originales) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-  <!-- CFDI Home V6.8 · Fase 2d (lista en tarjeta sin icono ni etiqueta, textos intercambiados, franja compacta) · V6.6 Fase 2b (textos y contenidos intercambiados, franja compacta) · V6.5 Fase 2 (secciones intercambiadas, franja de impacto, paddings compactos) · Fase 1 (sin floating; CTA reforzado) · base V3.10 (V3.9 + legales propios en footer y Soporte técnico en header): tipografía unificada (cuerpos 16px), clases de marca aplicadas, iframe de YouTube corregido, HTML autónomo. -->
+  <!-- CFDI-Index · version standalone optimizada para hosting propio. -->
   <style>
     /* =========================================================
        VARIABLES (cambia colores aquí)
@@ -93,7 +90,7 @@
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     /* Offset de anclas bajo el header fijo (un solo mecanismo: scroll-margin-top) */
     :root { --header-offset: 76px; }
-    section[id], a[data-hs-anchor="true"] { scroll-margin-top: var(--header-offset); }
+    section[id] { scroll-margin-top: var(--header-offset); }
     body {
       font-family: var(--font-body);
       font-size: var(--fs-base);
@@ -182,16 +179,17 @@
 
     .mobile-menu {
       position: fixed; inset: 0; z-index: 55; background: #fff;
+      max-height: 100dvh; overflow-y: auto; overscroll-behavior: contain;
       display: flex; flex-direction: column; padding: 96px 24px 24px;
       transform: translateX(100%); visibility: hidden;
       transition: transform .3s ease-in-out, visibility .3s;
     }
     .mobile-menu.open { transform: translateX(0); visibility: visible; }
-    .mobile-menu__list { display: flex; flex-direction: column; gap: 24px; font-size: var(--fs-base); font-weight: 500; }
-    .mobile-menu__list li { border-bottom: 1px solid var(--slate-100); padding-bottom: 16px; }
-    .mobile-menu__list a { display: block; color: var(--body); }
+    .mobile-menu__list { display: flex; flex-direction: column; gap: 12px; font-size: var(--fs-base); font-weight: 500; }
+    .mobile-menu__list li { border-bottom: 1px solid var(--slate-100); padding-bottom: 6px; }
+    .mobile-menu__list a { display: flex; align-items: center; min-height: 44px; color: var(--body); }
     .mobile-menu__list a:hover { color: var(--primary); }
-    .mobile-menu__actions { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .mobile-menu__actions { margin-top: 20px; padding-bottom: env(safe-area-inset-bottom); display: flex; flex-direction: column; gap: 16px; }
     .mobile-menu__actions .btn { width: 100%; height: 48px; }
     .btn-outline-m { border: 1px solid var(--slate-200); background: #fff; font-weight: 500; }
     .btn-outline-m:hover { background: var(--slate-50); }
@@ -219,7 +217,13 @@
     .badge__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
 
     .hero__lead { max-width: 576px; }
-    .hero__cta { display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; }
+    .hero__cta { display: flex; flex-direction: column; gap: 16px; margin-bottom: 12px; }
+    /* Link secundario: la prueba no compite visualmente con Comprar ahora. */
+    .hero__trial { font-size: var(--fs-sm); line-height: 1.55; color: var(--body); margin: 0 0 22px; }
+    .hero__trial a { color: #005c3a; text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+    .hero__trial a:hover { color: #007649; }
+    .hero__trial a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 2px; }
+    .hero__trial-detail { color: var(--slate-600); }
     .hero__checks { display: flex; flex-direction: column; gap: 16px; font-size: var(--fs-sm); color: var(--slate-500); }
     .hero__checks li { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
     .hero__checks .icon { font-size: 20px; color: var(--check); }
@@ -307,7 +311,7 @@
     /* =========================================================
        BENEFICIOS
        ========================================================= */
-    .benefits { position: relative; overflow: hidden; padding: var(--section-y) 0; background: linear-gradient(to bottom right, rgba(91, 196, 156, 1), rgba(49, 112, 87, 1)) !important; color: #fff; }
+    .benefits { position: relative; overflow: hidden; padding: var(--section-y) 0; background: linear-gradient(to bottom right, rgba(49, 112, 87, 1), rgba(0, 118, 73, 1)); color: #fff; }
     .benefits__blob { position: absolute; border-radius: 50%; opacity: .5; }
     .benefits__blob--1 { top: 0; right: 0; width: 800px; height: 800px; background: radial-gradient(circle, rgba(255,255,255,.35) 0%, transparent 70%); transform: translate(33%, -50%); }
     .benefits__blob--2 { bottom: 0; left: 0; width: 600px; height: 600px; background: radial-gradient(circle, rgba(23,64,49,.5) 0%, transparent 70%); transform: translate(-25%, 33%); }
@@ -378,8 +382,8 @@
     .footer__logo { display: inline-block; margin-bottom: 14px; }
     .footer__logo img { height: 40px; width: auto; }
     .footer__about { font-size: var(--fs-sm); line-height: 1.625; margin-bottom: 16px; }
-    .footer__social { display: flex; gap: 16px; }
-    .footer__social a { color: var(--slate-400); transition: color .2s; display: inline-flex; }
+    .footer__social { display: flex; gap: 8px; flex-wrap: wrap; }
+    .footer__social a { color: var(--slate-400); transition: color .2s; display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; }
     .footer__social a:hover { color: #fff; }
     .footer__social i { font-size: 22px; }
     .footer__badge { display: block; width: 120px; height: auto; border-radius: 8px; margin-bottom: 20px; }
@@ -398,7 +402,7 @@
     /* =========================================================
        V3 · CIERRE (CTA antes del footer)
        ========================================================= */
-    .cta { position: relative; overflow: hidden; background: linear-gradient(to bottom right, rgba(91, 196, 156, 1), rgba(49, 112, 87, 1)) !important; color: #fff; padding: 48px 0; }
+    .cta { position: relative; overflow: hidden; background: linear-gradient(to bottom right, rgba(49, 112, 87, 1), rgba(0, 118, 73, 1)); color: #fff; padding: 48px 0; }
     .cta__blob { position: absolute; border-radius: 50%; opacity: .5; }
     .cta__blob--1 { top: 0; right: 0; width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,255,255,.35) 0%, transparent 70%); transform: translate(33%, -50%); }
     .cta__blob--2 { bottom: 0; left: 0; width: 500px; height: 500px; background: radial-gradient(circle, rgba(23,64,49,.5) 0%, transparent 70%); transform: translate(-25%, 40%); }
@@ -450,7 +454,7 @@
     @media (min-width: 1024px) { .split { grid-template-columns: 4fr 5fr; gap: 40px; } }
     /* "Una evolución…": video a la izquierda, texto a la derecha */
     .evo__video { margin: 0; }
-    .evo__copy .section-sub-title { margin: 0 0 8px !important; }
+    .evo__copy .section-sub-title { margin: 0 0 8px; }
     .evo__copy .vp-section { margin: 14px 0 0; }
     /* "Beneficios": chips "Ideal para" dentro del encabezado */
     .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 14px 0 0; padding: 0; list-style: none; }
@@ -491,11 +495,11 @@
     /* V3.6 · detalles */
     /* Plan Inicial: título + etiqueta en una fila, descripción debajo */
     .plan__title-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
-    .plan__title-row .section-sub-title { margin: 0 !important; }
+    .plan__title-row .section-sub-title { margin: 0; }
     /* Light y Equipos: menos peso visual (tonos grises, más compactos, sin elevación) */
     .plan--basic { background: var(--slate-50); border-color: var(--slate-100); box-shadow: none; padding: 20px 24px; }
     .plan--basic:hover { transform: none; box-shadow: none; }
-    .plan--basic .section-sub-title { font-size: var(--fs-md) !important; color: var(--slate-600) !important; }
+    .plan--basic .section-sub-title { font-size: var(--fs-md); color: var(--slate-600); }
     .plan--basic .plan__desc { font-size: var(--fs-sm); color: var(--slate-500); }
     .plan--basic .plan__price strong { font-size: var(--fs-xl); color: var(--slate-600); }
     .plan--basic .plan__price span { font-size: var(--fs-sm); color: var(--slate-500); }
@@ -505,7 +509,7 @@
     .cert { width: 82%; padding: 24px 20px; }
     /* Beneficios: tarjetas más compactas */
     .cards-grid { gap: 16px; }
-    .cards-grid .product-card { padding: 20px !important; } /* tarjetas compactas */
+    .cards-grid .product-card { padding: 20px; } /* tarjetas compactas */
     .product-card__icon { width: 40px; height: 40px; margin-bottom: 12px; }
     /* Sangría lateral de las secciones: 20px móvil · 32px tableta · 50px escritorio */
     .evo, .proof-section, .ben, .benefits, .plans, .steps, .faq { --gutter: 16px; }
@@ -513,8 +517,8 @@
     @media (min-width: 1024px) { .evo, .proof-section, .ben, .benefits, .plans, .steps, .faq { --gutter: 32px; } }
 
     /* V2.3 · botones sobre fondos con degradado */
-    .cta .btn-custom-pill { background-color: #fff !important; background-image: none !important; color: #005c3a !important; box-shadow: 0 14px 30px -8px rgba(0,0,0,.35) !important; }
-    .cta .btn-custom-pill:hover, .cta .btn-custom-pill:focus-visible { background-color: #fff !important; color: #007649 !important; box-shadow: 0 20px 38px -10px rgba(0,0,0,.45), 0 0 0 5px rgba(255,255,255,.35) !important; }
+    .cta .btn-custom-pill { background-color: #fff; background-image: none; color: #005c3a; box-shadow: 0 14px 30px -8px rgba(0,0,0,.35); }
+    .cta .btn-custom-pill:hover, .cta .btn-custom-pill:focus-visible { background-color: #fff; color: #007649; box-shadow: 0 20px 38px -10px rgba(0,0,0,.45), 0 0 0 5px rgba(255,255,255,.35); }
 
      /* V3 · Estilos del one-page: solamente selectores usados por esta landing. */
     @media (max-width: 768px) { :root { --fs-xl: 26px; --fs-2xl: 30px; } }
@@ -523,118 +527,115 @@
 
     /* ---- 1. TIPOGRAFÍA Y UTILIDADES ---- */
     .hero-title, .section-main-title, .section-sub-title, .product-title, .feature-title, .faq-question, .plan-main-title {
-        color: var(--title) !important;
-        font-weight: 700 !important;
-        line-height: 1.25 !important;
-        margin: 0 0 15px 0 !important;
-        font-family: var(--font) !important;
+        color: var(--title);
+        font-weight: 700;
+        line-height: 1.25;
+        margin: 0 0 15px 0;
+        font-family: var(--font);
     }
-    .hero-title { font-size: var(--fs-2xl) !important; }
-    .section-main-title { font-size: var(--fs-xl) !important; }
-    .section-sub-title { font-size: var(--fs-lg) !important; }
-    .product-title, .feature-title, .faq-question { font-size: var(--fs-md) !important; }
-    .plan-main-title { font-size: var(--fs-price) !important; }
+    .hero-title { font-size: var(--fs-2xl); }
+    .section-main-title { font-size: var(--fs-xl); }
+    .section-sub-title { font-size: var(--fs-lg); }
+    .product-title, .feature-title, .faq-question { font-size: var(--fs-md); }
+    .plan-main-title { font-size: var(--fs-price); }
 
     .c-desc-main, .product-description, .solution-item-text, .plan-tag-description, .faq-answer p, .c-desc-columns li {
-        color: var(--body) !important;
-        font-size: var(--fs-base) !important;
-        line-height: 1.6 !important;
-        margin: 0 0 15px 0 !important;
-        font-family: var(--font) !important;
+        color: var(--body);
+        font-size: var(--fs-base);
+        line-height: 1.6;
+        margin: 0 0 15px 0;
+        font-family: var(--font);
     }
-    .text-white { color: #ffffff !important; }
-    svg path { transition: fill 0.3s ease !important; }
+    .text-white { color: #ffffff; }
+    svg path { transition: fill 0.3s ease; }
 
 
-    /* ---- 2. ADN VISUAL: TARJETAS Y BOTONES (clases de marca, con !important) ---- */
+    /* ---- 2. ADN VISUAL: TARJETAS Y BOTONES (clases de marca, con) ---- */
     .product-card, .faq-item {
-        background-color: #ffffff !important;
-        border: 1px solid #e2e8f0 !important;
-        border-radius: 12px !important;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.02) !important;
-        box-sizing: border-box !important;
-        overflow: hidden !important;
-        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        background-color: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        box-sizing: border-box;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .product-card:hover { transform: translateY(-5px) !important; box-shadow: 0 12px 24px rgba(0,0,0,0.08) !important; }
-    .product-card { padding: 35px 30px !important; display: flex !important; flex-direction: column !important; align-items: flex-start !important; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.08); }
+    .product-card { padding: 35px 30px; display: flex; flex-direction: column; align-items: flex-start; }
 
-    /* ---- CTA: variante institucional (INACTIVA). La página institucional usa .btn-custom-pill plano:
-       background #5bc49c, texto #fff, padding 12px 30px, weight 700, hover #007649 (contraste blanco/#5bc49c ≈ 2.1:1, no cumple AA).
-       Para volver a esa variante, elimina el bloque "FASE 1" de abajo y pega esas cinco propiedades. ---- */
     /* ---- CTA "Comprar ahora" · FASE 1: punto focal de la pantalla ----
        Contraste: fondo verde profundo (#006b44 → #00935f) con texto blanco (~6:1, antes ~2.2:1).
        Jerarquía: más padding, peso 800, sombra con brillo de marca. Hover: elevación + escala + degradado fluido + flecha. */
     .btn-custom-pill {
-        display: inline-flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        gap: 10px !important;
-        position: relative !important;
-        background-color: #007649 !important;
-        background-image: linear-gradient(135deg, #00935f 0%, #007649 45%, #005c3a 100%) !important;
-        background-size: 200% 200% !important;
-        background-position: 0% 50% !important;
-        color: #ffffff !important;
-        text-decoration: none !important;
-        font-size: 16px !important;
-        font-weight: 800 !important;
-        letter-spacing: .02em !important;
-        padding: 15px 38px !important;
-        border: 0 !important;
-        border-radius: 50px !important;
-        cursor: pointer !important;
-        box-shadow: 0 10px 24px -6px rgba(0, 118, 73, .55), inset 0 1px 0 rgba(255,255,255,.22) !important;
-        transition: transform .3s cubic-bezier(.22, 1, .36, 1), box-shadow .3s cubic-bezier(.22, 1, .36, 1), background-position .5s ease !important;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        background-color: #007649;
+        background-image: linear-gradient(135deg, #007649 0%, #006b44 45%, #005c3a 100%);
+        background-size: 200% 200%;
+        background-position: 0% 50%;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: .02em;
+        padding: 15px 38px;
+        border: 0;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 10px 24px -6px rgba(0, 118, 73, .55), inset 0 1px 0 rgba(255,255,255,.22);
+        transition: transform .3s cubic-bezier(.22, 1, .36, 1), box-shadow .3s cubic-bezier(.22, 1, .36, 1), background-position .5s ease;
         will-change: transform;
     }
     .btn-custom-pill:hover,
     .btn-custom-pill:focus-visible {
-        background-position: 100% 50% !important;
-        transform: translateY(-3px) scale(1.04) !important;
-        box-shadow: 0 18px 34px -8px rgba(0, 118, 73, .65), 0 0 0 4px rgba(91, 196, 156, .35), inset 0 1px 0 rgba(255,255,255,.28) !important;
+        background-position: 100% 50%;
+        transform: translateY(-3px) scale(1.04);
+        box-shadow: 0 18px 34px -8px rgba(0, 118, 73, .65), 0 0 0 4px rgba(91, 196, 156, .35), inset 0 1px 0 rgba(255,255,255,.28);
     }
-    .btn-custom-pill:active { transform: translateY(-1px) scale(.99) !important; box-shadow: 0 6px 14px -4px rgba(0, 118, 73, .6) !important; }
+    .btn-custom-pill:active { transform: translateY(-1px) scale(.99); box-shadow: 0 6px 14px -4px rgba(0, 118, 73, .6); }
     .btn-custom-pill .icon { transition: transform .3s cubic-bezier(.22, 1, .36, 1); }
     .btn-custom-pill:hover .icon { transform: translateX(5px); }
 
     /* Tamaños: el CTA principal (hero, pasos, cierre) es el más grande; el de header/menú, compacto */
-    .btn-custom-pill.btn-lg { font-size: 18px !important; padding: 18px 46px !important; min-height: 60px; }
-    .btn-custom-pill.btn-xl { font-size: 17px !important; padding: 16px 32px !important; min-height: 54px; }
-    .header .btn-custom-pill { padding: 11px 26px !important; font-size: 15px !important; }
-    .mobile-menu .btn-custom-pill { padding: 15px 28px !important; }
+    .btn-custom-pill.btn-lg { font-size: 18px; padding: 18px 46px; min-height: 60px; }
+    .btn-custom-pill.btn-xl { font-size: 17px; padding: 16px 32px; min-height: 54px; }
+    .header .btn-custom-pill { padding: 11px 26px; font-size: 15px; }
+    .mobile-menu .btn-custom-pill { padding: 15px 28px; }
 
     /* Latido suave del halo en el CTA del hero (se desactiva con prefers-reduced-motion) */
     @keyframes cta-halo { 0%, 100% { box-shadow: 0 10px 24px -6px rgba(0,118,73,.55), 0 0 0 0 rgba(0,118,73,.35), inset 0 1px 0 rgba(255,255,255,.22); } 50% { box-shadow: 0 10px 24px -6px rgba(0,118,73,.55), 0 0 0 12px rgba(0,118,73,0), inset 0 1px 0 rgba(255,255,255,.22); } }
     .hero__cta .btn-custom-pill { animation: cta-halo 2.8s ease-in-out infinite; }
     .hero__cta .btn-custom-pill:hover, .hero__cta .btn-custom-pill:focus-visible { animation: none; }
-    @media (prefers-reduced-motion: reduce) { .hero__cta .btn-custom-pill { animation: none; } .btn-custom-pill, .btn-custom-pill .icon { transition: none !important; } }
+    @media (prefers-reduced-motion: reduce) { .hero__cta .btn-custom-pill { animation: none; } .btn-custom-pill, .btn-custom-pill .icon { transition: none; } }
 
     /* ---- V3.7 · VARIANTES DE CONTEXTO de .c-desc-main (mayor especificidad que la clase base) ---- */
-    .hero__lead.c-desc-main { margin: 0 0 32px !important; }
-    .hero__copy .hero-title { margin: 0 0 18px !important; text-wrap: balance; }
-    .section-head .c-desc-main, .faq__head .c-desc-main { margin: 0 !important; }
-    .product-card .c-desc-main, .step .c-desc-main { margin: 0 !important; }
-    .evo__copy .c-desc-main { margin: 0 !important; }
+    .hero__lead.c-desc-main { margin: 0 0 32px; }
+    .hero__copy .hero-title { margin: 0 0 18px; text-wrap: balance; }
+    .section-head .c-desc-main, .faq__head .c-desc-main { margin: 0; }
+    .product-card .c-desc-main, .step .c-desc-main { margin: 0; }
+    .evo__copy .c-desc-main { margin: 0; }
     /* Sobre fondo verde: texto claro */
-    .benefits__lead.c-desc-main { color: rgba(255,255,255,.95) !important; margin: 0 0 20px !important; }
-    .benefit .c-desc-main { color: rgba(255,255,255,.95) !important; line-height: 1.625 !important; margin: 0 !important; }
-    .cta .c-desc-main { color: rgba(255,255,255,.95) !important; margin: 0 !important; line-height: 1.5 !important; }
+    .benefits__lead.c-desc-main { color: rgba(255,255,255,.95); margin: 0 0 20px; }
+    .benefit .c-desc-main { color: rgba(255,255,255,.95); line-height: 1.625; margin: 0; }
+    .cta .c-desc-main { color: rgba(255,255,255,.95); margin: 0; line-height: 1.5; }
 
     /* ---- 8. FAQ ---- */
-    .faq-container { display: flex !important; flex-direction: column !important; gap: 15px !important; max-width: 800px !important; margin: 0 auto !important; font-family: var(--font) !important; }
-    .faq-item { padding: 0 20px !important; }
-    .faq-item[open] { border-color: rgba(49, 112, 87, 0.4) !important; background-color: rgba(49, 112, 87, 0.03) !important; }
-    .faq-summary { display: flex !important; justify-content: space-between !important; align-items: center !important; gap: 16px !important; cursor: pointer !important; padding: 18px 0 !important; list-style: none !important; }
-    .faq-question { margin: 0 !important; }
-    .faq-summary:focus-visible { outline: 2px solid var(--primary) !important; outline-offset: 2px !important; border-radius: 4px !important; }
-    .faq-summary::-webkit-details-marker { display: none !important; }
-    .faq-summary:hover .faq-question { color: var(--primary) !important; }
-    .faq-icon { color: var(--mint) !important; font-size: var(--fs-sm) !important; flex-shrink: 0 !important; transition: transform 0.3s ease, color 0.3s ease !important; }
-    .faq-item[open] .faq-icon { transform: rotate(180deg) !important; color: var(--primary) !important; }
-    .faq-answer { padding-bottom: 20px !important; animation: fadeInDown 0.4s ease-in-out !important; }
+    .faq-container { display: flex; flex-direction: column; gap: 15px; max-width: 800px; margin: 0 auto; font-family: var(--font); }
+    .faq-item { padding: 0 20px; }
+    .faq-item[open] { border-color: rgba(49, 112, 87, 0.4); background-color: rgba(49, 112, 87, 0.03); }
+    .faq-summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; cursor: pointer; padding: 18px 0; list-style: none; }
+    .faq-question { margin: 0; }
+    .faq-summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 4px; }
+    .faq-summary::-webkit-details-marker { display: none; }
+    .faq-summary:hover .faq-question { color: var(--primary); }
+    .faq-icon { color: var(--mint); font-size: var(--fs-sm); flex-shrink: 0; transition: transform 0.3s ease, color 0.3s ease; }
+    .faq-item[open] .faq-icon { transform: rotate(180deg); color: var(--primary); }
+    .faq-answer { padding-bottom: 20px; animation: fadeInDown 0.4s ease-in-out; }
     @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-    @media (prefers-reduced-motion: reduce) { .faq-answer { animation: none !important; } }
+    @media (prefers-reduced-motion: reduce) { .faq-answer { animation: none; } }
 
   
     /* Logotipo de producto: respetar la composicion del Hero */
@@ -673,7 +674,7 @@
     },
     {
       "@type": "WebPage",
-      "@id": "#vende-page",
+      "@id": "https://www.cfdi.com.mx/#vende-page",
       "name": "Compra CONTPAQi Vende® | Facturación CFDI 4.0 ilimitada",
       "inLanguage": "es-MX",
       "publisher": {
@@ -684,15 +685,22 @@
       },
       "hasPart": {
         "@id": "https://www.cfdi.com.mx/#faq"
+      },
+      "url": "https://www.cfdi.com.mx/",
+      "mainEntity": {
+        "@id": "https://www.cfdi.com.mx/#vende-inicial"
       }
     },
     {
-      "@type": "WebApplication",
+      "@type": [
+        "SoftwareApplication",
+        "WebApplication"
+      ],
       "@id": "https://www.cfdi.com.mx/#vende-inicial",
       "name": "CONTPAQi Vende®, edición Inicial",
       "applicationCategory": "BusinessApplication",
       "applicationSubCategory": "Facturación electrónica CFDI 4.0",
-      "operatingSystem": "Web (Cloud, desde el navegador)",
+      "operatingSystem": "Navegador web con conexión a internet",
       "softwareRequirements": "Navegador web con conexión a internet",
       "inLanguage": "es-MX",
       "description": "Software de facturación electrónica CFDI 4.0 100% en la nube con timbres ilimitados, autofacturación con CONTPAQi® Mi Factura y control de cobranza.",
@@ -712,36 +720,20 @@
         "name": "CONTPAQi"
       },
       "offers": {
-        "@type": "AggregateOffer",
+        "@type": "Offer",
+        "name": "CONTPAQi Vende® Inicial - licencia anual",
+        "price": "1890.00",
         "priceCurrency": "MXN",
-        "lowPrice": "690",
-        "highPrice": "2790",
-        "offerCount": "3",
-        "availability": "https://schema.org/InStock",
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Vende Light",
-            "price": "690",
-            "priceCurrency": "MXN"
-          },
-          {
-            "@type": "Offer",
-            "name": "Vende Inicial",
-            "price": "1890",
-            "priceCurrency": "MXN"
-          },
-          {
-            "@type": "Offer",
-            "name": "Vende Equipos",
-            "price": "2790",
-            "priceCurrency": "MXN"
-          }
-        ]
+        "url": "https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx",
+        "seller": {
+          "@id": "https://www.contpaqi.com/#organization"
+        },
+        "description": "Precio por licencia anual más IVA."
       },
       "mainEntityOfPage": {
-        "@id": "#vende-page"
-      }
+        "@id": "https://www.cfdi.com.mx/#vende-page"
+      },
+      "url": "https://www.cfdi.com.mx/"
     },
     {
       "@type": "FAQPage",
@@ -752,7 +744,7 @@
           "name": "¿Qué obtengo al comprar CONTPAQi Vende® Inicial?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Adquieres una licencia anual de facturación CFDI 4.0 para 1 RFC, con timbrado ilimitado, control de cobranza y CONTPAQi® Mi Factura para que tus clientes se autofacturen."
+            "text": "Adquieres una licencia anual de facturación CFDI 4.0 para 1 RFC y 1 usuario, con timbrado ilimitado, control de cobranza y CONTPAQi® Mi Factura para que tus clientes se autofacturen."
           }
         },
         {
@@ -760,7 +752,7 @@
           "name": "¿Puedo seguir usando mi cuenta anterior de CFDI en línea +?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. CFDI en línea + ahora se identifica como CONTPAQi Vende® Inicial. Si ya eres usuario, continúa con tus accesos habituales. Si vas a comenzar a facturar, puedes adquirir la edición Inicial y utilizar sus herramientas de facturación y cobranza."
+            "text": "Sí. CFDI en línea + está evolucionando a CONTPAQi Vende® Inicial. Puedes continuar con tus accesos habituales sin empezar desde cero y aprovechar herramientas como dashboard, notas de remisión, estados de cuenta y autofacturación."
           }
         },
         {
@@ -773,14 +765,6 @@
         },
         {
           "@type": "Question",
-          "name": "¿Puedo comprar y utilizar Vende sin instalar software?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí. Adquiere tu licencia y utiliza la plataforma desde el navegador de cualquier dispositivo con internet. No necesitas instalar programas y las actualizaciones fiscales se aplican automáticamente."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "¿Qué respaldo tengo al contratar Vende Inicial?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -789,42 +773,26 @@
         },
         {
           "@type": "Question",
-          "name": "¿Vende Inicial emite CFDI 4.0 con las validaciones fiscales necesarias?",
+          "name": "¿Qué comprobantes puedo emitir y validar con Vende Inicial?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. Vende emite CFDI 4.0 y te ayuda a revisar los datos fiscales del receptor antes de timbrar. Las actualizaciones fiscales se aplican automáticamente para que mantengas tu operación al día."
+            "text": "Emite CFDI 4.0 de ingreso, egreso, pago y traslado; facturas PUE, PPD, globales y a clientes extranjeros. El sistema integra catálogos SAT, validaciones y vista previa para revisar los datos fiscales antes de timbrar. Las actualizaciones fiscales se aplican automáticamente."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Qué necesito tener listo después de comprar Vende Inicial?",
+          "name": "¿Qué necesito para empezar a facturar y debo instalar algún programa?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Prepara tu RFC, régimen fiscal, código postal y Certificado de Sello Digital (archivos .cer y .key con su contraseña). El CSD se tramita sin costo ante el SAT y se utiliza para firmar tus facturas."
+            "text": "Prepara tu RFC, régimen fiscal, código postal y Certificado de Sello Digital (archivos .cer y .key con su contraseña), que se tramita sin costo ante el SAT. No necesitas instalar programas: utiliza Vende desde el navegador de cualquier dispositivo con internet."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Qué comprobantes podré emitir con mi licencia?",
+          "name": "¿Mi compra incluye autofacturación y factura global?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Con tu licencia puedes emitir CFDI 4.0 de ingreso, egreso, pago y traslado, además de facturas PUE, PPD, globales y a clientes extranjeros, según las operaciones que necesites documentar."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Mi compra incluye autofacturación para mis clientes?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí. Vende Inicial incluye CONTPAQi® Mi Factura. Tus clientes pueden capturar sus notas de remisión y generar sus CFDI las 24 horas, reduciendo el trabajo manual de tu negocio."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Vende Inicial me permite generar facturas globales sin recapturar ventas?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí. Genera facturas globales a partir de tus notas de remisión y evita volver a capturar las ventas al público en general que no solicitaron comprobante individual."
+            "text": "Sí. Vende Inicial incluye CONTPAQi® Mi Factura para que tus clientes generen sus CFDI a cualquier hora. También permite crear facturas globales a partir de tus notas de remisión sin recapturar ventas al público en general."
           }
         },
         {
@@ -837,42 +805,26 @@
         },
         {
           "@type": "Question",
-          "name": "¿Ya uso CFDI en línea +: necesito comenzar desde cero?",
+          "name": "¿Puedo enviar facturas y solicitar cancelaciones desde Vende?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. CONTPAQi Vende® es la evolución de CFDI en línea +. Continúa facturando y aprovecha nuevas herramientas como dashboard, notas de remisión, estados de cuenta y autofacturación."
+            "text": "Sí. Comparte CFDI en XML y PDF por WhatsApp o correo, con plantillas de mensaje. También puedes solicitar cancelaciones desde Vende conforme al procedimiento del SAT y consultar su estatus."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Podré enviar mis facturas directamente por WhatsApp o correo?",
+          "name": "¿Cuántos usuarios y RFC incluye la licencia? ¿Puedo crecer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. Comparte CFDI en XML y PDF por WhatsApp o correo, y utiliza plantillas para personalizar tus mensajes."
+            "text": "Vende Inicial incluye 1 usuario y 1 RFC. Si necesitas varios RFC o usuarios, la edición Equipos incluye 2 usuarios, multi-RFC y herramientas de ventas. Puedes cambiar de edición sin cambiar de sistema; Empresarial y Corporativo agregan funciones de inventarios y compras."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Mi licencia permite solicitar cancelaciones de CFDI?",
+          "name": "¿Cuánto pago por Vende Inicial y qué incluye mi licencia anual?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. Solicita cancelaciones desde Vende conforme al procedimiento del SAT y consulta su estatus hasta recibir confirmación."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cuántos usuarios y RFC tendré al comprar la edición Inicial?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Tu compra de Vende Inicial incluye 1 usuario y 1 RFC. Si necesitas administrar varias empresas o trabajar con otro usuario, consulta la edición Equipos, que incluye 2 usuarios y multi-RFC."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cuánto pago por Vende Inicial y qué recibo con mi licencia anual?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Compra Vende Inicial por $1,890 MXN al año, más IVA. Incluye timbrado ilimitado, CONTPAQi® Mi Factura, importación de hasta 500 XML históricos y actualizaciones fiscales durante la vigencia de tu licencia."
+            "text": "Vende Inicial cuesta $1,890 MXN al año, más IVA. Incluye timbrado ilimitado, CONTPAQi® Mi Factura, importación de hasta 500 XML históricos y actualizaciones fiscales durante la vigencia de tu licencia."
           }
         },
         {
@@ -880,15 +832,7 @@
           "name": "¿Existe una prueba gratuita antes de adquirir la licencia?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. Puedes probar Vende durante 20 días con 15 timbres incluidos. Si ya decidiste contratar, adquiere directamente la licencia Inicial para obtener timbrado ilimitado durante el periodo anual."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Podré cambiar de edición cuando mi negocio necesite más funciones?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí. Puedes pasar a otra edición sin cambiar de sistema. Equipos incorpora ventas, addendas y complementos; Empresarial y Corporativo suman herramientas de inventarios y compras."
+            "text": "Sí. Puedes probar Vende durante 20 días con 15 timbres incluidos. Si ya decidiste contratar, adquiere la licencia Inicial para obtener timbrado ilimitado durante el periodo anual."
           }
         }
       ],
@@ -896,7 +840,7 @@
         "@id": "https://www.cfdi.com.mx/#vende-inicial"
       },
       "isPartOf": {
-        "@id": "#vende-page"
+        "@id": "https://www.cfdi.com.mx/#vende-page"
       }
     }
   ]
@@ -929,7 +873,7 @@
   color: var(--mt-text);
   max-width: none;
   max-height: none;
-  width: min(520px, calc(100vw - 32px));
+  width: min(660px, calc(100vw - 32px));
   overflow: visible;
 }
 
@@ -954,8 +898,9 @@
   position: relative;
   max-height: calc(100vh - 32px);
   max-height: calc(100dvh - 32px);
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   padding: 40px 32px 32px;
   background: var(--mt-card);
   border: 1px solid var(--mt-line);
@@ -964,6 +909,14 @@
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.30);
   font-family: var(--mt-font-body);
   text-align: left;
+}
+
+/* El texto puede desplazarse sin ocultar las acciones del aviso en pantallas cortas. */
+.modal-transition__scroll {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
 }
 
 .modal-transition__close {
@@ -1020,15 +973,30 @@
 }
 
 .modal-transition__body {
-  margin: 0 0 28px;
+  margin: 0 0 14px;
   color: var(--mt-text);
   font-family: var(--mt-font-body);
   font-size: 16px;
   line-height: 1.6;
 }
 
+/* Aclaracion del servicio gratuito: lectura prioritaria sin otro CTA. */
+.modal-transition__notice {
+  margin: 0 0 14px;
+  padding: 14px 16px;
+  background: var(--mt-tint);
+  border-left: 4px solid var(--mt-accent);
+  border-radius: 8px;
+  color: var(--mt-title);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.modal-transition__notice strong { font-weight: 700; }
+
 .modal-transition__actions {
   display: flex;
+  flex: 0 0 auto;
+  padding-top: 16px;
   flex-direction: row;
   gap: 12px;
 }
@@ -1095,42 +1063,67 @@
     })(window, document, "clarity", "script", "wihvjja4i6");
   </script>
 
-  <!-- HubSpot -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49434822.js"></script>
-
-  <!-- Chatbot Salesforce (Embedded Messaging): al final del head, async para no bloquear el render -->
-  <script type="text/javascript">
+  <!-- Salesforce Embedded Messaging. No se usa Web-to-Lead ni reCAPTCHA en esta pagina. -->
+  <script>
+    // Medicion agregada: nunca enviar datos personales, contenido del chat o del pre-chat.
+    function registrarEventoVende(nombre) {
+      if (typeof window.clarity === 'function') {
+        try { window.clarity('event', nombre); } catch (err) { /* analitica no bloqueante */ }
+      }
+    }
+    window.addEventListener('onEmbeddedMessagingReady', function () {
+      window.__vendeChatReady = true;
+      registrarEventoVende('vende_chat_listo');
+    });
+    window.addEventListener('onEmbeddedMessagingButtonClicked', function () {
+      registrarEventoVende('vende_chat_abierto');
+    });
+    window.addEventListener('onEmbeddedMessagingPreChatSubmitted', function () {
+      registrarEventoVende('vende_chat_prechat_enviado');
+    });
+    function handleEmbeddedMessagingScriptError() {
+      window.__vendeChatLoadError = true;
+      console.error('No se pudo descargar el chatbot Salesforce. Revisar red, CSP y dominios permitidos.');
+    }
     function initEmbeddedMessaging() {
-      // El script llega async desde el head: si el body aún no existe, espera al DOM antes de inicializar.
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initEmbeddedMessaging, { once: true });
         return;
       }
-      if (window.__esmInitDone) return;
-      window.__esmInitDone = true;
+      if (window.__esmInitStarted) return;
+      if (!window.embeddedservice_bootstrap || typeof window.embeddedservice_bootstrap.init !== 'function') {
+        handleEmbeddedMessagingScriptError();
+        return;
+      }
+      window.__esmInitStarted = true;
       try {
-        embeddedservice_bootstrap.settings.language = 'es_MX';
-        embeddedservice_bootstrap.init(
+        window.embeddedservice_bootstrap.settings.language = 'es_MX';
+        var result = window.embeddedservice_bootstrap.init(
           '00DHp0000033fe3',
           'Telemarketing',
           'https://contpaqi.my.site.com/ESWTelemarketing1766166914683',
-          {
-            scrt2URL: 'https://contpaqi.my.salesforce-scrt.com'
-          }
+          { scrt2URL: 'https://contpaqi.my.salesforce-scrt.com' }
         );
+        if (result && typeof result.catch === 'function') {
+          result.catch(function (error) {
+            window.__vendeChatLoadError = true;
+            console.error('Salesforce Embedded Messaging no pudo inicializarse:', error);
+          });
+        }
       } catch (err) {
-        window.__esmInitDone = false;
-        console.error('Error loading Embedded Messaging: ', err);
+        window.__esmInitStarted = false;
+        window.__vendeChatLoadError = true;
+        console.error('Error al inicializar Salesforce Embedded Messaging:', err);
       }
-    };
+    }
   </script>
-  <script type="text/javascript"
-          src="https://contpaqi.my.site.com/ESWTelemarketing1766166914683/assets/js/bootstrap.min.js"
+  <script src="https://contpaqi.my.site.com/ESWTelemarketing1766166914683/assets/js/bootstrap.min.js"
           onload="initEmbeddedMessaging()"
-          async>
-  </script>
+          onerror="handleEmbeddedMessagingScriptError()"
+          async></script>
 </head>
 <body>
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
   <!-- =========================================================
        HEADER
@@ -1147,7 +1140,7 @@
           <li><a href="#beneficios" class="nav__link">Beneficios</a></li>
           <li><a href="#planes" class="nav__link">Planes</a></li>
           <li><a href="#faq" class="nav__link">Preguntas</a></li>
-          <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer" class="nav__link" data-cta="header-soporte">Soporte técnico<i class="fa-solid fa-arrow-up-right-from-square nav__ext" aria-hidden="true"></i><span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+          <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer" class="nav__link" data-cta="header-soporte">Soporte técnico<i class="nav__ext fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
         </ul>
         <div class="nav__actions">
           <a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer" class="nav__login">
@@ -1170,7 +1163,7 @@
       <li><a href="#beneficios">Beneficios</a></li>
       <li><a href="#planes">Planes</a></li>
       <li><a href="#faq">Preguntas</a></li>
-      <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer" data-cta="menu-movil-soporte">Soporte técnico<i class="fa-solid fa-arrow-up-right-from-square nav__ext" aria-hidden="true"></i><span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+      <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer" data-cta="menu-movil-soporte">Soporte técnico<i class="nav__ext fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
     </ul>
     <div class="mobile-menu__actions">
       <a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-m">
@@ -1203,6 +1196,11 @@
                 Iniciar sesión
               </a>
             </div>
+            <!-- Acceso estable a CONTPAQi Nube. No fijar URLs OAuth con PKCE y state generados por sesion. -->
+            <p class="hero__trial">¿Quieres conocerlo antes de comprar?
+              <a href="https://app.contpaqinube.com/" target="_blank" rel="noopener noreferrer" aria-label="Ir a CONTPAQi Nube para iniciar una prueba gratuita de Vende por 20 días (se abre en una pestaña nueva)">Prueba gratis por 20 días</a>
+              <span class="hero__trial-detail"> · Incluye 15 timbres</span>
+            </p>
             <ul class="hero__checks">
               <li><i class="icon fa-regular fa-circle-check" aria-hidden="true"></i><span>Factura CFDI 4.0 desde tu navegador</span></li>
               <li><i class="icon fa-regular fa-circle-check" aria-hidden="true"></i><span>Consulta tus comprobantes en la nube</span></li>
@@ -1259,7 +1257,7 @@
           <div class="evo__video">
             <!-- Iframe limpio en contenedor 16:9 responsivo (.video-embed). Para probar, abrir desde http(s); desde file:// YouTube puede devolver Error 153. -->
             <div class="video-embed aspect-video">
-              <iframe src="https://www.youtube.com/embed/VL5vTWCEuIc" title="CONTPAQi Vende®: video de presentación" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/VL5vTWCEuIc" title="CONTPAQi Vende®: video de presentación" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           </div>
           <div class="evo__copy">
@@ -1499,133 +1497,90 @@
         </div>
 
         <div class="faq-container">
-          <!-- TODO FAQ (requieren respuesta oficial de Producto/Legal): ¿Cómo renuevo mi licencia anual? · ¿Qué formas de pago aceptan? ·
-               ¿Qué soporte incluye? · ¿Qué pasa con mis facturas y datos si no renuevo? · ¿Hay política de uso razonable en timbres ilimitados? -->
+          <!-- FAQ condensado a 12 respuestas; mantener en sincronía con el JSON-LD. -->
           <details class="faq-item" name="faq" open>
             <summary class="faq-summary">
               <h3 class="faq-question">¿Qué obtengo al comprar CONTPAQi Vende® Inicial?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Adquieres una licencia anual de facturación CFDI 4.0 para 1 RFC, con timbrado ilimitado, control de cobranza y CONTPAQi® Mi Factura para que tus clientes se autofacturen.</p></div>
+            <div class="faq-answer"><p>Adquieres una licencia anual de facturación CFDI 4.0 para 1 RFC y 1 usuario, con timbrado ilimitado, control de cobranza y CONTPAQi® Mi Factura para que tus clientes se autofacturen.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
               <h3 class="faq-question">¿Puedo seguir usando mi cuenta anterior de CFDI en línea +?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. CFDI en línea + ahora se identifica como CONTPAQi Vende® Inicial. Si ya eres usuario, continúa con tus accesos habituales. Si vas a comenzar a facturar, puedes adquirir la edición Inicial y utilizar sus herramientas de facturación y cobranza.</p></div>
+            <div class="faq-answer"><p>Sí. CFDI en línea + está evolucionando a CONTPAQi Vende® Inicial. Puedes continuar con tus accesos habituales sin empezar desde cero y aprovechar herramientas como dashboard, notas de remisión, estados de cuenta y autofacturación.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
               <h3 class="faq-question">¿Al comprar Vende Inicial puedo emitir CFDI sin límite de timbres?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
             <div class="faq-answer"><p>Sí. Tu licencia anual incluye timbrado ilimitado, sin necesidad de comprar paquetes adicionales ni pagar individualmente por cada comprobante.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Puedo comprar y utilizar Vende sin instalar software?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-answer"><p>Sí. Adquiere tu licencia y utiliza la plataforma desde el navegador de cualquier dispositivo con internet. No necesitas instalar programas y las actualizaciones fiscales se aplican automáticamente.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-summary">
               <h3 class="faq-question">¿Qué respaldo tengo al contratar Vende Inicial?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
             <div class="faq-answer"><p>Cuentas con el respaldo de CONTPAQi®, PAC autorizado, con más de 42 años de experiencia. Tus CFDI se respaldan en la nube y puedes administrar tu información mediante acceso protegido.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Vende Inicial emite CFDI 4.0 con las validaciones fiscales necesarias?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <h3 class="faq-question">¿Qué comprobantes puedo emitir y validar con Vende Inicial?</h3>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. Vende emite CFDI 4.0 y te ayuda a revisar los datos fiscales del receptor antes de timbrar. Las actualizaciones fiscales se aplican automáticamente para que mantengas tu operación al día.</p></div>
+            <div class="faq-answer"><p>Emite CFDI 4.0 de ingreso, egreso, pago y traslado; facturas PUE, PPD, globales y a clientes extranjeros. El sistema integra catálogos SAT, validaciones y vista previa para revisar los datos fiscales antes de timbrar. Las actualizaciones fiscales se aplican automáticamente.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Qué necesito tener listo después de comprar Vende Inicial?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <h3 class="faq-question">¿Qué necesito para empezar a facturar y debo instalar algún programa?</h3>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Prepara tu RFC, régimen fiscal, código postal y Certificado de Sello Digital (archivos .cer y .key con su contraseña). El CSD se tramita sin costo ante el SAT y se utiliza para firmar tus facturas.</p></div>
+            <div class="faq-answer"><p>Prepara tu RFC, régimen fiscal, código postal y Certificado de Sello Digital (archivos .cer y .key con su contraseña), que se tramita sin costo ante el SAT. No necesitas instalar programas: utiliza Vende desde el navegador de cualquier dispositivo con internet.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Qué comprobantes podré emitir con mi licencia?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <h3 class="faq-question">¿Mi compra incluye autofacturación y factura global?</h3>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Con tu licencia puedes emitir CFDI 4.0 de ingreso, egreso, pago y traslado, además de facturas PUE, PPD, globales y a clientes extranjeros, según las operaciones que necesites documentar.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-summary">
-              <h3 class="faq-question">¿Mi compra incluye autofacturación para mis clientes?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-answer"><p>Sí. Vende Inicial incluye CONTPAQi® Mi Factura. Tus clientes pueden capturar sus notas de remisión y generar sus CFDI las 24 horas, reduciendo el trabajo manual de tu negocio.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-summary">
-              <h3 class="faq-question">¿Vende Inicial me permite generar facturas globales sin recapturar ventas?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-answer"><p>Sí. Genera facturas globales a partir de tus notas de remisión y evita volver a capturar las ventas al público en general que no solicitaron comprobante individual.</p></div>
+            <div class="faq-answer"><p>Sí. Vende Inicial incluye CONTPAQi® Mi Factura para que tus clientes generen sus CFDI a cualquier hora. También permite crear facturas globales a partir de tus notas de remisión sin recapturar ventas al público en general.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
               <h3 class="faq-question">¿Puedo cambiarme a Vende sin perder mi historial de CFDI?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
             <div class="faq-answer"><p>Sí. Importa hasta 500 XML anteriores, crea catálogos de clientes y productos a partir de ellos y asigna saldos pendientes para continuar tu operación.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Ya uso CFDI en línea +: necesito comenzar desde cero?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <h3 class="faq-question">¿Puedo enviar facturas y solicitar cancelaciones desde Vende?</h3>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>No. CONTPAQi Vende® es la evolución de CFDI en línea +. Continúa facturando y aprovecha nuevas herramientas como dashboard, notas de remisión, estados de cuenta y autofacturación.</p></div>
+            <div class="faq-answer"><p>Sí. Comparte CFDI en XML y PDF por WhatsApp o correo, con plantillas de mensaje. También puedes solicitar cancelaciones desde Vende conforme al procedimiento del SAT y consultar su estatus.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Podré enviar mis facturas directamente por WhatsApp o correo?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <h3 class="faq-question">¿Cuántos usuarios y RFC incluye la licencia? ¿Puedo crecer?</h3>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. Comparte CFDI en XML y PDF por WhatsApp o correo, y utiliza plantillas para personalizar tus mensajes.</p></div>
+            <div class="faq-answer"><p>Vende Inicial incluye 1 usuario y 1 RFC. Si necesitas varios RFC o usuarios, la edición Equipos incluye 2 usuarios, multi-RFC y herramientas de ventas. Puedes cambiar de edición sin cambiar de sistema; Empresarial y Corporativo agregan funciones de inventarios y compras.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Mi licencia permite solicitar cancelaciones de CFDI?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <h3 class="faq-question">¿Cuánto pago por Vende Inicial y qué incluye mi licencia anual?</h3>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. Solicita cancelaciones desde Vende conforme al procedimiento del SAT y consulta su estatus hasta recibir confirmación.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-summary">
-              <h3 class="faq-question">¿Cuántos usuarios y RFC tendré al comprar la edición Inicial?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-answer"><p>Tu compra de Vende Inicial incluye 1 usuario y 1 RFC. Si necesitas administrar varias empresas o trabajar con otro usuario, consulta la edición Equipos, que incluye 2 usuarios y multi-RFC.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-summary">
-              <h3 class="faq-question">¿Cuánto pago por Vende Inicial y qué recibo con mi licencia anual?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-answer"><p>Compra Vende Inicial por $1,890 MXN al año, más IVA. Incluye timbrado ilimitado, CONTPAQi® Mi Factura, importación de hasta 500 XML históricos y actualizaciones fiscales durante la vigencia de tu licencia.</p></div>
+            <div class="faq-answer"><p>Vende Inicial cuesta $1,890 MXN al año, más IVA. Incluye timbrado ilimitado, CONTPAQi® Mi Factura, importación de hasta 500 XML históricos y actualizaciones fiscales durante la vigencia de tu licencia.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
               <h3 class="faq-question">¿Existe una prueba gratuita antes de adquirir la licencia?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
+              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. Puedes probar Vende durante 20 días con 15 timbres incluidos. Si ya decidiste contratar, adquiere directamente la licencia Inicial para obtener timbrado ilimitado durante el periodo anual.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-summary">
-              <h3 class="faq-question">¿Podré cambiar de edición cuando mi negocio necesite más funciones?</h3>
-              <i class="fa-solid fa-chevron-down faq-icon" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-answer"><p>Sí. Puedes pasar a otra edición sin cambiar de sistema. Equipos incorpora ventas, addendas y complementos; Empresarial y Corporativo suman herramientas de inventarios y compras.</p></div>
+            <div class="faq-answer"><p>Sí. Puedes probar Vende durante 20 días con 15 timbres incluidos. Si ya decidiste contratar, adquiere la licencia Inicial para obtener timbrado ilimitado durante el periodo anual.</p></div>
           </details>
         </div>
       </div>
@@ -1697,6 +1652,7 @@
           <ul class="footer__links">
             <li><a href="https://www.cfdi.com.mx/Documentos/F-Aviso_privacidad_pccfdi_(F-AF-130).html">Aviso de privacidad</a></li>
             <li><a href="https://www.cfdi.com.mx/Documentos/F-Acuerdo_servicio_pagina_contpaqi_cfdi_facturacion_linea_mas_(F-AF-133).html">Acuerdo de servicio</a></li>
+            <li><a href="https://www.contpaqi.com/terminos-y-condiciones/compra-y-devolucion-contpaqi-vende">Compra y devolución</a></li>
             <li><a href="https://www.contpaqi.com/certificaciones">Seguridad</a></li>
           </ul>
         </div>
@@ -1814,7 +1770,7 @@
   <!-- Modal de transición CFDI en línea + → Vende -->
   <dialog class="modal-transition" id="modal-transition-vende"
         aria-labelledby="modal-transition-title"
-        aria-describedby="modal-transition-body">
+        aria-describedby="modal-transition-free modal-transition-body">
   <div class="modal-transition__card">
 
     <button type="button" class="modal-transition__close" data-modal-transition-close
@@ -1822,22 +1778,26 @@
       <span aria-hidden="true">&times;</span>
     </button>
 
+    <div class="modal-transition__scroll">
     <span class="modal-transition__icon" aria-hidden="true">
-      <i class="fa-solid fa-arrow-right-arrow-left"></i>
+      <i class="fa-solid fa-arrow-right-arrow-left" aria-hidden="true"></i>
     </span>
 
     <p class="modal-transition__eyebrow">TU PLATAFORMA ESTÁ EVOLUCIONANDO</p>
 
     <h2 class="modal-transition__title" id="modal-transition-title">CFDI Facturación en Línea+ está cambiando a CONTPAQi Vende. Sigue facturando con tu cuenta.</h2>
 
-    <p class="modal-transition__body" id="modal-transition-body">Queremos informarte que CFDI Facturación en línea+ ha entrado en un periodo de descatalogación que finaliza el 12 de noviembre de 2027, pero no te preocupes: puedes seguir usando tus accesos, conservar tu información y continuar realizando tus facturas.</p>
+    <p class="modal-transition__notice" id="modal-transition-free"><strong>Si eres usuario del servicio gratuito de CFDI Facturación en Línea, podrás seguir utilizando el sistema con normalidad; este cambio solo aplica para usuarios de servicio pagado.</strong></p>
+
+    <p class="modal-transition__body" id="modal-transition-body">Queremos informarte que CFDI Facturación en línea+ ha entrado en un periodo de descatalogación que concluirá en 2027, el día 12 de noviembre. Pero no te preocupes: puedes seguir usando tus accesos, conservar tu información y continuar realizando tus facturas.</p>
+    </div>
 
     <div class="modal-transition__actions">
       <a class="modal-transition__btn modal-transition__btn--primary"
          href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer"
          data-modal-transition-login>Entrar a mi cuenta</a>
       <button type="button" class="modal-transition__btn modal-transition__btn--secondary"
-              data-modal-transition-close>Ver beneficios de Vende</button>
+              data-modal-transition-benefits>Ver beneficios de Vende</button>
     </div>
 
   </div>
@@ -1862,6 +1822,7 @@
   var shownInMemory = false;      // respaldo si sessionStorage no está disponible
   var lastFocused = null;
   var scrollLock = null;
+  var returnFocusOnClose = true;
 
   function wasShown() {
     if (PREVIEW_MODE) return false; // modo de prueba: ?modalPreview=1 ignora la marca de sesión
@@ -1902,13 +1863,16 @@
   function onClosed() {
     unlockScroll();
     document.removeEventListener('keydown', onFallbackKeydown, true);
-    if (lastFocused && typeof lastFocused.focus === 'function' && document.contains(lastFocused)) {
+    if (returnFocusOnClose && lastFocused && typeof lastFocused.focus === 'function' && document.contains(lastFocused)) {
       try { lastFocused.focus({ preventScroll: true }); } catch (e) { /* noop */ }
     }
     lastFocused = null;
+    returnFocusOnClose = true;
   }
 
-  function closeModal() {
+  function closeModal(options) {
+    options = options || {};
+    returnFocusOnClose = options.restoreFocus !== false;
     if (!dialog || !dialog.hasAttribute('open')) return;
     if (typeof dialog.close === 'function') {
       dialog.close();               // dispara "close" → onClosed
@@ -1958,10 +1922,26 @@
 
     dialog.addEventListener('click', function (e) {
       if (e.target === dialog) { closeModal(); return; }   // clic en el overlay (fuera de la tarjeta)
+      var benefits = e.target.closest ? e.target.closest('[data-modal-transition-benefits]') : null;
+      if (benefits) {
+        e.preventDefault();
+        closeModal({ restoreFocus: false });
+        // Dialogo cerrado antes de mover la vista y el foco al contenido prometido.
+        window.setTimeout(function () {
+          var target = document.getElementById('beneficios');
+          if (!target) return;
+          if (history.replaceState) history.replaceState(null, '', '#beneficios');
+          target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+          target.setAttribute('tabindex', '-1');
+          target.focus({ preventScroll: true });
+          target.addEventListener('blur', function () { target.removeAttribute('tabindex'); }, { once: true });
+        }, 30);
+        return;
+      }
       var closer = e.target.closest ? e.target.closest('[data-modal-transition-close]') : null;
       if (closer) { e.preventDefault(); closeModal(); return; }
       var login = e.target.closest ? e.target.closest('[data-modal-transition-login]') : null;
-      if (login) { closeModal(); }   // el enlace abre el login en otra pestaña; el modal se cierra aquí
+      if (login) { closeModal({ restoreFocus: false }); }   // el enlace abre el login en otra pestaña; el modal se cierra aquí
     });
 
     // Escape nativo: <dialog> dispara "cancel" y luego "close".
@@ -1985,6 +1965,16 @@
 })();
 </script>
 
+
+  <!-- Eventos de intencion de compra. No equivalen a ventas completadas. -->
+  <script>
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest ? event.target.closest('a[data-cta]') : null;
+      if (!link) return;
+      var ubicacion = link.getAttribute('data-cta') || '';
+      if (ubicacion.endsWith('-comprar')) registrarEventoVende('vende_click_' + ubicacion);
+    });
+  </script>
   <!-- FAQ: acordeón exclusivo (mismo script que la página institucional; respaldo para navegadores sin <details name>) -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
