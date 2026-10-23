@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compra CONTPAQi Vende® | Facturación CFDI 4.0 ilimitada</title>
+  <title>Compra CONTPAQi Vende® Inicial | Facturación CFDI 4.0 ilimitada</title>
   <meta name="description" content="Compra CONTPAQi Vende® Inicial por $1,890 MXN al año. Factura CFDI 4.0 con timbres ilimitados, autofacturación para clientes y respaldo en la nube, sin instalar programas.">
   <meta name="robots" content="index, follow">
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -29,6 +29,9 @@
   <link rel="icon" type="image/png" href="https://www.contpaqi.com/hubfs/favicon-cpi.png">
 
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://js.hs-scripts.com">
+  <link rel="dns-prefetch" href="https://contpaqi.my.site.com">
+  <link rel="dns-prefetch" href="https://www.clarity.ms">
   <!-- LCP: imagen de fondo del hero -->
   <link rel="preload" as="image" href="https://www.contpaqi.com/hubfs/Backgrounds/Background-Administraci%C3%B3n-2026-Green.jpg" fetchpriority="high">
 
@@ -87,7 +90,10 @@
        RESET / BASE
        ========================================================= */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 76px; -webkit-text-size-adjust: 100%; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    /* Offset de anclas bajo el header fijo (un solo mecanismo: scroll-margin-top) */
+    :root { --header-offset: 76px; }
+    section[id], a[data-hs-anchor="true"] { scroll-margin-top: var(--header-offset); }
     body {
       font-family: var(--font-body);
       font-size: var(--fs-base);
@@ -1075,6 +1081,41 @@
   }
 }
 </style>
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wihvjja4i6");
+  </script>
+
+  <!-- HubSpot -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/49434822.js"></script>
+
+  <!-- Chatbot Salesforce (Embedded Messaging): al final del head, async para no bloquear el render -->
+  <script type="text/javascript">
+    function initEmbeddedMessaging() {
+      try {
+        embeddedservice_bootstrap.settings.language = 'es_MX';
+        embeddedservice_bootstrap.init(
+          '00DHp0000033fe3',
+          'Telemarketing',
+          'https://contpaqi.my.site.com/ESWTelemarketing1766166914683',
+          {
+            scrt2URL: 'https://contpaqi.my.salesforce-scrt.com'
+          }
+        );
+      } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+      }
+    };
+  </script>
+  <script type="text/javascript"
+          src="https://contpaqi.my.site.com/ESWTelemarketing1766166914683/assets/js/bootstrap.min.js"
+          onload="initEmbeddedMessaging()"
+          async>
+  </script>
 </head>
 <body>
 
@@ -1089,20 +1130,20 @@
 
       <nav class="nav" aria-label="Principal">
         <ul class="nav__list">
-          <li><a href="#perfiles" class="nav__link">¿Es para mí?</a></li>
-          <li><a href="#beneficios" class="nav__link">Ventajas al comprar</a></li>
-          <li><a href="#planes" class="nav__link">Precios y compra</a></li>
-          <li><a href="#faq" class="nav__link">Resuelve tus dudas</a></li>
-          <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer" class="nav__link" data-cta="header-soporte">Solicitar soporte<i class="fa-solid fa-arrow-up-right-from-square nav__ext" aria-hidden="true"></i><span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+          <li><a href="#perfiles" class="nav__link">Para ti</a></li>
+          <li><a href="#beneficios" class="nav__link">Beneficios</a></li>
+          <li><a href="#planes" class="nav__link">Planes</a></li>
+          <li><a href="#faq" class="nav__link">Preguntas</a></li>
+          <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer" class="nav__link" data-cta="header-soporte">Soporte técnico<i class="fa-solid fa-arrow-up-right-from-square nav__ext" aria-hidden="true"></i><span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
         </ul>
         <div class="nav__actions">
           <a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer" class="nav__login">
-            <i class="icon fa-solid fa-right-to-bracket" aria-hidden="true"></i>Entrar a mi cuenta</a>
-          <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-md" data-cta="header-comprar">Comprar Vende Inicial</a>
+            <i class="icon fa-solid fa-right-to-bracket" aria-hidden="true"></i>Iniciar sesión</a>
+          <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-md" data-cta="header-comprar">Comprar ahora</a>
         </div>
       </nav>
 
-      <button class="burger" id="burger" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mobileMenu">
+      <button class="burger" id="burger" aria-label="Menú" aria-expanded="false" aria-controls="mobileMenu">
         <i class="icon icon-open fa-solid fa-bars" aria-hidden="true"></i>
         <i class="icon icon-close fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
@@ -1112,16 +1153,16 @@
   <!-- Menú móvil (fuera del header para que position:fixed cubra toda la pantalla) -->
   <nav class="mobile-menu" id="mobileMenu" aria-label="Menú móvil">
     <ul class="mobile-menu__list">
-      <li><a href="#perfiles">¿Es para mí?</a></li>
-      <li><a href="#beneficios">Ventajas al comprar</a></li>
-      <li><a href="#planes">Precios y compra</a></li>
-      <li><a href="#faq">Resuelve tus dudas</a></li>
-      <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer" data-cta="menu-movil-soporte">Solicitar soporte<i class="fa-solid fa-arrow-up-right-from-square nav__ext" aria-hidden="true"></i><span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
+      <li><a href="#perfiles">Para ti</a></li>
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#planes">Planes</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+      <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer" data-cta="menu-movil-soporte">Soporte técnico<i class="fa-solid fa-arrow-up-right-from-square nav__ext" aria-hidden="true"></i><span class="sr-only"> (se abre en una pestaña nueva)</span></a></li>
     </ul>
     <div class="mobile-menu__actions">
       <a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-m">
-        <i class="icon fa-solid fa-right-to-bracket" aria-hidden="true"></i>Entrar a mi cuenta</a>
-      <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill" data-cta="menu-movil-comprar">Comprar Vende Inicial</a>
+        <i class="icon fa-solid fa-right-to-bracket" aria-hidden="true"></i>Iniciar sesión</a>
+      <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill" data-cta="menu-movil-comprar">Comprar ahora</a>
     </div>
   </nav>
 
@@ -1140,11 +1181,10 @@
             </div>
             <p class="eyebrow hero__transition-eyebrow">TU FACTURACIÓN ILIMITADA COMIENZA AQUÍ</p>
             <div class="badge"><span class="badge__dot"></span>CFDI 4.0 EN LA NUBE · SIN PAGAR POR TIMBRE</div>
-            <h1 class="hero-title">Compra CONTPAQi Vende® y factura sin límite de timbres todo el año</h1>
+            <h1 class="hero-title">Compra CONTPAQi Vende® Inicial y factura sin límite de timbres todo el año</h1>
             <p class="hero__lead c-desc-main">Deja de comprar paquetes de timbres. Adquiere tu licencia anual por $1,890 MXN y factura desde cualquier lugar, sin instalar programas. Si ya utilizas CFDI en línea +, continúa con tus accesos en CONTPAQi Vende® Inicial.</p>
             <div class="hero__cta">
-              <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="hero-comprar">
-                Comprar mi licencia anual<i class="icon fa-solid fa-arrow-right" aria-hidden="true"></i>
+              <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="hero-comprar">Comprar ahora<i class="icon fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
               <a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-outline-m" data-cta="hero-login">
                 Iniciar sesión
@@ -1264,7 +1304,7 @@
             <div class="plan__head">
               <div class="plan__title-row">
                 <h3 class="section-sub-title">Inicial</h3>
-                <span class="tag">IDEAL PARA FACTURAR SIN LÍMITE</span>
+                <span class="tag">Recomendado</span>
               </div>
               <p class="plan__desc">Factura todos los días sin contar timbres y lleva el control de lo que te deben.</p>
             </div>
@@ -1275,7 +1315,7 @@
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Administra 1 RFC con 1 usuario</span></li>
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Incluye CONTPAQi® Mi Factura para tus clientes</span></li>
             </ul>
-            <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-xl" data-cta="plan-inicial-comprar">Comprar Vende Inicial</a>
+            <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-xl" data-cta="plan-inicial-comprar">Comprar ahora</a>
             <p class="plan__legal" style="margin:10px 0 0;font-size:12px;line-height:1.4;color:var(--slate-500);text-align:center;">$1,890 MXN anuales más IVA. Aplican pagos a meses sin intereses.</p>
           </article>
 
@@ -1325,7 +1365,7 @@
           </li>
         </ol>
         <div class="steps__cta">
-          <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="pasos-comprar">Comprar y comenzar</a>
+          <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="pasos-comprar">Comprar ahora</a>
         </div>
       </div>
     </section>
@@ -1378,7 +1418,7 @@
           </article>
         </div>
         <div class="ben__cta">
-          <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="beneficios-comprar">Comprar con estos beneficios</a>
+          <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="beneficios-comprar">Comprar ahora</a>
         </div>
       </div>
     </section>
@@ -1590,7 +1630,7 @@
         <p class="c-desc-main">Adquiere tu licencia anual por $1,890 MXN más IVA. Incluye timbrado ilimitado, autofacturación para tus clientes y herramientas de cobranza en una sola plataforma.</p>
       </div>
       <div class="cta__actions">
-        <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="cierre-comprar">Comprar mi licencia por $1,890</a>
+        <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="cierre-comprar">Comprar ahora</a>
       </div>
     </div>
   </section>
@@ -1620,31 +1660,31 @@
         </div>
 
         <div>
-          <h2 class="footer__title">Tu solución</h2>
+          <h2 class="footer__title">Producto</h2>
           <ul class="footer__links">
-            <li><a href="#perfiles">¿Es para mí?</a></li>
-            <li><a href="#beneficios">Ventajas al comprar</a></li>
-            <li><a href="#planes">Comparar precios</a></li>
-            <li><a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer">Entrar a mi cuenta</a></li>
+            <li><a href="#perfiles">Para ti</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#planes">Planes y precios</a></li>
+            <li><a href="https://www.cfdi.com.mx/login/" target="_blank" rel="noopener noreferrer">Iniciar sesión</a></li>
           </ul>
         </div>
 
         <div>
-          <h2 class="footer__title">Atención y soporte</h2>
+          <h2 class="footer__title">Soporte</h2>
           <ul class="footer__links">
-            <li><a href="#faq">Resolver dudas</a></li>
-                        <li><a href="https://www.cfdi.com.mx/help/details/PregFrecCFDIVer4_0.pdf" target="_blank" rel="noopener noreferrer">Consultar dudas del SAT</a></li>
-            <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer">Solicitar soporte</a></li>
-            <li><a href="https://www.contpaqi.com/contactanos">Contactar a CONTPAQi®</a></li>
+            <li><a href="#faq">Preguntas frecuentes</a></li>
+                        <li><a href="https://www.cfdi.com.mx/help/details/PregFrecCFDIVer4_0.pdf" target="_blank" rel="noopener noreferrer">Preguntas frecuentes el SAT</a></li>
+            <li><a href="https://www.cfdi.com.mx/PSI/App/AddCase.aspx" target="_blank" rel="noopener noreferrer">Soporte técnico</a></li>
+            <li><a href="https://www.contpaqi.com/contactanos">Contacto</a></li>
           </ul>
         </div>
 
         <div>
-          <h2 class="footer__title">Información legal</h2>
+          <h2 class="footer__title">Legal</h2>
           <ul class="footer__links">
-            <li><a href="https://www.cfdi.com.mx/Documentos/F-Aviso_privacidad_pccfdi_(F-AF-130).html">Consultar aviso de privacidad</a></li>
-            <li><a href="https://www.cfdi.com.mx/Documentos/F-Acuerdo_servicio_pagina_contpaqi_cfdi_facturacion_linea_mas_(F-AF-133).html">Consultar acuerdo de servicio</a></li>
-            <li><a href="https://www.contpaqi.com/certificaciones">Consultar certificaciones</a></li>
+            <li><a href="https://www.cfdi.com.mx/Documentos/F-Aviso_privacidad_pccfdi_(F-AF-130).html">Aviso de privacidad</a></li>
+            <li><a href="https://www.cfdi.com.mx/Documentos/F-Acuerdo_servicio_pagina_contpaqi_cfdi_facturacion_linea_mas_(F-AF-133).html">Acuerdo de servicio</a></li>
+            <li><a href="https://www.contpaqi.com/certificaciones">Seguridad</a></li>
           </ul>
         </div>
       </div>
@@ -1934,3 +1974,4 @@
 
 </body>
 </html>
+
