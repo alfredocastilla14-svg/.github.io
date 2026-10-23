@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compra CONTPAQi Vende® Inicial | Facturación CFDI 4.0 ilimitada</title>
+  <title>Compra CONTPAQi Vende® | Facturación CFDI 4.0 ilimitada</title>
   <meta name="description" content="Compra CONTPAQi Vende® Inicial por $1,890 MXN al año. Factura CFDI 4.0 con timbres ilimitados, autofacturación para clientes y respaldo en la nube, sin instalar programas.">
   <meta name="robots" content="index, follow">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta property="og:title" content="Compra CONTPAQi Vende® Inicial | Facturación CFDI 4.0 ilimitada">
+  <meta property="og:title" content="Compra CONTPAQi Vende® | Facturación CFDI 4.0 ilimitada">
   <meta property="og:description" content="Compra CONTPAQi Vende® Inicial por $1,890 MXN al año. Factura CFDI 4.0 con timbres ilimitados, autofacturación para clientes y respaldo en la nube, sin instalar programas.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Compra CONTPAQi Vende® Inicial | Facturación CFDI 4.0 ilimitada">
+  <meta name="twitter:title" content="Compra CONTPAQi Vende® | Facturación CFDI 4.0 ilimitada">
   <meta name="twitter:description" content="Compra CONTPAQi Vende® Inicial por $1,890 MXN al año. Factura CFDI 4.0 con timbres ilimitados, autofacturación para clientes y respaldo en la nube, sin instalar programas.">
   <!-- V3: en producción, reemplaza los valores dinámicos por URL canónica definitiva si se requiere SSR. -->
   <link rel="canonical" id="canonical-url" href="">
@@ -268,7 +268,7 @@
     .proof { display: grid; gap: 12px; }
     .proof__lead { text-align: center; }
     .proof__lead::before { content: ''; display: block; width: 32px; height: 3px; border-radius: 2px; background: var(--mint); margin: 0 auto 6px; }
-    .proof__title { font-family: var(--font-title); font-size: 22px; font-weight: 800; line-height: 1.2; letter-spacing: -.01em; color: #fff; margin: 0; }
+    .proof__title { font-family: var(--font-title); font-size: var(--fs-lg); font-weight: 800; line-height: 1.2; letter-spacing: -.01em; color: #fff; margin: 0; }
     .proof__title span { color: var(--mint); }
     .proof__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
     .proof .stat { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 10px; align-items: center; align-content: center; text-align: left; padding: 8px 12px; border-radius: 12px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: transform .3s ease, background .3s ease, border-color .3s ease; }
@@ -276,7 +276,7 @@
     .stat__ico { grid-row: 1 / span 2; width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; background: rgba(91,196,156,.22); color: var(--mint); }
     .stat__ico .icon { font-size: 16px; }
     .proof .stat__big { align-self: end; font-family: var(--font-title); font-size: 20px; font-weight: 800; line-height: 1.1; letter-spacing: -.01em; color: #fff; }
-    .proof .stat__txt { align-self: start; margin-top: 1px; font-size: 12px; line-height: 1.3; font-weight: 500; color: rgba(255,255,255,.88); }
+    .proof .stat__txt { align-self: start; margin-top: 1px; font-size: var(--fs-sm); line-height: 1.3; font-weight: 500; color: rgba(255,255,255,.88); }
     /* Tarjeta destacada: Ecosistema Cloud (blanca, el punto de mayor contraste de la franja) */
     .proof .stat--cloud { background: #fff; border-color: #fff; box-shadow: 0 10px 22px -10px rgba(0,0,0,.45); }
     .proof .stat--cloud:hover { background: #fff; border-color: #fff; }
@@ -286,14 +286,14 @@
     .proof-section .carousel__dot::after { background: rgba(255,255,255,.45); }
     .proof-section .carousel__dot[aria-current="true"]::after { background: #fff; }
     .proof-section .carousel:focus-visible { outline-color: #fff; }
-    @media (max-width: 767px) { .proof-section { padding: 16px 0 8px; } .proof .carousel--md > * { flex: 0 0 min(78%, 280px); } .proof__title { font-size: 19px; } }
-    @media (min-width: 1024px) { .proof-section { padding: 20px 0; } .proof__title { font-size: 24px; } .proof__grid { grid-template-columns: repeat(4, 1fr); gap: 10px; } }
+    @media (max-width: 767px) { .proof-section { padding: 16px 0 8px; } .proof .carousel--md > * { flex: 0 0 min(78%, 280px); } }
+    @media (min-width: 1024px) { .proof-section { padding: 20px 0; } .proof__grid { grid-template-columns: repeat(4, 1fr); gap: 10px; } }
 
     /* =========================================================
        CARACTERÍSTICAS
        ========================================================= */
     .section-head { text-align: center; max-width: 768px; margin: 0 auto 24px; }
-    .eyebrow { color: var(--primary); font-weight: 700; letter-spacing: .025em; text-transform: uppercase; font-size: var(--fs-sm); margin-bottom: 12px; font-family: var(--font-title); }
+    .eyebrow { color: var(--primary); font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; font-size: var(--fs-sm); margin-bottom: 12px; font-family: var(--font-title); }
 
 
     .ben { padding: var(--section-y) 0; background: var(--slate-50); }
@@ -457,6 +457,7 @@
     .chips li { font-size: var(--fs-sm); font-weight: 600; color: var(--primary); background: #fff; border: 1px solid var(--blue-100); border-radius: 999px; padding: 6px 14px; }
     /* "Beneficios" (estructura de tarjetas): CTA centrado bajo las tarjetas */
     .ben__cta { display: flex; justify-content: center; margin-top: 20px; }
+    .plan__legal { margin: 10px 0 0; font-size: var(--fs-sm); line-height: 1.4; color: var(--slate-500); text-align: center; }
     .plan__consult { display: flex; align-items: center; justify-content: center; min-height: 40px; font-size: var(--fs-sm); font-weight: 500; color: var(--slate-500); text-align: center; }
 
     /* V3.2 · imagen del hero */
@@ -558,6 +559,9 @@
     .product-card:hover { transform: translateY(-5px) !important; box-shadow: 0 12px 24px rgba(0,0,0,0.08) !important; }
     .product-card { padding: 35px 30px !important; display: flex !important; flex-direction: column !important; align-items: flex-start !important; }
 
+    /* ---- CTA: variante institucional (INACTIVA). La página institucional usa .btn-custom-pill plano:
+       background #5bc49c, texto #fff, padding 12px 30px, weight 700, hover #007649 (contraste blanco/#5bc49c ≈ 2.1:1, no cumple AA).
+       Para volver a esa variante, elimina el bloque "FASE 1" de abajo y pega esas cinco propiedades. ---- */
     /* ---- CTA "Comprar ahora" · FASE 1: punto focal de la pantalla ----
        Contraste: fondo verde profundo (#006b44 → #00935f) con texto blanco (~6:1, antes ~2.2:1).
        Jerarquía: más padding, peso 800, sombra con brillo de marca. Hover: elevación + escala + degradado fluido + flecha. */
@@ -617,17 +621,17 @@
     .cta .c-desc-main { color: rgba(255,255,255,.95) !important; margin: 0 !important; line-height: 1.5 !important; }
 
     /* ---- 8. FAQ ---- */
-    .faq-container { display: flex !important; flex-direction: column !important; gap: 10px !important; max-width: 800px !important; margin: 0 auto !important; font-family: var(--font) !important; }
-    .faq-item { padding: 0 18px !important; }
+    .faq-container { display: flex !important; flex-direction: column !important; gap: 15px !important; max-width: 800px !important; margin: 0 auto !important; font-family: var(--font) !important; }
+    .faq-item { padding: 0 20px !important; }
     .faq-item[open] { border-color: rgba(49, 112, 87, 0.4) !important; background-color: rgba(49, 112, 87, 0.03) !important; }
-    .faq-summary { display: flex !important; justify-content: space-between !important; align-items: center !important; gap: 16px !important; cursor: pointer !important; padding: 14px 0 !important; list-style: none !important; }
+    .faq-summary { display: flex !important; justify-content: space-between !important; align-items: center !important; gap: 16px !important; cursor: pointer !important; padding: 18px 0 !important; list-style: none !important; }
     .faq-question { margin: 0 !important; }
     .faq-summary:focus-visible { outline: 2px solid var(--primary) !important; outline-offset: 2px !important; border-radius: 4px !important; }
     .faq-summary::-webkit-details-marker { display: none !important; }
     .faq-summary:hover .faq-question { color: var(--primary) !important; }
     .faq-icon { color: var(--mint) !important; font-size: var(--fs-sm) !important; flex-shrink: 0 !important; transition: transform 0.3s ease, color 0.3s ease !important; }
     .faq-item[open] .faq-icon { transform: rotate(180deg) !important; color: var(--primary) !important; }
-    .faq-answer { padding-bottom: 14px !important; animation: fadeInDown 0.4s ease-in-out !important; }
+    .faq-answer { padding-bottom: 20px !important; animation: fadeInDown 0.4s ease-in-out !important; }
     @keyframes fadeInDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     @media (prefers-reduced-motion: reduce) { .faq-answer { animation: none !important; } }
 
@@ -669,21 +673,21 @@
     {
       "@type": "WebPage",
       "@id": "#vende-page",
-      "name": "Compra CONTPAQi Vende® Inicial | Facturación CFDI 4.0 ilimitada",
+      "name": "Compra CONTPAQi Vende® | Facturación CFDI 4.0 ilimitada",
       "inLanguage": "es-MX",
       "publisher": {
-        "@id": "https://www.contpaqi.com/#organization"
+        "@id": "https://www.cfdi.com.mx#organization"
       },
       "about": {
-        "@id": "https://www.contpaqi.com/#vende-inicial"
+        "@id": "https://www.cfdi.com.mx/#vende-inicial"
       },
       "hasPart": {
-        "@id": "https://www.contpaqi.com/#faq"
+        "@id": "https://www.cfdi.com.mx/#faq"
       }
     },
     {
       "@type": "WebApplication",
-      "@id": "https://www.contpaqi.com/#vende-inicial",
+      "@id": "https://www.cfdi.com.mx/#vende-inicial",
       "name": "CONTPAQi Vende®, edición Inicial",
       "applicationCategory": "BusinessApplication",
       "applicationSubCategory": "Facturación electrónica CFDI 4.0",
@@ -1000,7 +1004,7 @@
   font-family: var(--mt-font-title);
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: .025em;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
@@ -1048,11 +1052,11 @@
   transition: background-color .2s, border-color .2s, color .2s;
 }
 .modal-transition__btn--primary {
-  background: var(--mint, #5bc49c);   /* mismo verde que .btn-custom-pill de la landing */
-  border-color: var(--mint, #5bc49c);
+  background: #007649;                /* mismo verde que .btn-custom-pill de la landing */
+  border-color: #007649;
   color: #fff;
 }
-.modal-transition__btn--primary:hover { background: var(--mt-accent-hover); border-color: var(--mt-accent-hover); color: #fff; }
+.modal-transition__btn--primary:hover { background: #005c3a; border-color: #005c3a; color: #fff; }
 .modal-transition__btn--secondary {   /* mismo estilo que .btn-outline-m ("Ya tengo una cuenta") */
   background: #fff;
   border: 1px solid var(--mt-line);
@@ -1189,7 +1193,7 @@
             </div>
             <p class="eyebrow hero__transition-eyebrow">TU FACTURACIÓN ILIMITADA COMIENZA AQUÍ</p>
             <div class="badge"><span class="badge__dot"></span>CFDI 4.0 EN LA NUBE · SIN PAGAR POR TIMBRE</div>
-            <h1 class="hero-title">Compra CONTPAQi Vende® Inicial y factura sin límite de timbres todo el año</h1>
+            <h1 class="hero-title">Compra CONTPAQi Vende® y factura sin límite de timbres todo el año</h1>
             <p class="hero__lead c-desc-main">Deja de comprar paquetes de timbres. Adquiere tu licencia anual por $1,890 MXN y factura desde cualquier lugar, sin instalar programas. Si ya utilizas CFDI en línea +, continúa con tus accesos en CONTPAQi Vende® Inicial.</p>
             <div class="hero__cta">
               <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="hero-comprar">Comprar ahora<i class="icon fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -1324,7 +1328,7 @@
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Incluye CONTPAQi® Mi Factura para tus clientes</span></li>
             </ul>
             <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-xl" data-cta="plan-inicial-comprar">Comprar ahora</a>
-            <p class="plan__legal" style="margin:10px 0 0;font-size:12px;line-height:1.4;color:var(--slate-500);text-align:center;">$1,890 MXN anuales más IVA. Aplican pagos a meses sin intereses.</p>
+            <p class="plan__legal">$1,890 MXN anuales más IVA. Aplican pagos a meses sin intereses.</p>
           </article>
 
           <!-- Equipos -->
@@ -1980,5 +1984,19 @@
 })();
 </script>
 
+  <!-- FAQ: acordeón exclusivo (mismo script que la página institucional; respaldo para navegadores sin <details name>) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('details.faq-item').forEach(function (detalle) {
+        detalle.addEventListener('toggle', function () {
+          if (detalle.open) {
+            document.querySelectorAll('details.faq-item').forEach(function (otro) {
+              if (otro !== detalle) otro.removeAttribute('open');
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
