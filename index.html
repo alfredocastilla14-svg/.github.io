@@ -1096,6 +1096,13 @@
   <!-- Chatbot Salesforce (Embedded Messaging): al final del head, async para no bloquear el render -->
   <script type="text/javascript">
     function initEmbeddedMessaging() {
+      // El script llega async desde el head: si el body aún no existe, espera al DOM antes de inicializar.
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initEmbeddedMessaging, { once: true });
+        return;
+      }
+      if (window.__esmInitDone) return;
+      window.__esmInitDone = true;
       try {
         embeddedservice_bootstrap.settings.language = 'es_MX';
         embeddedservice_bootstrap.init(
@@ -1107,6 +1114,7 @@
           }
         );
       } catch (err) {
+        window.__esmInitDone = false;
         console.error('Error loading Embedded Messaging: ', err);
       }
     };
@@ -1974,4 +1982,3 @@
 
 </body>
 </html>
-
