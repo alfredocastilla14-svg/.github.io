@@ -217,13 +217,15 @@
     .badge__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--mint); }
 
     .hero__lead { max-width: 576px; }
-    .hero__cta { display: flex; flex-direction: column; gap: 16px; margin-bottom: 12px; }
-    /* Link secundario: la prueba no compite visualmente con Comprar ahora. */
-    .hero__trial { font-size: var(--fs-sm); line-height: 1.55; color: var(--body); margin: 0 0 22px; }
-    .hero__trial a { color: #005c3a; text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
-    .hero__trial a:hover { color: #007649; }
-    .hero__trial a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 2px; }
-    .hero__trial-detail { color: var(--slate-600); }
+    .hero__cta { display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px; }
+    /* Prueba gratuita: enlace secundario, separado de los botones de compra. */
+    .hero__trial, .plans__trial { font-size: var(--fs-sm); line-height: 1.55; color: var(--body); }
+    .hero__trial { margin: 0 0 22px; }
+    .plans__trial { max-width: 720px; margin: 34px auto 0; padding: 0 8px; text-align: center; }
+    .hero__trial a, .plans__trial a { color: #005c3a; text-decoration: underline; text-underline-offset: 3px; font-weight: 700; }
+    .hero__trial a:hover, .plans__trial a:hover { color: #007649; }
+    .hero__trial a:focus-visible, .plans__trial a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 2px; }
+    .hero__trial-detail, .plans__trial-detail { color: var(--slate-600); }
     .hero__checks { display: flex; flex-direction: column; gap: 16px; font-size: var(--fs-sm); color: var(--slate-500); }
     .hero__checks li { display: flex; align-items: center; gap: 8px; flex: 0 0 auto; }
     .hero__checks .icon { font-size: 20px; color: var(--check); }
@@ -1188,7 +1190,7 @@
             <p class="eyebrow hero__transition-eyebrow">TU FACTURACIÓN ILIMITADA COMIENZA AQUÍ</p>
             <div class="badge"><span class="badge__dot"></span>CFDI 4.0 EN LA NUBE · SIN PAGAR POR TIMBRE</div>
             <h1 class="hero-title">Compra CONTPAQi Vende® y factura sin límite de timbres todo el año</h1>
-            <p class="hero__lead c-desc-main">Deja de comprar paquetes de timbres. Adquiere tu licencia anual por $1,890 MXN y factura desde cualquier lugar, sin instalar programas. Si ya utilizas CFDI en línea +, continúa con tus accesos en CONTPAQi Vende® Inicial.</p>
+            <p class="hero__lead c-desc-main">Deja de comprar paquetes de timbres. Adquiere tu licencia anual por $1,890 MXN y factura desde cualquier lugar, sin instalar programas.</p>
             <div class="hero__cta">
               <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="hero-comprar">Comprar ahora<i class="icon fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
@@ -1250,7 +1252,7 @@
         <div class="section-head">
           <p class="eyebrow">DA EL SIGUIENTE PASO EN TU FACTURACIÓN</p>
           <h2 id="evo-title" class="section-main-title">Pasa de emitir facturas a controlar también tu cobranza</h2>
-          <p class="c-desc-main">Si ya utilizabas CFDI en línea +, continúa trabajando con CONTPAQi Vende® Inicial. Si estás por contratar, adquiere una solución que integra facturación CFDI 4.0 en la nube y herramientas para administrar tu cobranza.</p>
+          <p class="c-desc-main">Si ya utilizabas CONTPAQi CFDI Facturacion en línea +®, continúa trabajando con CONTPAQi Vende®. Si estás por contratar, adquiere una solución que integra facturación CFDI 4.0 en la nube y herramientas para administrar tu cobranza.</p>
         </div>
 
         <div class="split">
@@ -1290,8 +1292,8 @@
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Elige tu licencia</p>
-          <h2 class="section-main-title">Elige CONTPAQi Vende® y compra la edición que necesitas</h2>
-          <p class="c-desc-main">Compara las tres ediciones y adquiere Vende Inicial directamente en línea. Precios por licencia anual en MXN.</p>
+          <h2 class="section-main-title">Elige CONTPAQi Vende®</h2>
+          <p class="c-desc-main">Compara las tres ediciones y adquiere CONTPAQi Vende® Inicial directamente en línea. Precios por licencia anual en MXN.</p>
         </div>
 
         <div class="plans__grid carousel carousel--lg" data-carousel data-carousel-start="1" role="region" aria-roledescription="carrusel" aria-label="Planes" tabindex="0">
@@ -1301,7 +1303,7 @@
               <h3 class="section-sub-title">Light</h3>
               <p class="plan__desc">Si emites hasta 4 facturas mensuales, comienza con una licencia para tu operación básica.</p>
             </div>
-            <div class="plan__price"><strong>$690</strong><span> MXN al año</span></div>
+            <div class="plan__price"><strong>$690</strong><span> MXN al año + IVA</span></div>
             <ul class="plan__list">
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>50 timbres incluidos</span></li>
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Importa hasta 250 XML históricos</span></li>
@@ -1336,7 +1338,7 @@
               <h3 class="section-sub-title">Equipos</h3>
               <p class="plan__desc">Administra varios RFC y suma herramientas para tu equipo comercial.</p>
             </div>
-            <div class="plan__price"><strong>$2,790</strong><span> MXN al año</span></div>
+            <div class="plan__price"><strong>$2,790</strong><span> MXN al año + IVA</span></div>
             <ul class="plan__list">
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Timbrado ilimitado durante tu licencia</span></li>
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Importa hasta 1,000 XML históricos</span></li>
@@ -1346,6 +1348,11 @@
             <p class="plan__consult">Solicita Equipos a tu distribuidor</p>
           </article>
         </div>
+        <!-- Alternativa discreta después de comparar los precios. -->
+        <p class="plans__trial">¿Quieres conocerlo antes de comprar?
+          <a href="https://app.contpaqinube.com/" target="_blank" rel="noopener noreferrer" aria-label="Ir a CONTPAQi Nube para iniciar una prueba gratuita de Vende por 20 días (se abre en una pestaña nueva)">Prueba gratis por 20 días</a>
+          <span class="plans__trial-detail"> · Incluye 15 timbres</span>
+        </p>
       </div>
     </section>
 
@@ -1362,7 +1369,7 @@
           <li class="step">
             <span class="step__num" aria-hidden="true">1</span>
             <h3 class="product-title">Adquiere tu licencia</h3>
-            <p class="c-desc-main">Completa tu compra directamente en línea, sin intermediarios.</p>
+            <p class="c-desc-main">Completa tu compra directamente en línea.</p>
           </li>
           <li class="step">
             <span class="step__num" aria-hidden="true">2</span>
@@ -1500,35 +1507,35 @@
           <!-- FAQ condensado a 12 respuestas; mantener en sincronía con el JSON-LD. -->
           <details class="faq-item" name="faq" open>
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Qué obtengo al comprar CONTPAQi Vende® Inicial?</h3>
+              <h3 class="faq-question">¿Qué obtengo al comprar CONTPAQi Vende®?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
             <div class="faq-answer"><p>Adquieres una licencia anual de facturación CFDI 4.0 para 1 RFC y 1 usuario, con timbrado ilimitado, control de cobranza y CONTPAQi® Mi Factura para que tus clientes se autofacturen.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Puedo seguir usando mi cuenta anterior de CFDI en línea +?</h3>
+              <h3 class="faq-question">¿Puedo seguir usando mi cuenta anterior de CONTPAQi CFDI Facturacion en línea +®?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. CFDI en línea + está evolucionando a CONTPAQi Vende® Inicial. Puedes continuar con tus accesos habituales sin empezar desde cero y aprovechar herramientas como dashboard, notas de remisión, estados de cuenta y autofacturación.</p></div>
+            <div class="faq-answer"><p>Sí. CONTPAQi CFDI Facturacion en línea +® está evolucionando a CONTPAQi Vende®. Puedes continuar con tus accesos habituales sin empezar desde cero y aprovechar herramientas como dashboard, notas de remisión, estados de cuenta y autofacturación.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Al comprar Vende Inicial puedo emitir CFDI sin límite de timbres?</h3>
+              <h3 class="faq-question">¿Al comprar CONTPAQi Vende® puedo emitir CFDI sin límite de timbres?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
             <div class="faq-answer"><p>Sí. Tu licencia anual incluye timbrado ilimitado, sin necesidad de comprar paquetes adicionales ni pagar individualmente por cada comprobante.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Qué respaldo tengo al contratar Vende Inicial?</h3>
+              <h3 class="faq-question">¿Qué respaldo tengo al contratar CONTPAQi Vende®?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
             <div class="faq-answer"><p>Cuentas con el respaldo de CONTPAQi®, PAC autorizado, con más de 42 años de experiencia. Tus CFDI se respaldan en la nube y puedes administrar tu información mediante acceso protegido.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Qué comprobantes puedo emitir y validar con Vende Inicial?</h3>
+              <h3 class="faq-question">¿Qué comprobantes puedo emitir y validar con CONTPAQi Vende®?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
             <div class="faq-answer"><p>Emite CFDI 4.0 de ingreso, egreso, pago y traslado; facturas PUE, PPD, globales y a clientes extranjeros. El sistema integra catálogos SAT, validaciones y vista previa para revisar los datos fiscales antes de timbrar. Las actualizaciones fiscales se aplican automáticamente.</p></div>
@@ -1538,49 +1545,43 @@
               <h3 class="faq-question">¿Qué necesito para empezar a facturar y debo instalar algún programa?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Prepara tu RFC, régimen fiscal, código postal y Certificado de Sello Digital (archivos .cer y .key con su contraseña), que se tramita sin costo ante el SAT. No necesitas instalar programas: utiliza Vende desde el navegador de cualquier dispositivo con internet.</p></div>
+            <div class="faq-answer"><p>Prepara tu RFC, régimen fiscal, código postal y Certificado de Sello Digital (archivos .cer y .key con su contraseña), que se tramita sin costo ante el SAT. No necesitas instalar programas: utiliza CONTPAQi Vende® desde el navegador de cualquier dispositivo con internet.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
               <h3 class="faq-question">¿Mi compra incluye autofacturación y factura global?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. Vende Inicial incluye CONTPAQi® Mi Factura para que tus clientes generen sus CFDI a cualquier hora. También permite crear facturas globales a partir de tus notas de remisión sin recapturar ventas al público en general.</p></div>
+            <div class="faq-answer"><p>Sí. CONTPAQi Vende® incluye CONTPAQi® Mi Factura para que tus clientes generen sus CFDI a cualquier hora. También permite crear facturas globales a partir de tus notas de remisión sin recapturar ventas al público en general.</p></div>
           </details>
+          
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Puedo cambiarme a Vende sin perder mi historial de CFDI?</h3>
+              <h3 class="faq-question">¿Puedo enviar facturas y solicitar cancelaciones desde CONTPAQi Vende®?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. Importa hasta 500 XML anteriores, crea catálogos de clientes y productos a partir de ellos y asigna saldos pendientes para continuar tu operación.</p></div>
-          </details>
-          <details class="faq-item" name="faq">
-            <summary class="faq-summary">
-              <h3 class="faq-question">¿Puedo enviar facturas y solicitar cancelaciones desde Vende?</h3>
-              <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
-            </summary>
-            <div class="faq-answer"><p>Sí. Comparte CFDI en XML y PDF por WhatsApp o correo, con plantillas de mensaje. También puedes solicitar cancelaciones desde Vende conforme al procedimiento del SAT y consultar su estatus.</p></div>
+            <div class="faq-answer"><p>Sí. Comparte CFDI en XML y PDF por WhatsApp o correo, con plantillas de mensaje. También puedes solicitar cancelaciones desde CONTPAQi Vende® conforme al procedimiento del SAT y consultar su estatus.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
               <h3 class="faq-question">¿Cuántos usuarios y RFC incluye la licencia? ¿Puedo crecer?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Vende Inicial incluye 1 usuario y 1 RFC. Si necesitas varios RFC o usuarios, la edición Equipos incluye 2 usuarios, multi-RFC y herramientas de ventas. Puedes cambiar de edición sin cambiar de sistema; Empresarial y Corporativo agregan funciones de inventarios y compras.</p></div>
+            <div class="faq-answer"><p>CONTPAQi Vende® incluye 1 usuario y 1 RFC. Si necesitas varios RFC o usuarios, la edición Equipos incluye 2 usuarios, multi-RFC y herramientas de ventas. Puedes cambiar de edición sin cambiar de sistema; Empresarial y Corporativo agregan funciones de inventarios y compras.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Cuánto pago por Vende Inicial y qué incluye mi licencia anual?</h3>
+              <h3 class="faq-question">¿Cuánto pago por CONTPAQi Vende® y qué incluye mi licencia anual?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Vende Inicial cuesta $1,890 MXN al año, más IVA. Incluye timbrado ilimitado, CONTPAQi® Mi Factura, importación de hasta 500 XML históricos y actualizaciones fiscales durante la vigencia de tu licencia.</p></div>
+            <div class="faq-answer"><p>CONTPAQi Vende® cuesta $1,890 MXN al año, más IVA. Incluye timbrado ilimitado, CONTPAQi® Mi Factura, importación de hasta 500 XML históricos y actualizaciones fiscales durante la vigencia de tu licencia.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
               <h3 class="faq-question">¿Existe una prueba gratuita antes de adquirir la licencia?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. Puedes probar Vende durante 20 días con 15 timbres incluidos. Si ya decidiste contratar, adquiere la licencia Inicial para obtener timbrado ilimitado durante el periodo anual.</p></div>
+            <div class="faq-answer"><p>Sí. Puedes probar CONTPAQi Vende® durante 20 días con 15 timbres incluidos. Si ya decidiste contratar, adquiere la licencia Inicial para obtener timbrado ilimitado durante el periodo anual.</p></div>
           </details>
         </div>
       </div>
@@ -1594,7 +1595,7 @@
     <div class="cta__blob cta__blob--2"></div>
     <div class="container">
       <div class="cta__copy">
-        <h2 id="cta-title" class="section-main-title text-white">Compra hoy Vende Inicial y factura sin límite de timbres</h2>
+        <h2 id="cta-title" class="section-main-title text-white">Compra hoy CONTPAQi Vende® y factura sin límite de timbres</h2>
         <p class="c-desc-main">Adquiere tu licencia anual por $1,890 MXN más IVA. Incluye timbrado ilimitado, autofacturación para tus clientes y herramientas de cobranza en una sola plataforma.</p>
       </div>
       <div class="cta__actions">
