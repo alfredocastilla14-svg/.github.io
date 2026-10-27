@@ -305,12 +305,19 @@
     .promo-bar__inner { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 8px 56px 8px 16px; text-align: center; font-size: var(--fs-sm); line-height: 1.35; }
     .promo-bar__inner .fa-tag { color: var(--mint); font-size: 16px; flex-shrink: 0; }
     .promo-bar__inner strong { font-weight: 800; }
+    .promo-bar__btn { flex-shrink: 0; display: inline-flex; align-items: center; min-height: 32px; padding: 4px 16px; border-radius: 50px; background: #fff; color: #005c3a; font-weight: 700; white-space: nowrap; transition: background-color .2s, transform .2s; }
+    .promo-bar__btn:hover { background: var(--blue-50); transform: translateY(-1px); }
+    .promo-bar__btn:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    @media (max-width: 639px) { .promo-bar__inner { flex-wrap: wrap; row-gap: 6px; } }
     .promo-bar__close { position: absolute; top: 50%; right: 6px; transform: translateY(-50%); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 8px; color: #fff; opacity: .85; transition: opacity .2s, background-color .2s; }
     .promo-bar__close:hover { opacity: 1; background: rgba(255,255,255,.12); }
     .promo-bar__close:focus-visible { outline: 2px solid #fff; outline-offset: -2px; }
     @media (max-width: 639px) { .promo-bar__inner { padding-left: 12px; padding-right: 52px; } }
 
     .plans__dist { max-width: 720px; margin: 10px auto 0; padding: 0 8px; text-align: center; font-size: var(--fs-base); line-height: 1.5; color: var(--body); }
+    .plans__dist-cta { display: flex; justify-content: center; margin-top: 14px; }
+    .plans__dist-cta .btn { white-space: normal; color: var(--primary); border-color: var(--primary); background: #fff; font-weight: 700; }
+    .plans__dist-cta .btn:hover { background: var(--blue-50); }
     .plans__dist strong { color: var(--primary); font-weight: 700; }
 
     /* =========================================================
@@ -1147,7 +1154,7 @@
 
   <!-- CINTILLA SUPERIOR: promoción con distribuidor -->
   <div class="promo-bar" id="promoBar" role="region" aria-label="Promoción">
-    <p class="promo-bar__inner"><i class="fa-solid fa-tag" aria-hidden="true"></i><span><strong>10% de descuento</strong> en tu compra con un distribuidor</span></p>
+    <p class="promo-bar__inner"><i class="fa-solid fa-tag" aria-hidden="true"></i><span>Recibe <strong>un descuento</strong> en la compra con un distribuidor</span><a class="promo-bar__btn" href="https://www.contpaqi.com/lp/vende-venta-directa" target="_blank" rel="noopener noreferrer" data-cta="cintilla-distribuidor">Contacta a un distribuidor<span class="sr-only"> (se abre en una pestaña nueva)</span></a></p>
     <button type="button" class="promo-bar__close" id="promoClose" aria-label="Cerrar aviso de promoción"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
   </div>
 
@@ -1378,6 +1385,7 @@
           <span class="plans__trial-detail"> · Incluye 15 timbres</span>
         </p>
         <p class="plans__dist">¿Prefieres atención personalizada? <strong>Compra con un distribuidor.</strong></p>
+        <div class="plans__dist-cta"><a href="https://www.contpaqi.com/lp/vende-venta-directa" target="_blank" rel="noopener noreferrer" class="btn btn-md btn-outline-m" data-cta="planes-distribuidor">Solicitar información<span class="sr-only"> (se abre en una pestaña nueva)</span></a></div>
       </div>
     </section>
 
