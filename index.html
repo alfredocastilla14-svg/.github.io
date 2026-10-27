@@ -89,7 +89,7 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     /* Offset de anclas bajo el header fijo (un solo mecanismo: scroll-margin-top) */
-    :root { --header-offset: 76px; }
+    :root { --header-offset: 76px; --banner-h: 44px; }
     section[id] { scroll-margin-top: var(--header-offset); }
     body {
       font-family: var(--font-body);
@@ -150,7 +150,7 @@
        HEADER
        ========================================================= */
     .header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      position: fixed; top: var(--banner-h, 0px); left: 0; right: 0; z-index: 50;
       background: rgba(255,255,255,.9);
       -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
       padding: 14px 0; transition: all .3s ease;
@@ -284,16 +284,34 @@
     .proof .stat__big { align-self: end; font-family: var(--font-title); font-size: 20px; font-weight: 800; line-height: 1.1; letter-spacing: -.01em; color: #fff; }
     .proof .stat__txt { align-self: start; margin-top: 1px; font-size: var(--fs-sm); line-height: 1.3; font-weight: 500; color: rgba(255,255,255,.88); }
     /* Tarjeta destacada: Ecosistema Cloud (blanca, el punto de mayor contraste de la franja) */
-    .proof .stat--cloud { background: #fff; border-color: #fff; box-shadow: 0 10px 22px -10px rgba(0,0,0,.45); }
-    .proof .stat--cloud:hover { background: #fff; border-color: #fff; }
-    .proof .stat--cloud .stat__ico { background: var(--blue-50); color: var(--primary); }
-    .proof .stat--cloud .stat__big { font-size: 15px; line-height: 1.2; color: var(--primary); }
-    .proof .stat--cloud .stat__txt { color: var(--body); }
+    .proof .stat--light { background: #fff; border-color: #fff; box-shadow: 0 10px 22px -10px rgba(0,0,0,.45); }
+    .proof .stat--light:hover { background: #fff; border-color: #fff; }
+    .proof .stat--light .stat__ico { background: var(--blue-50); color: var(--primary); }
+    .proof .stat--light .stat__big { color: var(--primary); }
+    .proof .stat--cloud .stat__big { font-size: 15px; line-height: 1.2; }
+    .proof .stat--light .stat__txt { color: var(--body); }
     .proof-section .carousel__dot::after { background: rgba(255,255,255,.45); }
     .proof-section .carousel__dot[aria-current="true"]::after { background: #fff; }
     .proof-section .carousel:focus-visible { outline-color: #fff; }
     @media (max-width: 767px) { .proof-section { padding: 16px 0 8px; } .proof .carousel--md > * { flex: 0 0 min(78%, 280px); } }
     @media (min-width: 1024px) { .proof-section { padding: 20px 0; } .proof__grid { grid-template-columns: repeat(4, 1fr); gap: 10px; } }
+
+
+    /* =========================================================
+       CINTILLA SUPERIOR (promo distribuidor) · va en el flujo y se va con el scroll; el header fijo baja por --banner-h
+       ========================================================= */
+    .promo-bar { position: relative; z-index: 49; background: linear-gradient(to right, #0c3526, #317057); color: #fff; }
+    .promo-bar[hidden] { display: none; }
+    .promo-bar__inner { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; padding: 8px 56px 8px 16px; text-align: center; font-size: var(--fs-sm); line-height: 1.35; }
+    .promo-bar__inner .fa-tag { color: var(--mint); font-size: 16px; flex-shrink: 0; }
+    .promo-bar__inner strong { font-weight: 800; }
+    .promo-bar__close { position: absolute; top: 50%; right: 6px; transform: translateY(-50%); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 8px; color: #fff; opacity: .85; transition: opacity .2s, background-color .2s; }
+    .promo-bar__close:hover { opacity: 1; background: rgba(255,255,255,.12); }
+    .promo-bar__close:focus-visible { outline: 2px solid #fff; outline-offset: -2px; }
+    @media (max-width: 639px) { .promo-bar__inner { padding-left: 12px; padding-right: 52px; } }
+
+    .plans__dist { max-width: 720px; margin: 10px auto 0; padding: 0 8px; text-align: center; font-size: var(--fs-base); line-height: 1.5; color: var(--body); }
+    .plans__dist strong { color: var(--primary); font-weight: 700; }
 
     /* =========================================================
        CARACTERÍSTICAS
@@ -1127,6 +1145,12 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
+  <!-- CINTILLA SUPERIOR: promoción con distribuidor -->
+  <div class="promo-bar" id="promoBar" role="region" aria-label="Promoción">
+    <p class="promo-bar__inner"><i class="fa-solid fa-tag" aria-hidden="true"></i><span><strong>10% de descuento</strong> en tu compra con un distribuidor</span></p>
+    <button type="button" class="promo-bar__close" id="promoClose" aria-label="Cerrar aviso de promoción"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+  </div>
+
   <!-- =========================================================
        HEADER
        ========================================================= -->
@@ -1235,9 +1259,9 @@
             <h2 id="proof-title" class="proof__title">Factura con la experiencia y respaldo de CONTPAQi®</h2>
           </div>
           <ul class="proof__grid carousel carousel--md" data-carousel aria-label="Software favorito de los contadores y empresarios" tabindex="0">
+            <li class="stat stat--light"><span class="stat__ico"><i class="icon fa-solid fa-users" aria-hidden="true"></i></span><span class="stat__big">+1 millón</span><span class="stat__txt">de empresas usuarias respaldan tu decisión de compra</span></li>
             <li class="stat"><span class="stat__ico"><i class="icon fa-solid fa-award" aria-hidden="true"></i></span><span class="stat__big">+42 años</span><span class="stat__txt">de experiencia respaldando operaciones fiscales en México</span></li>
-            <li class="stat"><span class="stat__ico"><i class="icon fa-solid fa-users" aria-hidden="true"></i></span><span class="stat__big">+1 millón</span><span class="stat__txt">de empresas usuarias respaldan tu decisión de compra</span></li>
-            <li class="stat stat--cloud"><span class="stat__ico"><i class="icon fa-solid fa-cloud" aria-hidden="true"></i></span><span class="stat__big">Facturación 100% en la nube</span><span class="stat__txt">Trabaja y factura desde donde lo necesites</span></li>
+            <li class="stat stat--light stat--cloud"><span class="stat__ico"><i class="icon fa-solid fa-cloud" aria-hidden="true"></i></span><span class="stat__big">Facturación 100% en la nube</span><span class="stat__txt">Trabaja y factura desde donde lo necesites</span></li>
             <li class="stat"><span class="stat__ico"><i class="icon fa-solid fa-flag" aria-hidden="true"></i></span><span class="stat__big">100%</span><span class="stat__txt">Software desarrollado en México</span></li>
           </ul>
         </div>
@@ -1353,6 +1377,7 @@
           <a href="https://app.contpaqinube.com/" target="_blank" rel="noopener noreferrer" aria-label="Ir a CONTPAQi Nube para iniciar una prueba gratuita de Vende por 20 días (se abre en una pestaña nueva)">Prueba gratis por 20 días</a>
           <span class="plans__trial-detail"> · Incluye 15 timbres</span>
         </p>
+        <p class="plans__dist">¿Prefieres atención personalizada? <strong>Compra con un distribuidor.</strong></p>
       </div>
     </section>
 
@@ -1480,9 +1505,9 @@
           <div class="orbit">
             <div class="orbit__ring">
               <div class="cert">
-                <a href="omawww.sat.gob.mx/tramitesyservicios/Paginas/pac_contpaqi.htm" target="_blank" rel="noopener noreferrer"><img class="cert__badge" src="https://www.contpaqi.com/hs-fs/hubfs/CONTPAQi-PAC.jpg?width=200&height=256&name=CONTPAQi-PAC.jpg" alt="CONTPAQi®, Proveedor Autorizado de Certificación (PAC) del SAT" width="120" height="154" loading="lazy" decoding="async">
+                <a href="https://www.sat.gob.mx/portal/public/tramites/lista-de-proveedores-autorizados-de-certificacion-de-cfdi" target="_blank" rel="noopener noreferrer"><img class="cert__badge" src="https://www.contpaqi.com/hs-fs/hubfs/CONTPAQi-PAC.jpg?width=200&height=256&name=CONTPAQi-PAC.jpg" alt="CONTPAQi®, Proveedor Autorizado de Certificación (PAC) del SAT" width="120" height="154" loading="lazy" decoding="async">
                 </a> <p>Facturación respaldada por un PAC autorizado</p>
-                <div class="cert__folio">Autorización PAC · Folio SAT 54555</div>
+                <div class="cert__folio">Autorización PAC · Folio SAT 54554</div>
               </div>
             </div>
           </div>
@@ -1616,7 +1641,7 @@
           <div class="footer__logo"><img src="https://www.contpaqi.com/hubfs/Logo-Contpaqi-Blanco-color-2026.png" alt="CONTPAQi" loading="lazy"></div>
           <p class="footer__about">Elige la experiencia de CONTPAQi® para tu negocio. Adquiere soluciones de facturación, nómina y contabilidad respaldadas por una marca mexicana.</p>
 
-          <a href="omawww.sat.gob.mx/tramitesyservicios/Paginas/pac_contpaqi.htm" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.sat.gob.mx/portal/public/tramites/lista-de-proveedores-autorizados-de-certificacion-de-cfdi" target="_blank" rel="noopener noreferrer">
   <img class="footer__badge" src="https://www.contpaqi.com/hs-fs/hubfs/CONTPAQi-PAC.jpg?width=200&height=256&name=CONTPAQi-PAC.jpg" alt="Logo CONTPAQi PAC" width="120" height="154" loading="lazy">
 </a>
           <div class="footer__social">
@@ -1667,13 +1692,38 @@
     </div>
   </footer>
 
+  <!-- Cintilla superior: el header fijo se desplaza según la altura visible de la cintilla -->
+  <script>
+    (function () {
+      var bar = document.getElementById('promoBar');
+      var header = document.getElementById('header');
+      var close = document.getElementById('promoClose');
+      if (!bar || !header) return;
+      var KEY = 'vendePromoBarClosed';
+      try { if (window.sessionStorage.getItem(KEY)) bar.hidden = true; } catch (e) { /* storage bloqueado */ }
+      function place() {
+        var h = bar.hidden ? 0 : bar.offsetHeight;
+        document.documentElement.style.setProperty('--banner-h', h + 'px');
+        header.style.top = Math.max(0, h - window.scrollY) + 'px';
+      }
+      window.addEventListener('scroll', place, { passive: true });
+      window.addEventListener('resize', place);
+      if (close) close.addEventListener('click', function () {
+        bar.hidden = true;
+        try { window.sessionStorage.setItem(KEY, '1'); } catch (e) { /* noop */ }
+        place();
+      });
+      place();
+    })();
+  </script>
+
   <!-- V3: navegación móvil accesible, sin framework. -->
   <script>
     (function () {
       var header = document.getElementById('header');
       var burger = document.getElementById('burger');
       var menu = document.getElementById('mobileMenu');
-      var inertTargets = document.querySelectorAll('main, .footer');
+      var inertTargets = document.querySelectorAll('main, .footer, .promo-bar');
       var lastFocus = null;
       var openState = false;
       function onScroll() { header.classList.toggle('scrolled', window.scrollY > 10); }
@@ -1790,7 +1840,7 @@
 
     <p class="modal-transition__notice" id="modal-transition-free"><strong>Si eres usuario del servicio gratuito de CFDI Facturación en Línea, podrás seguir utilizando el sistema con normalidad; este cambio solo aplica para usuarios de servicio pagado.</strong></p>
 
-    <p class="modal-transition__body" id="modal-transition-body">Queremos informarte que CFDI Facturación en línea+ ha entrado en un periodo de descatalogación que concluirá en 2027, el día 12 de noviembre. Pero no te preocupes: puedes seguir usando tus accesos, conservar tu información y continuar realizando tus facturas.</p>
+    <p class="modal-transition__body" id="modal-transition-body">Queremos informarte que CFDI Facturación en línea+ ha entrado en un periodo de descatalogación que concluirá en 2027, el día 19 de noviembre. Pero no te preocupes: puedes seguir usando tus accesos, conservar tu información y continuar realizando tus facturas.</p>
     </div>
 
     <div class="modal-transition__actions">
