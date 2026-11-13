@@ -1,0 +1,383 @@
+<!--
+  =====================================================================
+  CONTPAQi Vende · Pop-up modular · FASE 1: Cara 1 (Selección)
+  Módulo HubSpot en línea (HTML + CSS + JS en un solo archivo).
+  - CSS encapsulado bajo .ctq-vende (BEM) para no chocar con estilos globales.
+  - Trigger externo: cualquier elemento con [data-vende-popup-open]
+    o llamada a window.CtqVendePopup.open().
+  - Paso 2 (formulario): contenedor oculto [data-step="2"] listo para conectar.
+  =====================================================================
+-->
+
+<style>
+/* ===== Tokens (scope local) ===== */
+.ctq-vende {
+  --ctq-green: #0b7a4b;
+  --ctq-green-dark: #07603a;
+  --ctq-green-soft: #e6f6ee;
+  --ctq-navy: #0b2a5b;
+  --ctq-text: #1d2b44;
+  --ctq-muted: #5b6678;
+  --ctq-line: #dfe5ec;
+  --ctq-radius: 20px;
+  font-family: inherit;
+  color: var(--ctq-text);
+  box-sizing: border-box;
+}
+.ctq-vende *, .ctq-vende *::before, .ctq-vende *::after { box-sizing: inherit; }
+
+/* ===== Overlay ===== */
+.ctq-vende {
+  position: fixed; inset: 0; z-index: 99999;
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px;
+  background: rgba(15, 25, 45, .55);
+  backdrop-filter: blur(6px);
+  opacity: 0; visibility: hidden;
+  transition: opacity .25s ease, visibility .25s ease;
+}
+.ctq-vende.is-open { opacity: 1; visibility: visible; }
+
+/* ===== Diálogo ===== */
+.ctq-vende__dialog {
+  position: relative; width: 100%; max-width: 1100px; max-height: 94vh;
+  overflow: auto;
+  background: #fff; border-radius: var(--ctq-radius);
+  box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  transform: translateY(12px) scale(.98);
+  transition: transform .25s ease;
+}
+.ctq-vende.is-open .ctq-vende__dialog { transform: none; }
+
+.ctq-vende__close {
+  position: absolute; top: 14px; right: 16px; z-index: 3;
+  width: 40px; height: 40px; border: 0; background: transparent;
+  font-size: 30px; line-height: 1; color: var(--ctq-navy); cursor: pointer; border-radius: 50%;
+}
+.ctq-vende__close:hover { background: #eef2f6; }
+
+.ctq-vende__step[hidden] { display: none !important; }
+
+/* ===== Layout 2 columnas ===== */
+.ctq-vende__grid { display: grid; grid-template-columns: 1fr 1.15fr; min-height: 560px; }
+
+/* ----- Columna izquierda ----- */
+.ctq-vende__left {
+  position: relative; padding: 40px 36px 0 40px;
+  background: linear-gradient(160deg, #f4fbf8 0%, #ffffff 55%, #d9f3e6 100%);
+  border-right: 1px solid var(--ctq-line); overflow: hidden;
+}
+.ctq-vende__logo { display: block; height: 64px; width: auto; margin-bottom: 28px; }
+.ctq-vende__title { margin: 0 0 8px; font-size: 32px; line-height: 1.15; font-weight: 700; color: var(--ctq-navy); }
+.ctq-vende__title strong { color: var(--ctq-green); }
+.ctq-vende__subtitle { margin: 0 0 22px; font-size: 18px; color: var(--ctq-navy); }
+
+.ctq-vende__benefits { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; position: relative; z-index: 2; }
+.ctq-vende__benefit { display: flex; align-items: center; gap: 14px; font-size: 17px; color: var(--ctq-navy); max-width: 190px; }
+.ctq-vende__benefit-icon {
+  flex: 0 0 52px; width: 52px; height: 52px; border-radius: 50%;
+  background: var(--ctq-green-soft); display: grid; place-items: center;
+}
+.ctq-vende__benefit-icon img { width: 28px; height: 28px; object-fit: contain; }
+
+.ctq-vende__laptop {
+  position: absolute; right: -20px; bottom: 20px;
+  width: 68%; max-width: 360px; height: auto; pointer-events: none;
+}
+
+/* ----- Columna derecha ----- */
+.ctq-vende__right { padding: 36px 40px 32px 40px; display: flex; flex-direction: column; }
+.ctq-vende__headline { margin: 0; font-size: 36px; line-height: 1.1; font-weight: 700; color: var(--ctq-navy); }
+.ctq-vende__headline-big { display: block; font-size: 58px; line-height: 1.05; color: var(--ctq-green); }
+.ctq-vende__lead { margin: 12px 0 22px; font-size: 18px; color: var(--ctq-navy); }
+
+/* ===== Tarjetas de plan ===== */
+.ctq-vende__plans { display: grid; gap: 16px; }
+.ctq-vende__plan {
+  position: relative; display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px;
+  padding: 22px 22px 20px; border: 2px solid var(--ctq-line); border-radius: 18px; background: #fff;
+  transition: border-color .2s, background .2s, box-shadow .2s;
+}
+.ctq-vende__plan.is-active {
+  border-color: var(--ctq-green);
+  background: linear-gradient(135deg, #f1fbf6, #ffffff);
+  box-shadow: 0 8px 24px rgba(11,122,75,.12);
+}
+.ctq-vende__plan-head { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+.ctq-vende__radio {
+  flex: 0 0 34px; width: 34px; height: 34px; border-radius: 50%;
+  border: 3px solid #8a93a2; background: #fff; position: relative; transition: all .2s;
+}
+.ctq-vende__plan.is-active .ctq-vende__radio { border-color: var(--ctq-green); background: var(--ctq-green); }
+.ctq-vende__plan.is-active .ctq-vende__radio::after {
+  content: ""; position: absolute; left: 9px; top: 4px; width: 8px; height: 15px;
+  border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg);
+}
+.ctq-vende__plan-name { margin: 0; font-size: 22px; font-weight: 700; color: var(--ctq-navy); }
+
+.ctq-vende__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ctq-vende__list li { position: relative; padding-left: 28px; font-size: 16px; color: var(--ctq-text); }
+.ctq-vende__list li::before {
+  content: ""; position: absolute; left: 4px; top: 4px; width: 7px; height: 13px;
+  border: solid var(--ctq-green); border-width: 0 3px 3px 0; transform: rotate(45deg);
+}
+.ctq-vende__plan-aside {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  padding-left: 18px; border-left: 1px solid var(--ctq-line);
+  text-align: center; font-size: 15px; color: var(--ctq-navy);
+}
+.ctq-vende__plan-aside img { width: 52px; height: 52px; object-fit: contain; }
+
+.ctq-vende__badge {
+  position: absolute; top: -16px; right: 14px; display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 999px; background: var(--ctq-green); color: #fff;
+  font-size: 15px; font-weight: 600;
+}
+.ctq-vende__badge img { width: 16px; height: 16px; }
+
+/* ===== Footer: checkbox + CTA ===== */
+.ctq-vende__footer { margin-top: auto; padding-top: 26px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.ctq-vende__check { display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 14px; color: var(--ctq-text); max-width: 420px; }
+.ctq-vende__check input { width: 26px; height: 26px; flex: 0 0 26px; accent-color: var(--ctq-green); cursor: pointer; margin: 0; }
+.ctq-vende__check strong { color: var(--ctq-navy); }
+
+.ctq-vende__btn {
+  display: inline-flex; align-items: center; gap: 12px; padding: 18px 34px;
+  border: 0; border-radius: 999px; background: var(--ctq-green); color: #fff;
+  font: inherit; font-size: 20px; font-weight: 700; cursor: pointer;
+  box-shadow: 0 8px 20px rgba(11,122,75,.3); transition: background .2s, transform .1s;
+}
+.ctq-vende__btn:hover { background: var(--ctq-green-dark); }
+.ctq-vende__btn:active { transform: translateY(1px); }
+
+.ctq-vende__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ctq-vende a:focus-visible, .ctq-vende button:focus-visible, .ctq-vende input:focus-visible { outline: 3px solid #4c9fff; outline-offset: 2px; }
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .ctq-vende__grid { grid-template-columns: 1fr; }
+  .ctq-vende__left { border-right: 0; border-bottom: 1px solid var(--ctq-line); padding: 28px 24px 200px; }
+  .ctq-vende__laptop { right: 50%; transform: translateX(50%); width: 70%; bottom: 10px; }
+  .ctq-vende__right { padding: 28px 24px 24px; }
+}
+@media (max-width: 560px) {
+  .ctq-vende { padding: 8px; }
+  .ctq-vende__title { font-size: 25px; }
+  .ctq-vende__headline { font-size: 27px; }
+  .ctq-vende__headline-big { font-size: 42px; }
+  .ctq-vende__plan { grid-template-columns: 1fr; }
+  .ctq-vende__plan-aside { border-left: 0; border-top: 1px solid var(--ctq-line); padding: 12px 0 0; flex-direction: row; text-align: left; }
+  .ctq-vende__footer { flex-direction: column; align-items: stretch; }
+  .ctq-vende__btn { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ctq-vende, .ctq-vende__dialog, .ctq-vende__plan, .ctq-vende__radio { transition: none; }
+}
+</style>
+
+<!-- ===================== MARKUP ===================== -->
+<div class="ctq-vende" id="ctq-vende" role="dialog" aria-modal="true" aria-labelledby="ctq-vende-title" data-selection="gratuito">
+
+  <div class="ctq-vende__dialog">
+    <button type="button" class="ctq-vende__close" data-vende-close aria-label="Cerrar">&times;</button>
+
+    <!-- ============ PASO 1: Oferta / Selección ============ -->
+    <section class="ctq-vende__step" data-step="1">
+      <div class="ctq-vende__grid">
+
+        <!-- Columna izquierda -->
+        <div class="ctq-vende__left">
+          <img class="ctq-vende__logo" src="URL_LOGOTIPO_VENDE" alt="CONTPAQi Vende" width="320" height="64"> <!-- URL_LOGOTIPO_VENDE -->
+          <h2 class="ctq-vende__title" id="ctq-vende-title">Da el siguiente paso y migra a <strong>CONTPAQi Vende&reg;</strong></h2>
+          <p class="ctq-vende__subtitle">Administra, factura y haz crecer tu negocio</p>
+
+          <ul class="ctq-vende__benefits">
+            <li class="ctq-vende__benefit">
+              <span class="ctq-vende__benefit-icon"><img src="URL_ICONO_COHETE" alt="" width="28" height="28"></span> <!-- URL_ICONO_COHETE -->
+              <span>Moderniza tu negocio</span>
+            </li>
+            <li class="ctq-vende__benefit">
+              <span class="ctq-vende__benefit-icon"><img src="URL_ICONO_NUBE" alt="" width="28" height="28"></span> <!-- URL_ICONO_NUBE -->
+              <span>Trabaja desde cualquier lugar</span>
+            </li>
+            <li class="ctq-vende__benefit">
+              <span class="ctq-vende__benefit-icon"><img src="URL_ICONO_ESCUDO" alt="" width="28" height="28"></span> <!-- URL_ICONO_ESCUDO -->
+              <span>Cumple con la normatividad</span>
+            </li>
+          </ul>
+
+          <img class="ctq-vende__laptop" src="URL_IMAGEN_COMPUTADORA" alt="Panel de CONTPAQi Vende en una laptop" loading="lazy"> <!-- URL_IMAGEN_COMPUTADORA -->
+        </div>
+
+        <!-- Columna derecha -->
+        <div class="ctq-vende__right">
+          <h3 class="ctq-vende__headline">Regístrate y aprovecha
+            <span class="ctq-vende__headline-big">20 días de prueba</span>
+          </h3>
+          <p class="ctq-vende__lead">Conoce todas las ventajas de <strong>CONTPAQi Vende&reg;</strong></p>
+
+          <!-- Las tarjetas son solo indicadores de estado: la selección la controla el checkbox -->
+          <div class="ctq-vende__plans" role="group" aria-label="Plan seleccionado">
+
+            <!-- Prueba gratuita -->
+            <div class="ctq-vende__plan" data-plan="prueba_20_dias">
+              <span class="ctq-vende__badge"><img src="URL_ICONO_ESTRELLA" alt="" width="16" height="16"> Recomendado</span> <!-- URL_ICONO_ESTRELLA -->
+              <div>
+                <div class="ctq-vende__plan-head">
+                  <span class="ctq-vende__radio" aria-hidden="true"></span>
+                  <h4 class="ctq-vende__plan-name">Prueba gratuita por 20 días</h4>
+                </div>
+                <ul class="ctq-vende__list">
+                  <li>Emisión y timbrado de facturas.</li>
+                  <li>Cancelación.</li>
+                  <li>Almacenamiento por 5 años.</li>
+                  <li>Catálogos de clientes, productos y servicios.</li>
+                </ul>
+              </div>
+              <div class="ctq-vende__plan-aside">
+                <img src="URL_ICONO_CALENDARIO" alt="" width="52" height="52" loading="lazy"> <!-- URL_ICONO_CALENDARIO -->
+                <span>Al término del periodo de 20 días puedes seguir utilizando estos beneficios al contratar el servicio.</span>
+              </div>
+            </div>
+
+            <!-- Servicio gratuito (estado por defecto) -->
+            <div class="ctq-vende__plan is-active" data-plan="gratuito">
+              <div>
+                <div class="ctq-vende__plan-head">
+                  <span class="ctq-vende__radio" aria-hidden="true"></span>
+                  <h4 class="ctq-vende__plan-name">Servicio Gratuito</h4>
+                </div>
+                <ul class="ctq-vende__list">
+                  <li>Emisión y timbrado de facturas.</li>
+                  <li>Cancelación.</li>
+                  <li>Almacenamiento por 3 meses.</li>
+                </ul>
+              </div>
+              <div class="ctq-vende__plan-aside">
+                <img src="URL_ICONO_REGALO" alt="" width="52" height="52" loading="lazy"> <!-- URL_ICONO_REGALO -->
+                <span>Funcionalidades esenciales para tu negocio.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Anuncio accesible del cambio de estado -->
+          <p class="ctq-vende__sr" aria-live="polite" data-vende-live>Plan seleccionado: Servicio Gratuito.</p>
+
+          <div class="ctq-vende__footer">
+            <label class="ctq-vende__check">
+              <input type="checkbox" data-vende-check>
+              <span>Deseo utilizar el servicio <strong>CONTPAQi Vende&reg;</strong> en línea por 20 días (sin costo).</span>
+            </label>
+            <button type="button" class="ctq-vende__btn" data-vende-next>
+              Siguiente <span aria-hidden="true">&rarr;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PASO 2: Formulario (pendiente de Fase 2) ============ -->
+    <section class="ctq-vende__step" data-step="2" hidden>
+      <!--
+        FASE 2: insertar aquí el formulario.
+        - Campo oculto sugerido: <input type="hidden" name="vende_plan" data-vende-plan-field>
+          (el JS lo rellena con "gratuito" o "prueba_20_dias").
+        - Botón "Atrás": <button type="button" data-vende-back>Atrás</button>
+      -->
+    </section>
+  </div>
+</div>
+
+<!-- ===================== JS ===================== -->
+<script>
+(function () {
+  'use strict';
+
+  var root = document.getElementById('ctq-vende');
+  if (!root || root.__ctqVende) return;      // evita doble inicialización
+  root.__ctqVende = true;
+
+  var PLAN_LABELS = { gratuito: 'Servicio Gratuito', prueba_20_dias: 'Prueba gratuita de 20 días' };
+  var check = root.querySelector('[data-vende-check]');
+  var plans = root.querySelectorAll('[data-plan]');
+  var live  = root.querySelector('[data-vende-live]');
+  var lastFocus = null;
+
+  /* ---- Selección: el checkbox es la única fuente de verdad ---- */
+  function getPlan() { return check.checked ? 'prueba_20_dias' : 'gratuito'; }
+
+  function render() {
+    var plan = getPlan();
+    root.setAttribute('data-selection', plan);
+    for (var i = 0; i < plans.length; i++) {
+      plans[i].classList.toggle('is-active', plans[i].getAttribute('data-plan') === plan);
+    }
+    if (live) live.textContent = 'Plan seleccionado: ' + PLAN_LABELS[plan] + '.';
+    // Paso 2: sincroniza campo oculto si ya existe
+    var field = root.querySelector('[data-vende-plan-field]');
+    if (field) field.value = plan;
+  }
+  check.addEventListener('change', render);
+
+  /* ---- Pasos (Siguiente / Atrás) ---- */
+  function goToStep(n) {
+    var steps = root.querySelectorAll('[data-step]');
+    for (var i = 0; i < steps.length; i++) {
+      // Solo contenedores de paso (los planes usan data-plan, no data-step)
+      steps[i].hidden = steps[i].getAttribute('data-step') !== String(n);
+    }
+    root.dispatchEvent(new CustomEvent('ctqvende:step', { bubbles: true, detail: { step: n, plan: getPlan() } }));
+  }
+
+  root.querySelector('[data-vende-next]').addEventListener('click', function () {
+    var plan = getPlan();
+    // Evento para conectar analítica o el formulario del Paso 2
+    root.dispatchEvent(new CustomEvent('ctqvende:next', { bubbles: true, detail: { plan: plan } }));
+    var step2 = root.querySelector('[data-step="2"]');
+    if (step2 && step2.children.length) goToStep(2);   // solo avanza cuando exista contenido
+  });
+  root.addEventListener('click', function (e) {
+    if (e.target.closest('[data-vende-back]')) goToStep(1);
+    if (e.target.closest('[data-vende-close]') || e.target === root) close();
+  });
+
+  /* ---- Abrir / cerrar + accesibilidad ---- */
+  function open() {
+    lastFocus = document.activeElement;
+    goToStep(1);
+    render();
+    root.classList.add('is-open');
+    document.documentElement.style.overflow = 'hidden';
+    root.querySelector('[data-vende-close]').focus();
+  }
+  function close() {
+    root.classList.remove('is-open');
+    document.documentElement.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (!root.classList.contains('is-open')) return;
+    if (e.key === 'Escape') { close(); return; }
+    if (e.key === 'Tab') {                         // focus trap simple
+      var f = root.querySelectorAll('button:not([disabled]), input:not([disabled]), a[href]');
+      var visible = Array.prototype.filter.call(f, function (el) { return el.offsetParent !== null; });
+      if (!visible.length) return;
+      var first = visible[0], last = visible[visible.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  /* ---- Trigger externo: cualquier elemento con data-vende-popup-open ---- */
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-vende-popup-open]');
+    if (t) { e.preventDefault(); open(); }
+  });
+
+  /* ---- API pública (por si el trigger actual es un botón/CTA de HubSpot) ---- */
+  window.CtqVendePopup = { open: open, close: close, getPlan: getPlan, goToStep: goToStep };
+
+  render();
+})();
+</script>
