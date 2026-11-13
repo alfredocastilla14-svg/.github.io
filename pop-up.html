@@ -1,7 +1,8 @@
 <!--
   =====================================================================
   CONTPAQi Vende · Pop-up modular · FASE 1: Cara 1 (Selección)
-  Módulo HubSpot en línea (HTML + CSS + JS en un solo archivo).
+  Página standalone (HTML + CSS + JS en un solo archivo) para GitHub / pruebas.
+  Solo las imágenes se hospedan en el File Manager de HubSpot.
   - CSS encapsulado bajo .ctq-vende (BEM) para no chocar con estilos globales.
   - Trigger externo: cualquier elemento con [data-vende-popup-open]
     o llamada a window.CtqVendePopup.open().
@@ -9,6 +10,12 @@
   =====================================================================
 -->
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CONTPAQi Vende · Pop-up</title>
 <style>
 /* ===== Tokens (scope local) ===== */
 .ctq-vende {
@@ -175,8 +182,11 @@
 }
 </style>
 
+</head>
+<body>
+
 <!-- ===================== MARKUP ===================== -->
-<div class="ctq-vende" id="ctq-vende" role="dialog" aria-modal="true" aria-labelledby="ctq-vende-title" data-selection="gratuito">
+<div class="ctq-vende" id="ctq-vende" role="dialog" aria-modal="true" aria-labelledby="ctq-vende-title" data-selection="gratuito" data-autoopen>
 
   <div class="ctq-vende__dialog">
     <button type="button" class="ctq-vende__close" data-vende-close aria-label="Cerrar">&times;</button>
@@ -379,5 +389,12 @@
   window.CtqVendePopup = { open: open, close: close, getPlan: getPlan, goToStep: goToStep };
 
   render();
+
+  /* PRUEBAS: abre el pop-up al cargar la página.
+     Para producción, quita el atributo data-autoopen del contenedor #ctq-vende
+     y usa tu trigger (data-vende-popup-open o CtqVendePopup.open()). */
+  if (root.hasAttribute('data-autoopen')) open();
 })();
 </script>
+</body>
+</html>
