@@ -206,16 +206,12 @@
 /* Aviso de selección (tono neutro, sin azul) */
 .ctq-vende__notice {
   display: flex; align-items: center; gap: 10px; margin-top: 12px; padding: 9px 12px;
-  border-radius: 12px; background: #f2f5f8; color: var(--ctq-navy); font-size: 14px; line-height: 1.35;
+  border-radius: 12px; background: #f2f5f8; color: var(--ctq-navy); font-size: 11px; line-height: 1.4;
 }
-.ctq-vende__notice i { flex: 0 0 auto; font-size: 18px; color: var(--ctq-green); }
+.ctq-vende__notice i { flex: 0 0 auto; font-size: 16px; color: var(--ctq-green); }
 
 /* ===== Footer: confirmación + CTA ===== */
-.ctq-vende__footer { margin-top: auto; padding-top: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.ctq-vende__consent { display: flex; align-items: center; gap: 10px; margin: 0; max-width: 340px; font-size: 14px; line-height: 1.35; color: var(--ctq-text); }
-.ctq-vende__consent i { flex: 0 0 auto; font-size: 18px; color: var(--ctq-green); }
-.ctq-vende__consent strong { color: var(--ctq-navy); }
-.ctq-vende[data-selection="gratuito"] .ctq-vende__consent { visibility: hidden; }
+.ctq-vende__footer { margin-top: auto; padding-top: 16px; display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
 
 .ctq-vende__btn {
   display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px;
@@ -269,8 +265,6 @@
   .ctq-vende__plan-aside { flex-direction: row; text-align: left; padding: 8px 0 0; margin-top: 8px; border-left: 0; border-top: 1px solid var(--ctq-line); }
   .ctq-vende__plan.is-active .ctq-vende__plan-aside { border-top-color: rgba(11,122,75,.3); }
   .ctq-vende__footer { flex-direction: column; align-items: stretch; }
-  .ctq-vende__consent { max-width: none; }
-  .ctq-vende[data-selection="gratuito"] .ctq-vende__consent { display: none; }
   .ctq-vende__btn { justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -378,10 +372,6 @@
           </div>
 
           <div class="ctq-vende__footer">
-            <p class="ctq-vende__consent">
-              <i class="fas fa-info-circle" aria-hidden="true"></i>
-              <span>Deseo utilizar el servicio <strong>CONTPAQi Vende&reg;</strong> en línea por 20 días (sin costo).</span>
-            </p>
             <button type="button" class="ctq-vende__btn" data-vende-next>
               Siguiente <i class="fas fa-arrow-right" aria-hidden="true"></i>
             </button>
@@ -412,8 +402,8 @@
   root.__ctqVende = true;
 
   var NOTICES = {
-    gratuito: 'Servicio Gratuito seleccionado. Elige la prueba gratuita si quieres disfrutar todos los beneficios por 20 días.',
-    prueba_20_dias: 'Prueba gratuita de 20 días seleccionada. Solo se aplica un beneficio a la vez; al terminar el periodo puedes seguir con ellos al contratar el servicio.'
+    gratuito: 'Servicio gratuito por 3 meses seleccionado. Si requieres más, puedes seleccionar la prueba gratuita de 20 días o contratar el servicio.',
+    prueba_20_dias: 'Deseo utilizar el servicio <strong>CONTPAQi Vende&reg;</strong> en línea por 20 días (sin costo). Solo se aplica un beneficio a la vez; al terminar el periodo puedes seguir con ellos al contratar el servicio.'
   };
 
   var radios  = root.querySelectorAll('input[name="vende_plan"]');
@@ -439,7 +429,7 @@
     for (var i = 0; i < cards.length; i++) {
       cards[i].classList.toggle('is-active', cards[i].getAttribute('data-plan') === plan);
     }
-    if (notice) notice.textContent = NOTICES[plan];
+    if (notice) notice.innerHTML = NOTICES[plan];   // textos propios, sin entrada del usuario
     var field = root.querySelector('[data-vende-plan-field]');   // campo oculto del Paso 2
     if (field) field.value = plan;
   }
