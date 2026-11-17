@@ -111,8 +111,9 @@
   border-right: 1px solid var(--ctq-line);
 }
 .ctq-vende__logo { display: block; height: 48px; width: auto; max-width: 100%; margin-bottom: 14px; align-self: flex-start; }
-.ctq-vende__title { margin: 0 0 16px; font-size: clamp(21px, 3.6vh, 27px); line-height: 1.18; font-weight: 700; color: var(--ctq-navy); }
+.ctq-vende__title { margin: 0 0 6px; font-size: clamp(21px, 3.6vh, 27px); line-height: 1.18; font-weight: 700; color: var(--ctq-navy); }
 .ctq-vende__title strong { color: var(--ctq-green); font-weight: 800; }
+.ctq-vende__subtitle { margin: 0 0 16px; font-size: 15px; line-height: 1.3; color: var(--ctq-navy); }
 
 .ctq-vende__benefits { position: relative; z-index: 2; list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .ctq-vende__benefit { display: flex; align-items: center; gap: 12px; max-width: 220px; font-size: 15px; line-height: 1.25; color: var(--ctq-navy); }
@@ -131,20 +132,19 @@
 
 /* ----- Columna derecha (con scroll de respaldo) ----- */
 .ctq-vende__right { display: flex; flex-direction: column; min-height: 0; overflow-y: auto; padding: 24px 28px 20px; }
-.ctq-vende__headline { margin: 0 0 12px; padding-right: 40px; font-size: clamp(20px, 3.4vh, 26px); line-height: 1.12; font-weight: 700; color: var(--ctq-navy); }
+.ctq-vende__headline { margin: 0; padding-right: 40px; font-size: clamp(20px, 3.4vh, 26px); line-height: 1.12; font-weight: 700; color: var(--ctq-navy); }
 .ctq-vende__headline-big { display: block; font-size: clamp(30px, 5.4vh, 42px); line-height: 1.05; font-weight: 800; color: var(--ctq-green); }
 
-/* Lo que incluyen ambos planes (una sola vez) */
-.ctq-vende__common { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 14px; padding: 0; list-style: none; font-size: 14px; color: var(--ctq-navy); }
-.ctq-vende__common-label { font-weight: 700; }
-.ctq-vende__chip { position: relative; padding-left: 20px; }
-.ctq-vende__chip::before, .ctq-vende__list li::before {
+.ctq-vende__lead { margin: 8px 0 16px; font-size: 15px; line-height: 1.3; color: var(--ctq-navy); }
+
+/* Check de las listas (Font Awesome) */
+.ctq-vende__list li::before {
   content: "\f00c"; font-family: var(--ctq-fa); font-weight: 900;
   position: absolute; left: 0; top: 1px; font-size: 13px; line-height: 1.5; color: var(--ctq-green);
 }
 
 /* ===== Tarjetas de plan (radio nativo) ===== */
-.ctq-vende__plans { display: flex; flex-direction: column; gap: 16px; }
+.ctq-vende__plans { display: flex; flex-direction: column; gap: 0; }
 .ctq-vende__plan {
   position: relative; display: grid; grid-template-columns: 1fr 170px; column-gap: 14px; align-items: center;
   padding: 14px 16px 12px;
@@ -157,7 +157,8 @@
   background: var(--ctq-green-soft);
   box-shadow: 0 0 0 3px rgba(11,122,75,.14), 0 8px 20px rgba(11,122,75,.14);
 }
-.ctq-vende__plan:focus-within { outline: 3px solid #4c9fff; outline-offset: 2px; }
+/* Sin aro azul al hacer clic; solo anillo verde cuando se navega con teclado */
+.ctq-vende__plan:has(.ctq-vende__input:focus-visible) { outline: 3px solid var(--ctq-green-dark); outline-offset: 2px; }
 
 /* Input real, oculto visualmente pero enfocable */
 .ctq-vende__input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); opacity: 0; margin: 0; }
@@ -195,10 +196,26 @@
 }
 .ctq-vende__badge i { font-size: 12px; }
 
-/* ===== Footer: resumen + CTA ===== */
+/* Línea que delimita ambos servicios */
+.ctq-vende__divider {
+  display: flex; align-items: center; gap: 12px; margin: 12px 4px 10px;
+  font-size: 14px; font-weight: 600; color: var(--ctq-muted);
+}
+.ctq-vende__divider::before, .ctq-vende__divider::after { content: ""; flex: 1; height: 1px; background: var(--ctq-line); }
+
+/* Aviso de selección (tono neutro, sin azul) */
+.ctq-vende__notice {
+  display: flex; align-items: center; gap: 10px; margin-top: 12px; padding: 9px 12px;
+  border-radius: 12px; background: #f2f5f8; color: var(--ctq-navy); font-size: 14px; line-height: 1.35;
+}
+.ctq-vende__notice i { flex: 0 0 auto; font-size: 18px; color: var(--ctq-green); }
+
+/* ===== Footer: confirmación + CTA ===== */
 .ctq-vende__footer { margin-top: auto; padding-top: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.ctq-vende__summary { display: flex; align-items: center; gap: 10px; margin: 0; max-width: 300px; font-size: 14px; line-height: 1.35; color: var(--ctq-navy); }
-.ctq-vende__summary i { flex: 0 0 auto; font-size: 18px; color: var(--ctq-green); }
+.ctq-vende__consent { display: flex; align-items: center; gap: 10px; margin: 0; max-width: 340px; font-size: 14px; line-height: 1.35; color: var(--ctq-text); }
+.ctq-vende__consent i { flex: 0 0 auto; font-size: 18px; color: var(--ctq-green); }
+.ctq-vende__consent strong { color: var(--ctq-navy); }
+.ctq-vende[data-selection="gratuito"] .ctq-vende__consent { visibility: hidden; }
 
 .ctq-vende__btn {
   display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px;
@@ -212,18 +229,18 @@
 .ctq-vende__btn:active { transform: translateY(1px); }
 
 .ctq-vende__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.ctq-vende a:focus-visible, .ctq-vende button:focus-visible { outline: 3px solid #4c9fff; outline-offset: 2px; }
+.ctq-vende a:focus-visible, .ctq-vende button:focus-visible { outline: 3px solid var(--ctq-green-dark); outline-offset: 2px; }
 
 /* ===== Ventanas bajas (laptops): compacta para no hacer scroll ===== */
 @media (max-height: 700px) {
   .ctq-vende__left { padding: 20px 20px 14px 26px; }
   .ctq-vende__logo { height: 42px; margin-bottom: 10px; }
-  .ctq-vende__title { margin-bottom: 12px; }
+  .ctq-vende__subtitle { margin-bottom: 12px; }
   .ctq-vende__benefits { gap: 6px; }
   .ctq-vende__right { padding: 18px 24px 14px; }
-  .ctq-vende__headline { margin-bottom: 8px; }
-  .ctq-vende__common { margin-bottom: 10px; }
-  .ctq-vende__plans { gap: 14px; }
+  .ctq-vende__lead { margin: 6px 0 12px; }
+  .ctq-vende__divider { margin: 9px 4px 7px; }
+  .ctq-vende__notice { margin-top: 9px; padding: 7px 10px; }
   .ctq-vende__plan { padding: 10px 14px 9px; }
   .ctq-vende__plan-head { margin-bottom: 5px; }
   .ctq-vende__list { gap: 3px; }
@@ -232,6 +249,7 @@
 }
 @media (max-height: 640px) {
   .ctq-vende__media { display: none; }
+  .ctq-vende__subtitle { display: none; }
 }
 
 /* ===== Móvil / tablet vertical: una columna (el scroll del diálogo es el último recurso) ===== */
@@ -240,7 +258,7 @@
   .ctq-vende__step { display: block; }
   .ctq-vende__grid { display: block; }
   .ctq-vende__left { border-right: 0; border-bottom: 1px solid var(--ctq-line); padding: 20px 20px 14px; }
-  .ctq-vende__benefits, .ctq-vende__media { display: none; }
+  .ctq-vende__subtitle, .ctq-vende__benefits, .ctq-vende__media { display: none; }
   .ctq-vende__logo { height: 38px; margin-bottom: 8px; }
   .ctq-vende__title { margin: 0; padding-right: 36px; font-size: 20px; }
   .ctq-vende__right { overflow: visible; padding: 18px 18px 16px; }
@@ -251,7 +269,8 @@
   .ctq-vende__plan-aside { flex-direction: row; text-align: left; padding: 8px 0 0; margin-top: 8px; border-left: 0; border-top: 1px solid var(--ctq-line); }
   .ctq-vende__plan.is-active .ctq-vende__plan-aside { border-top-color: rgba(11,122,75,.3); }
   .ctq-vende__footer { flex-direction: column; align-items: stretch; }
-  .ctq-vende__summary { max-width: none; }
+  .ctq-vende__consent { max-width: none; }
+  .ctq-vende[data-selection="gratuito"] .ctq-vende__consent { display: none; }
   .ctq-vende__btn { justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -276,6 +295,7 @@
           <!-- TODO: agregar width="" real del logo (evita saltos de layout) -->
           <img class="ctq-vende__logo" data-src="https://www.contpaqi.com/hubfs/Logotipos%202026/Administracion/CONTPAQi-Vende%C2%AE-2026.png" alt="CONTPAQi Vende" height="48">
           <h2 class="ctq-vende__title" id="ctq-vende-title">Da el siguiente paso y migra a <strong>CONTPAQi Vende&reg;</strong></h2>
+          <p class="ctq-vende__subtitle">Administra, factura y haz crecer tu negocio</p>
 
           <ul class="ctq-vende__benefits">
             <li class="ctq-vende__benefit">
@@ -304,12 +324,7 @@
             <span class="ctq-vende__headline-big">20 días de prueba</span>
           </h3>
 
-          <!-- Lo común a ambos planes, una sola vez -->
-          <ul class="ctq-vende__common">
-            <li class="ctq-vende__common-label">Incluido en ambos:</li>
-            <li class="ctq-vende__chip">Emisión y timbrado de facturas</li>
-            <li class="ctq-vende__chip">Cancelación</li>
-          </ul>
+          <p class="ctq-vende__lead">Conoce todas las ventajas de <strong>CONTPAQi Vende&reg;</strong></p>
 
           <!-- Tarjetas seleccionables: radios nativos (única fuente de verdad) -->
           <div class="ctq-vende__plans" role="radiogroup" aria-label="Elige tu plan">
@@ -323,14 +338,19 @@
                 <label class="ctq-vende__plan-name" for="ctq-plan-prueba">Tu prueba gratuita por 20 días</label>
               </div>
               <ul class="ctq-vende__list" id="ctq-plan-prueba-desc">
+                <li>Emisión y timbrado de facturas.</li>
+                <li>Cancelación.</li>
                 <li>Almacenamiento por 5 años.</li>
                 <li>Catálogos de clientes, productos y servicios.</li>
               </ul>
               <div class="ctq-vende__plan-aside">
                 <i class="fas fa-calendar-check" aria-hidden="true"></i>
-                <span>Al terminar los 20 días, sigue con estos beneficios al contratar el servicio.</span>
+                <span>Al término del periodo de 20 días puedes seguir utilizando estos beneficios al contratar el servicio.</span>
               </div>
             </div>
+
+            <!-- Línea que delimita -->
+            <div class="ctq-vende__divider" role="presentation"><span>Obtienes por tu servicio gratuito</span></div>
 
             <!-- Servicio gratuito -->
             <div class="ctq-vende__plan" data-plan="gratuito">
@@ -340,6 +360,8 @@
                 <label class="ctq-vende__plan-name" for="ctq-plan-gratuito">Servicio Gratuito</label>
               </div>
               <ul class="ctq-vende__list" id="ctq-plan-gratuito-desc">
+                <li>Emisión y timbrado de facturas.</li>
+                <li>Cancelación.</li>
                 <li>Almacenamiento por 3 meses.</li>
               </ul>
               <div class="ctq-vende__plan-aside">
@@ -349,10 +371,16 @@
             </div>
           </div>
 
+          <!-- Aviso dinámico de la selección -->
+          <div class="ctq-vende__notice" role="status" aria-live="polite">
+            <i class="fas fa-info-circle" aria-hidden="true"></i>
+            <span data-vende-notice></span>
+          </div>
+
           <div class="ctq-vende__footer">
-            <p class="ctq-vende__summary" role="status" aria-live="polite">
+            <p class="ctq-vende__consent">
               <i class="fas fa-info-circle" aria-hidden="true"></i>
-              <span data-vende-summary></span>
+              <span>Deseo utilizar el servicio <strong>CONTPAQi Vende&reg;</strong> en línea por 20 días (sin costo).</span>
             </p>
             <button type="button" class="ctq-vende__btn" data-vende-next>
               Siguiente <i class="fas fa-arrow-right" aria-hidden="true"></i>
@@ -383,14 +411,14 @@
   if (!root || root.__ctqVende) return;      // evita doble inicialización
   root.__ctqVende = true;
 
-  var SUMMARY = {
-    prueba_20_dias: 'Usarás CONTPAQi Vende\u00AE en línea por 20 días, sin costo.',
-    gratuito: 'Continuarás con el Servicio Gratuito.'
+  var NOTICES = {
+    gratuito: 'Servicio Gratuito seleccionado. Elige la prueba gratuita si quieres disfrutar todos los beneficios por 20 días.',
+    prueba_20_dias: 'Prueba gratuita de 20 días seleccionada. Solo se aplica un beneficio a la vez; al terminar el periodo puedes seguir con ellos al contratar el servicio.'
   };
 
   var radios  = root.querySelectorAll('input[name="vende_plan"]');
   var cards   = root.querySelectorAll('.ctq-vende__plan[data-plan]');
-  var summary = root.querySelector('[data-vende-summary]');
+  var notice  = root.querySelector('[data-vende-notice]');
   var lastFocus = null;
   var inerted = [];
 
@@ -411,7 +439,7 @@
     for (var i = 0; i < cards.length; i++) {
       cards[i].classList.toggle('is-active', cards[i].getAttribute('data-plan') === plan);
     }
-    if (summary) summary.textContent = SUMMARY[plan];
+    if (notice) notice.textContent = NOTICES[plan];
     var field = root.querySelector('[data-vende-plan-field]');   // campo oculto del Paso 2
     if (field) field.value = plan;
   }
