@@ -91,6 +91,8 @@
 }
 .ctq-vende__close:hover { background: #eef2f6; }
 
+.ctq-vende__dialog:focus { outline: none; }
+
 .ctq-vende__step { display: flex; flex: 1 1 auto; min-height: 0; }
 .ctq-vende__step[hidden] { display: none !important; }
 
@@ -111,9 +113,9 @@
   border-right: 1px solid var(--ctq-line);
 }
 .ctq-vende__logo { display: block; height: 48px; width: auto; max-width: 100%; margin-bottom: 14px; align-self: flex-start; }
-.ctq-vende__title { margin: 0 0 6px; font-size: clamp(18px, 3.1vh, 21px); line-height: 1.2; font-weight: 700; color: var(--ctq-navy); }
+.ctq-vende__title { margin: 0 0 8px; font-size: clamp(18px, 3.1vh, 21px); line-height: 1.2; font-weight: 700; color: var(--ctq-navy); }
 .ctq-vende__title strong { color: var(--ctq-green); font-weight: 800; }
-.ctq-vende__subtitle { margin: 0 0 16px; font-size: 15px; line-height: 1.3; color: var(--ctq-navy); }
+.ctq-vende__subtitle { margin: 0 0 16px; font-size: 13px; line-height: 1.3; color: var(--ctq-navy); }
 
 .ctq-vende__benefits { position: relative; z-index: 2; list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
 .ctq-vende__benefit { display: flex; align-items: center; gap: 10px; font-size: 13px; line-height: 1.25; white-space: nowrap; color: var(--ctq-navy); }
@@ -150,8 +152,9 @@
   padding: 14px 16px 12px;
   border: 2px solid var(--ctq-line); border-radius: 16px; background: #fff;
   cursor: pointer; transition: border-color .2s, background .2s, box-shadow .2s;
+  -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; touch-action: manipulation;
 }
-.ctq-vende__plan:hover { border-color: #8fd1b0; }
+@media (hover: hover) { .ctq-vende__plan:hover { border-color: #8fd1b0; } }
 .ctq-vende__plan.is-active {
   border-color: var(--ctq-green);
   background: var(--ctq-green-soft);
@@ -175,7 +178,7 @@
 }
 /* El label cubre toda la tarjeta: clic en cualquier parte selecciona */
 .ctq-vende__plan-name { margin: 0; font-size: 18px; font-weight: 700; color: var(--ctq-navy); cursor: pointer; }
-.ctq-vende__plan-name::after { content: ""; position: absolute; inset: 0; border-radius: 14px; }
+.ctq-vende__plan-name::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 14px; }
 
 .ctq-vende__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
 .ctq-vende__list li { position: relative; padding-left: 20px; font-size: 13px; line-height: 1.35; color: var(--ctq-text); }
@@ -277,7 +280,7 @@
 <!-- ===================== MARKUP ===================== -->
 <div class="ctq-vende" id="ctq-vende" data-selection="prueba_20_dias" data-autoopen>
 
-  <div class="ctq-vende__dialog" role="dialog" aria-modal="true" aria-labelledby="ctq-vende-title">
+  <div class="ctq-vende__dialog" role="dialog" aria-modal="true" aria-labelledby="ctq-vende-title" tabindex="-1">
     <button type="button" class="ctq-vende__close" data-vende-close aria-label="Cerrar"><i class="fas fa-times" aria-hidden="true"></i></button>
 
     <!-- ============ PASO 1: Oferta / Selección ============ -->
@@ -409,6 +412,7 @@
   var radios  = root.querySelectorAll('input[name="vende_plan"]');
   var cards   = root.querySelectorAll('.ctq-vende__plan[data-plan]');
   var notice  = root.querySelector('[data-vende-notice]');
+  var dlg = root.querySelector('.ctq-vende__dialog');
   var lastFocus = null;
   var inerted = [];
 
@@ -435,6 +439,18 @@
   }
 
   for (var i = 0; i < radios.length; i++) radios[i].addEventListener('change', render);
+
+  /* Toda la tarjeta es seleccionable (respaldo del label: texto, listas, textos laterales, espacios) */
+  for (var c = 0; c < cards.length; c++) {
+    (function (card) {
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('input')) return;          // el clic nativo del radio ya se maneja solo
+        var r = card.querySelector('input[name="vende_plan"]');
+        if (!r) return;
+        if (!r.checked) { r.checked = true; render(); }
+      });
+    })(cards[c]);
+  }
 
   /* ---- Pasos (Siguiente / Atrás) ---- */
   function goToStep(n) {
@@ -492,8 +508,7 @@
     root.classList.add('is-open');
     document.documentElement.style.overflow = 'hidden';
     setBackgroundInert(true);
-    var checked = root.querySelector('input[name="vende_plan"]:checked');
-    if (checked) checked.focus();
+    dlg.focus();                                   // foco al diálogo: sin aro visible en la tarjeta al abrir
   }
   function close() {
     root.classList.remove('is-open');
@@ -510,7 +525,7 @@
       var visible = Array.prototype.filter.call(f, function (el) { return el.offsetParent !== null || el.type === 'radio'; });
       if (!visible.length) return;
       var first = visible[0], last = visible[visible.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      if (e.shiftKey && (document.activeElement === first || document.activeElement === dlg)) { e.preventDefault(); last.focus(); }
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   });
