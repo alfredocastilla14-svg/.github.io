@@ -125,9 +125,10 @@
 .ctq-vende__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .ctq-vende__list li { position: relative; padding-left: 28px; font-size: 16px; color: var(--ctq-text); }
 .ctq-vende__list li::before {
-  content: ""; position: absolute; left: 4px; top: 4px; width: 7px; height: 13px;
-  border: solid var(--ctq-green); border-width: 0 3px 3px 0; transform: rotate(45deg);
+  content: ""; position: absolute; left: 0; top: 3px; width: 18px; height: 18px;
+  background: url("https://www.contpaqi.com/hubfs/Vende/check.png") center / contain no-repeat;
 }
+.ctq-vende__info { width: 22px; height: 22px; flex: 0 0 22px; object-fit: contain; }
 .ctq-vende__plan-aside {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
   padding-left: 18px; border-left: 1px solid var(--ctq-line);
@@ -197,26 +198,26 @@
 
         <!-- Columna izquierda -->
         <div class="ctq-vende__left">
-          <img class="ctq-vende__logo" src="URL_LOGOTIPO_VENDE" alt="CONTPAQi Vende" width="320" height="64"> <!-- URL_LOGOTIPO_VENDE -->
+          <img class="ctq-vende__logo" src="https://www.contpaqi.com/hubfs/Logotipos%202026/Administracion/CONTPAQi-Vende%C2%AE-2026.png" alt="CONTPAQi Vende" width="320" height="64"> <!-- URL_LOGOTIPO_VENDE -->
           <h2 class="ctq-vende__title" id="ctq-vende-title">Da el siguiente paso y migra a <strong>CONTPAQi Vende&reg;</strong></h2>
           <p class="ctq-vende__subtitle">Administra, factura y haz crecer tu negocio</p>
 
           <ul class="ctq-vende__benefits">
             <li class="ctq-vende__benefit">
-              <span class="ctq-vende__benefit-icon"><img src="URL_ICONO_COHETE" alt="" width="28" height="28"></span> <!-- URL_ICONO_COHETE -->
+              <span class="ctq-vende__benefit-icon"><img src="https://www.contpaqi.com/hubfs/Vende/cohete.png" alt="" width="28" height="28"></span> <!-- URL_ICONO_COHETE -->
               <span>Moderniza tu negocio</span>
             </li>
             <li class="ctq-vende__benefit">
-              <span class="ctq-vende__benefit-icon"><img src="URL_ICONO_NUBE" alt="" width="28" height="28"></span> <!-- URL_ICONO_NUBE -->
+              <span class="ctq-vende__benefit-icon"><img src="https://www.contpaqi.com/hubfs/Vende/nube.png" alt="" width="28" height="28"></span> <!-- URL_ICONO_NUBE -->
               <span>Trabaja desde cualquier lugar</span>
             </li>
             <li class="ctq-vende__benefit">
-              <span class="ctq-vende__benefit-icon"><img src="URL_ICONO_ESCUDO" alt="" width="28" height="28"></span> <!-- URL_ICONO_ESCUDO -->
+              <span class="ctq-vende__benefit-icon"><img src="https://www.contpaqi.com/hubfs/Vende/escudo.png" alt="" width="28" height="28"></span> <!-- URL_ICONO_ESCUDO -->
               <span>Cumple con la normatividad</span>
             </li>
           </ul>
 
-          <img class="ctq-vende__laptop" src="URL_IMAGEN_COMPUTADORA" alt="Panel de CONTPAQi Vende en una laptop" loading="lazy"> <!-- URL_IMAGEN_COMPUTADORA -->
+          <img class="ctq-vende__laptop" src="https://www.contpaqi.com/hubfs/Vende/computadora_vende.png" alt="Panel de CONTPAQi Vende en una laptop" loading="lazy"> <!-- URL_IMAGEN_COMPUTADORA -->
         </div>
 
         <!-- Columna derecha -->
@@ -231,7 +232,7 @@
 
             <!-- Prueba gratuita -->
             <div class="ctq-vende__plan" data-plan="prueba_20_dias">
-              <span class="ctq-vende__badge"><img src="URL_ICONO_ESTRELLA" alt="" width="16" height="16"> Recomendado</span> <!-- URL_ICONO_ESTRELLA -->
+              <span class="ctq-vende__badge"><img src="https://www.contpaqi.com/hubfs/Vende/estrella.png" alt="" width="16" height="16"> Recomendado</span> <!-- URL_ICONO_ESTRELLA -->
               <div>
                 <div class="ctq-vende__plan-head">
                   <span class="ctq-vende__radio" aria-hidden="true"></span>
@@ -245,7 +246,7 @@
                 </ul>
               </div>
               <div class="ctq-vende__plan-aside">
-                <img src="URL_ICONO_CALENDARIO" alt="" width="52" height="52" loading="lazy"> <!-- URL_ICONO_CALENDARIO -->
+                <img src="https://www.contpaqi.com/hubfs/Vende/calendario.png" alt="" width="52" height="52" loading="lazy"> <!-- URL_ICONO_CALENDARIO -->
                 <span>Al término del periodo de 20 días puedes seguir utilizando estos beneficios al contratar el servicio.</span>
               </div>
             </div>
@@ -264,7 +265,7 @@
                 </ul>
               </div>
               <div class="ctq-vende__plan-aside">
-                <img src="URL_ICONO_REGALO" alt="" width="52" height="52" loading="lazy"> <!-- URL_ICONO_REGALO -->
+                <img src="https://www.contpaqi.com/hubfs/Vende/regalo.png" alt="" width="52" height="52" loading="lazy"> <!-- URL_ICONO_REGALO -->
                 <span>Funcionalidades esenciales para tu negocio.</span>
               </div>
             </div>
@@ -276,6 +277,7 @@
           <div class="ctq-vende__footer">
             <label class="ctq-vende__check">
               <input type="checkbox" data-vende-check>
+              <img class="ctq-vende__info" src="https://www.contpaqi.com/hubfs/Vende/informacion.png" alt="" width="22" height="22">
               <span>Deseo utilizar el servicio <strong>CONTPAQi Vende&reg;</strong> en línea por 20 días (sin costo).</span>
             </label>
             <button type="button" class="ctq-vende__btn" data-vende-next>
