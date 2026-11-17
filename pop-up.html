@@ -1,26 +1,39 @@
+<!DOCTYPE html>
 <!--
   =====================================================================
-  CONTPAQi Vende · Pop-up modular · FASE 1: Cara 1 (Selección) · v3
+  CONTPAQi Vende · Pop-up modular · FASE 1: Cara 1 (Selección) · v4
   Página standalone (HTML + CSS + JS en un solo archivo) para GitHub / pruebas.
-  Solo las imágenes se hospedan en el File Manager de HubSpot.
+  Solo las imágenes (logo y laptop) se hospedan en el File Manager de HubSpot.
+
+  CAMBIOS v4
+  - Más compacto: 880 px de ancho máx., alto automático (ya no fijo).
+  - Iconos con Font Awesome (los que ya carga el sitio): 8 imágenes menos.
+  - Un solo control: tarjetas = radios nativos (sin checkbox duplicado).
+  - Prueba de 20 días preseleccionada (es la "Recomendada").
+  - Contenido repetido consolidado ("Incluido en ambos").
+  - Accesibilidad: role=dialog en el diálogo, fondo inert, foco inicial en
+    el plan seleccionado, botón cerrar de 44 px, textos >= 14 px.
+  - Respaldo de scroll en la columna derecha (zoom 125-150 % en laptops).
+  - Imágenes diferidas: se cargan en la primera apertura (data-src).
 
   - CSS encapsulado bajo .ctq-vende (BEM) para no chocar con estilos globales.
-  - El pop-up se ajusta al alto de la ventana: sin scroll en escritorio.
-  - Selección: tarjetas clicables (radio) sincronizadas con el checkbox.
   - Trigger externo: [data-vende-popup-open] o window.CtqVendePopup.open().
   - Paso 2 (formulario): contenedor oculto [data-step="2"] listo para conectar.
   =====================================================================
 -->
-<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CONTPAQi Vende · Pop-up</title>
-<!-- Tipografía (solo necesaria en la página standalone; en el sitio hereda la fuente del tema) -->
+
+<!-- SOLO PARA PRUEBAS STANDALONE. En el sitio, quitar estos dos <link>:
+     la fuente y Font Awesome ya los carga la página. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 /* ===== Tokens (scope local) ===== */
 .ctq-vende {
@@ -32,16 +45,18 @@
   --ctq-muted: #5b6678;
   --ctq-line: #d9e0e8;
   --ctq-radius: 20px;
-  /* Alto del pop-up: nunca más que la ventana (con margen) */
-  --ctq-h: min(640px, calc(100vh - 24px));
-  --ctq-h: min(640px, calc(100dvh - 24px));
+  /* Familias de Font Awesome (cubre v5/v6, Free/Pro y Kit) para los ::before */
+  --ctq-fa: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 5 Free", "Font Awesome 5 Pro";
+  /* Alto máximo del pop-up: nunca más que la ventana (con margen) */
+  --ctq-h: calc(100vh - 24px);
+  --ctq-h: calc(100dvh - 24px);
   font-family: 'Poppins', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   color: var(--ctq-text);
   box-sizing: border-box;
 }
 .ctq-vende *, .ctq-vende *::before, .ctq-vende *::after { box-sizing: inherit; }
 .ctq-vende button, .ctq-vende input { font-family: inherit; }
-.ctq-vende h2, .ctq-vende h3, .ctq-vende h4, .ctq-vende p, .ctq-vende ul { font-family: inherit; }
+.ctq-vende h2, .ctq-vende h3, .ctq-vende p, .ctq-vende ul { font-family: inherit; }
 
 /* ===== Overlay ===== */
 .ctq-vende {
@@ -49,15 +64,17 @@
   display: flex; align-items: center; justify-content: center;
   padding: 12px;
   background: rgba(15, 25, 45, .55);
-  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
   opacity: 0; visibility: hidden;
   transition: opacity .25s ease, visibility .25s ease;
 }
 .ctq-vende.is-open { opacity: 1; visibility: visible; }
 
-/* ===== Diálogo ===== */
+/* ===== Diálogo (alto automático, con tope = ventana) ===== */
 .ctq-vende__dialog {
-  position: relative; width: 100%; max-width: 1080px; height: var(--ctq-h);
+  position: relative; display: flex; flex-direction: column;
+  width: 100%; max-width: 880px; max-height: var(--ctq-h);
   overflow: hidden;
   background: #fff; border-radius: var(--ctq-radius);
   box-shadow: 0 30px 80px rgba(0,0,0,.35);
@@ -67,58 +84,69 @@
 .ctq-vende.is-open .ctq-vende__dialog { transform: none; }
 
 .ctq-vende__close {
-  position: absolute; top: 10px; right: 14px; z-index: 3;
-  width: 36px; height: 36px; border: 0; background: transparent;
-  font-size: 28px; line-height: 1; color: var(--ctq-navy); cursor: pointer; border-radius: 50%;
+  position: absolute; top: 8px; right: 10px; z-index: 3;
+  width: 44px; height: 44px; border: 0; background: transparent;
+  font-size: 20px; line-height: 1; color: var(--ctq-navy); cursor: pointer; border-radius: 50%;
+  display: grid; place-items: center;
 }
 .ctq-vende__close:hover { background: #eef2f6; }
 
-.ctq-vende__step { height: 100%; }
+.ctq-vende__step { display: flex; flex: 1 1 auto; min-height: 0; }
 .ctq-vende__step[hidden] { display: none !important; }
 
 /* ===== Layout 2 columnas ===== */
-.ctq-vende__grid { display: grid; grid-template-columns: 0.95fr 1.2fr; height: 100%; }
+.ctq-vende__grid {
+  display: grid; grid-template-columns: .8fr 1.2fr; grid-template-rows: minmax(0, 1fr);
+  flex: 1 1 auto; min-width: 0; min-height: 0;
+}
 
-/* ----- Columna izquierda (diseño original recuperado) ----- */
+/* ----- Columna izquierda ----- */
 .ctq-vende__left {
   position: relative; display: flex; flex-direction: column; min-height: 0; overflow: hidden;
-  padding: 30px 28px 24px 36px;
+  padding: 26px 22px 22px 30px;
   background:
     radial-gradient(130% 55% at 12% 108%, #bfeed6 0%, rgba(191,238,214,0) 62%),
     radial-gradient(80% 40% at 100% 100%, #d6f4e5 0%, rgba(214,244,229,0) 70%),
     linear-gradient(160deg, #f4fbf8 0%, #ffffff 60%);
   border-right: 1px solid var(--ctq-line);
 }
-.ctq-vende__logo { display: block; height: 58px; width: auto; max-width: 100%; margin-bottom: 20px; align-self: flex-start; }
-.ctq-vende__title { margin: 0 0 6px; font-size: clamp(24px, 4.5vh, 32px); line-height: 1.15; font-weight: 700; color: var(--ctq-navy); }
+.ctq-vende__logo { display: block; height: 48px; width: auto; max-width: 100%; margin-bottom: 14px; align-self: flex-start; }
+.ctq-vende__title { margin: 0 0 16px; font-size: clamp(21px, 3.6vh, 27px); line-height: 1.18; font-weight: 700; color: var(--ctq-navy); }
 .ctq-vende__title strong { color: var(--ctq-green); font-weight: 800; }
-.ctq-vende__subtitle { margin: 0 0 18px; font-size: clamp(14px, 2.6vh, 17px); color: var(--ctq-navy); }
 
-.ctq-vende__benefits { position: relative; z-index: 2; list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-.ctq-vende__benefit { display: flex; align-items: center; gap: 14px; max-width: 210px; font-size: 16px; line-height: 1.25; color: var(--ctq-navy); }
+.ctq-vende__benefits { position: relative; z-index: 2; list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ctq-vende__benefit { display: flex; align-items: center; gap: 12px; max-width: 220px; font-size: 15px; line-height: 1.25; color: var(--ctq-navy); }
 .ctq-vende__benefit-icon {
-  flex: 0 0 48px; width: 48px; height: 48px; border-radius: 50%;
+  flex: 0 0 40px; width: 40px; height: 40px; border-radius: 50%;
   background: var(--ctq-green-soft); display: grid; place-items: center;
+  font-size: 17px; color: var(--ctq-green);
 }
-.ctq-vende__benefit-icon img { width: 25px; height: 25px; object-fit: contain; }
 
-/* Laptop grande abajo a la derecha; "contain" garantiza que nunca se corte */
+/* Laptop abajo a la derecha; "contain" garantiza que nunca se corte */
 .ctq-vende__media {
-  position: absolute; z-index: 1; right: 14px; bottom: 14px; width: 74%; height: 48%;
+  position: absolute; z-index: 1; right: 12px; bottom: 12px; width: 72%; height: 34%;
   display: flex; align-items: flex-end; justify-content: flex-end; pointer-events: none;
 }
 .ctq-vende__laptop { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; object-position: right bottom; }
 
-/* ----- Columna derecha ----- */
-.ctq-vende__right { display: flex; flex-direction: column; min-height: 0; padding: 24px 30px 20px 30px; }
-.ctq-vende__headline { margin: 0; padding-right: 30px; font-size: clamp(22px, 3.9vh, 30px); line-height: 1.12; font-weight: 700; color: var(--ctq-navy); }
-.ctq-vende__headline-big { display: block; font-size: clamp(32px, 6.2vh, 48px); line-height: 1.05; font-weight: 800; color: var(--ctq-green); }
-.ctq-vende__lead { margin: 8px 0 14px; font-size: clamp(14px, 2.2vh, 16px); color: var(--ctq-navy); }
+/* ----- Columna derecha (con scroll de respaldo) ----- */
+.ctq-vende__right { display: flex; flex-direction: column; min-height: 0; overflow-y: auto; padding: 24px 28px 20px; }
+.ctq-vende__headline { margin: 0 0 12px; padding-right: 40px; font-size: clamp(20px, 3.4vh, 26px); line-height: 1.12; font-weight: 700; color: var(--ctq-navy); }
+.ctq-vende__headline-big { display: block; font-size: clamp(30px, 5.4vh, 42px); line-height: 1.05; font-weight: 800; color: var(--ctq-green); }
 
-/* ===== Tarjetas de plan (radio) · 2 columnas: beneficios | aside ===== */
-.ctq-vende__plans { display: flex; flex-direction: column; gap: 0; }
+/* Lo que incluyen ambos planes (una sola vez) */
+.ctq-vende__common { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 14px; padding: 0; list-style: none; font-size: 14px; color: var(--ctq-navy); }
+.ctq-vende__common-label { font-weight: 700; }
+.ctq-vende__chip { position: relative; padding-left: 20px; }
+.ctq-vende__chip::before, .ctq-vende__list li::before {
+  content: "\f00c"; font-family: var(--ctq-fa); font-weight: 900;
+  position: absolute; left: 0; top: 1px; font-size: 13px; line-height: 1.5; color: var(--ctq-green);
+}
+
+/* ===== Tarjetas de plan (radio nativo) ===== */
+.ctq-vende__plans { display: flex; flex-direction: column; gap: 16px; }
 .ctq-vende__plan {
-  position: relative; display: grid; grid-template-columns: 1fr 190px; column-gap: 14px; align-items: center;
+  position: relative; display: grid; grid-template-columns: 1fr 170px; column-gap: 14px; align-items: center;
   padding: 14px 16px 12px;
   border: 2px solid var(--ctq-line); border-radius: 16px; background: #fff;
   cursor: pointer; transition: border-color .2s, background .2s, box-shadow .2s;
@@ -129,128 +157,115 @@
   background: var(--ctq-green-soft);
   box-shadow: 0 0 0 3px rgba(11,122,75,.14), 0 8px 20px rgba(11,122,75,.14);
 }
+.ctq-vende__plan:focus-within { outline: 3px solid #4c9fff; outline-offset: 2px; }
+
+/* Input real, oculto visualmente pero enfocable */
+.ctq-vende__input { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); opacity: 0; margin: 0; }
+
 .ctq-vende__plan-head { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
 .ctq-vende__radio {
-  flex: 0 0 26px; width: 26px; height: 26px; border-radius: 50%;
+  flex: 0 0 24px; width: 24px; height: 24px; border-radius: 50%;
   border: 2.5px solid #8a93a2; background: #fff; position: relative; transition: all .2s;
 }
 .ctq-vende__plan.is-active .ctq-vende__radio { border-color: var(--ctq-green); background: var(--ctq-green); }
 .ctq-vende__plan.is-active .ctq-vende__radio::after {
-  content: ""; position: absolute; left: 7px; top: 2px; width: 6px; height: 12px;
+  content: ""; position: absolute; left: 6px; top: 1.5px; width: 6px; height: 11px;
   border: solid #fff; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg);
 }
-.ctq-vende__plan-name { margin: 0; font-size: 19px; font-weight: 700; color: var(--ctq-navy); }
+/* El label cubre toda la tarjeta: clic en cualquier parte selecciona */
+.ctq-vende__plan-name { margin: 0; font-size: 18px; font-weight: 700; color: var(--ctq-navy); cursor: pointer; }
+.ctq-vende__plan-name::after { content: ""; position: absolute; inset: 0; border-radius: 14px; }
 
 .ctq-vende__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
-.ctq-vende__list li { position: relative; padding-left: 24px; font-size: 14px; line-height: 1.3; color: var(--ctq-text); }
-.ctq-vende__list li::before {
-  content: ""; position: absolute; left: 0; top: 1px; width: 17px; height: 17px;
-  background: url("https://www.contpaqi.com/hubfs/Vende/check.png") center / contain no-repeat;
-}
+.ctq-vende__list li { position: relative; padding-left: 22px; font-size: 14px; line-height: 1.35; color: var(--ctq-text); }
 
-/* Segunda columna de cada tarjeta */
 .ctq-vende__plan-aside {
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
   align-self: stretch; padding-left: 14px; border-left: 1px solid var(--ctq-line);
-  text-align: center; font-size: 13px; line-height: 1.3; color: var(--ctq-navy);
+  text-align: center; font-size: 14px; line-height: 1.3; color: var(--ctq-navy);
 }
+.ctq-vende__plan-aside i { font-size: 24px; color: var(--ctq-green); }
 .ctq-vende__plan.is-active .ctq-vende__plan-aside { border-left-color: rgba(11,122,75,.3); }
-.ctq-vende__plan-aside img { width: 38px; height: 38px; object-fit: contain; }
 
-/* Etiqueta "Recomendado": outline, texto verde, estrella a color */
 .ctq-vende__badge {
   position: absolute; top: -13px; right: 14px; display: inline-flex; align-items: center; gap: 6px;
-  padding: 3px 12px; border-radius: 999px; background: #fff;
+  padding: 3px 12px; border-radius: 999px; background: #fff; pointer-events: none;
   border: 1.5px solid var(--ctq-green); color: var(--ctq-green);
   font-size: 13px; font-weight: 700; line-height: 1.3;
 }
-.ctq-vende__badge img { width: 14px; height: 14px; object-fit: contain; }
+.ctq-vende__badge i { font-size: 12px; }
 
-/* Línea que delimita ambos servicios */
-.ctq-vende__divider {
-  display: flex; align-items: center; gap: 12px; margin: 12px 4px 10px;
-  font-size: 13px; font-weight: 600; color: var(--ctq-muted);
-}
-.ctq-vende__divider::before, .ctq-vende__divider::after { content: ""; flex: 1; height: 1px; background: var(--ctq-line); }
-
-/* ===== Aviso de selección ===== */
-.ctq-vende__notice {
-  display: flex; align-items: center; gap: 10px; margin-top: 12px; padding: 9px 12px;
-  border-radius: 12px; background: #eef4fb; color: var(--ctq-navy); font-size: 13px; line-height: 1.35;
-}
-.ctq-vende__notice img { flex: 0 0 20px; width: 20px; height: 20px; object-fit: contain; }
-
-/* ===== Footer: checkbox + CTA ===== */
-.ctq-vende__footer { margin-top: auto; padding-top: 12px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.ctq-vende__check { display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 13px; line-height: 1.3; color: var(--ctq-text); max-width: 400px; }
-.ctq-vende__check input { width: 22px; height: 22px; flex: 0 0 22px; accent-color: var(--ctq-green); cursor: pointer; margin: 0; }
-.ctq-vende__check strong { color: var(--ctq-navy); }
-.ctq-vende__info { width: 20px; height: 20px; flex: 0 0 20px; object-fit: contain; }
+/* ===== Footer: resumen + CTA ===== */
+.ctq-vende__footer { margin-top: auto; padding-top: 16px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.ctq-vende__summary { display: flex; align-items: center; gap: 10px; margin: 0; max-width: 300px; font-size: 14px; line-height: 1.35; color: var(--ctq-navy); }
+.ctq-vende__summary i { flex: 0 0 auto; font-size: 18px; color: var(--ctq-green); }
 
 .ctq-vende__btn {
-  display: inline-flex; align-items: center; gap: 10px; padding: 14px 30px;
+  display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px;
   border: 0; border-radius: 999px; background: var(--ctq-green); color: #fff;
-  font-size: 18px; font-weight: 700; cursor: pointer; white-space: nowrap;
+  font-size: 17px; font-weight: 700; cursor: pointer; white-space: nowrap;
   box-shadow: 0 8px 20px rgba(11,122,75,.3); transition: background .2s, transform .1s;
 }
+.ctq-vende__btn i { font-size: 15px; transition: transform .2s; }
 .ctq-vende__btn:hover { background: var(--ctq-green-dark); }
+.ctq-vende__btn:hover i { transform: translateX(3px); }
 .ctq-vende__btn:active { transform: translateY(1px); }
 
 .ctq-vende__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.ctq-vende a:focus-visible, .ctq-vende button:focus-visible, .ctq-vende input:focus-visible, .ctq-vende [role="radio"]:focus-visible { outline: 3px solid #4c9fff; outline-offset: 2px; }
+.ctq-vende a:focus-visible, .ctq-vende button:focus-visible { outline: 3px solid #4c9fff; outline-offset: 2px; }
 
 /* ===== Ventanas bajas (laptops): compacta para no hacer scroll ===== */
 @media (max-height: 700px) {
-  .ctq-vende__left { padding: 22px 24px 14px 30px; }
-  .ctq-vende__logo { height: 46px; margin-bottom: 12px; }
-  .ctq-vende__subtitle { margin-bottom: 12px; }
-  .ctq-vende__benefits { gap: 7px; }
-  .ctq-vende__benefit-icon { flex-basis: 42px; width: 42px; height: 42px; }
-  .ctq-vende__right { padding: 18px 26px 14px; }
-  .ctq-vende__lead { margin: 6px 0 10px; }
+  .ctq-vende__left { padding: 20px 20px 14px 26px; }
+  .ctq-vende__logo { height: 42px; margin-bottom: 10px; }
+  .ctq-vende__title { margin-bottom: 12px; }
+  .ctq-vende__benefits { gap: 6px; }
+  .ctq-vende__right { padding: 18px 24px 14px; }
+  .ctq-vende__headline { margin-bottom: 8px; }
+  .ctq-vende__common { margin-bottom: 10px; }
+  .ctq-vende__plans { gap: 14px; }
   .ctq-vende__plan { padding: 10px 14px 9px; }
   .ctq-vende__plan-head { margin-bottom: 5px; }
   .ctq-vende__list { gap: 3px; }
-  .ctq-vende__divider { margin: 9px 4px 7px; }
-  .ctq-vende__notice { margin-top: 9px; padding: 7px 10px; }
-  .ctq-vende__btn { padding: 11px 26px; font-size: 16px; }
+  .ctq-vende__footer { padding-top: 12px; }
+  .ctq-vende__btn { padding: 11px 24px; font-size: 16px; }
 }
-@media (max-height: 600px) {
-  .ctq-vende__benefit-icon { flex-basis: 34px; width: 34px; height: 34px; }
-  .ctq-vende__benefit { font-size: 14px; }
-  .ctq-vende__subtitle { display: none; }
-  .ctq-vende__plan-aside img { width: 30px; height: 30px; }
+@media (max-height: 640px) {
+  .ctq-vende__media { display: none; }
 }
 
-/* ===== Móvil / tablet vertical: una columna (aquí el scroll interno es el último recurso) ===== */
+/* ===== Móvil / tablet vertical: una columna (el scroll del diálogo es el último recurso) ===== */
 @media (max-width: 860px) {
-  .ctq-vende__dialog { height: auto; max-height: calc(100vh - 16px); max-height: calc(100dvh - 16px); overflow-y: auto; }
-  .ctq-vende__step { height: auto; }
-  .ctq-vende__grid { grid-template-columns: 1fr; height: auto; }
-  .ctq-vende__left { border-right: 0; border-bottom: 1px solid var(--ctq-line); padding: 20px 20px 16px; }
-  .ctq-vende__subtitle, .ctq-vende__benefits, .ctq-vende__media { display: none; }
-  .ctq-vende__logo { height: 38px; margin-bottom: 10px; }
-  .ctq-vende__right { padding: 18px 18px 16px; }
+  .ctq-vende__dialog { overflow-y: auto; }
+  .ctq-vende__step { display: block; }
+  .ctq-vende__grid { display: block; }
+  .ctq-vende__left { border-right: 0; border-bottom: 1px solid var(--ctq-line); padding: 20px 20px 14px; }
+  .ctq-vende__benefits, .ctq-vende__media { display: none; }
+  .ctq-vende__logo { height: 38px; margin-bottom: 8px; }
+  .ctq-vende__title { margin: 0; padding-right: 36px; font-size: 20px; }
+  .ctq-vende__right { overflow: visible; padding: 18px 18px 16px; }
 }
 @media (max-width: 560px) {
   .ctq-vende { padding: 8px; }
   .ctq-vende__plan { grid-template-columns: 1fr; }
   .ctq-vende__plan-aside { flex-direction: row; text-align: left; padding: 8px 0 0; margin-top: 8px; border-left: 0; border-top: 1px solid var(--ctq-line); }
+  .ctq-vende__plan.is-active .ctq-vende__plan-aside { border-top-color: rgba(11,122,75,.3); }
   .ctq-vende__footer { flex-direction: column; align-items: stretch; }
+  .ctq-vende__summary { max-width: none; }
   .ctq-vende__btn { justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ctq-vende, .ctq-vende__dialog, .ctq-vende__plan, .ctq-vende__radio { transition: none; }
+  .ctq-vende, .ctq-vende__dialog, .ctq-vende__plan, .ctq-vende__radio, .ctq-vende__btn i { transition: none; }
 }
 </style>
 </head>
 <body>
 
 <!-- ===================== MARKUP ===================== -->
-<div class="ctq-vende" id="ctq-vende" role="dialog" aria-modal="true" aria-labelledby="ctq-vende-title" data-selection="gratuito" data-autoopen>
+<div class="ctq-vende" id="ctq-vende" data-selection="prueba_20_dias" data-autoopen>
 
-  <div class="ctq-vende__dialog">
-    <button type="button" class="ctq-vende__close" data-vende-close aria-label="Cerrar">&times;</button>
+  <div class="ctq-vende__dialog" role="dialog" aria-modal="true" aria-labelledby="ctq-vende-title">
+    <button type="button" class="ctq-vende__close" data-vende-close aria-label="Cerrar"><i class="fas fa-times" aria-hidden="true"></i></button>
 
     <!-- ============ PASO 1: Oferta / Selección ============ -->
     <section class="ctq-vende__step" data-step="1">
@@ -258,27 +273,28 @@
 
         <!-- Columna izquierda -->
         <div class="ctq-vende__left">
-          <img class="ctq-vende__logo" src="https://www.contpaqi.com/hubfs/Logotipos%202026/Administracion/CONTPAQi-Vende%C2%AE-2026.png" alt="CONTPAQi Vende" height="58">
+          <!-- TODO: agregar width="" real del logo (evita saltos de layout) -->
+          <img class="ctq-vende__logo" data-src="https://www.contpaqi.com/hubfs/Logotipos%202026/Administracion/CONTPAQi-Vende%C2%AE-2026.png" alt="CONTPAQi Vende" height="48">
           <h2 class="ctq-vende__title" id="ctq-vende-title">Da el siguiente paso y migra a <strong>CONTPAQi Vende&reg;</strong></h2>
-          <p class="ctq-vende__subtitle">Administra, factura y haz crecer tu negocio</p>
 
           <ul class="ctq-vende__benefits">
             <li class="ctq-vende__benefit">
-              <span class="ctq-vende__benefit-icon"><img src="https://www.contpaqi.com/hubfs/Vende/cohete.png" alt="" width="25" height="25"></span>
+              <span class="ctq-vende__benefit-icon"><i class="fas fa-rocket" aria-hidden="true"></i></span>
               <span>Moderniza tu negocio</span>
             </li>
             <li class="ctq-vende__benefit">
-              <span class="ctq-vende__benefit-icon"><img src="https://www.contpaqi.com/hubfs/Vende/nube.png" alt="" width="25" height="25"></span>
+              <span class="ctq-vende__benefit-icon"><i class="fas fa-cloud" aria-hidden="true"></i></span>
               <span>Trabaja desde cualquier lugar</span>
             </li>
             <li class="ctq-vende__benefit">
-              <span class="ctq-vende__benefit-icon"><img src="https://www.contpaqi.com/hubfs/Vende/escudo.png" alt="" width="25" height="25"></span>
+              <span class="ctq-vende__benefit-icon"><i class="fas fa-shield-alt" aria-hidden="true"></i></span>
               <span>Cumple con la normatividad</span>
             </li>
           </ul>
 
           <div class="ctq-vende__media">
-            <img class="ctq-vende__laptop" src="https://www.contpaqi.com/hubfs/Vende/computadora_vende.png" alt="Panel de CONTPAQi Vende en una laptop">
+            <!-- TODO: WebP + width/height + srcset 1x/2x cuando esté exportada -->
+            <img class="ctq-vende__laptop" data-src="https://www.contpaqi.com/hubfs/Vende/computadora_vende.png" alt="Panel de CONTPAQi Vende en una laptop">
           </div>
         </div>
 
@@ -287,65 +303,59 @@
           <h3 class="ctq-vende__headline">Regístrate y aprovecha
             <span class="ctq-vende__headline-big">20 días de prueba</span>
           </h3>
-          <p class="ctq-vende__lead">Conoce todas las ventajas de <strong>CONTPAQi Vende&reg;</strong></p>
 
-          <!-- Tarjetas seleccionables (radio). Sincronizadas con el checkbox del footer -->
+          <!-- Lo común a ambos planes, una sola vez -->
+          <ul class="ctq-vende__common">
+            <li class="ctq-vende__common-label">Incluido en ambos:</li>
+            <li class="ctq-vende__chip">Emisión y timbrado de facturas</li>
+            <li class="ctq-vende__chip">Cancelación</li>
+          </ul>
+
+          <!-- Tarjetas seleccionables: radios nativos (única fuente de verdad) -->
           <div class="ctq-vende__plans" role="radiogroup" aria-label="Elige tu plan">
 
-            <!-- Prueba gratuita -->
-            <div class="ctq-vende__plan" data-plan="prueba_20_dias" role="radio" aria-checked="false" tabindex="0">
-              <span class="ctq-vende__badge"><img src="https://www.contpaqi.com/hubfs/Vende/estrella.png" alt="" width="14" height="14"> Recomendado</span>
+            <!-- Prueba gratuita (recomendada, preseleccionada) -->
+            <div class="ctq-vende__plan is-active" data-plan="prueba_20_dias">
+              <span class="ctq-vende__badge"><i class="fas fa-star" aria-hidden="true"></i> Recomendado</span>
               <div class="ctq-vende__plan-head">
+                <input class="ctq-vende__input" type="radio" name="vende_plan" id="ctq-plan-prueba" value="prueba_20_dias" aria-describedby="ctq-plan-prueba-desc" checked>
                 <span class="ctq-vende__radio" aria-hidden="true"></span>
-                <h4 class="ctq-vende__plan-name">Tu prueba gratuita por 20 días</h4>
+                <label class="ctq-vende__plan-name" for="ctq-plan-prueba">Tu prueba gratuita por 20 días</label>
               </div>
-              <ul class="ctq-vende__list">
-                <li>Emisión y timbrado de facturas.</li>
-                <li>Cancelación.</li>
+              <ul class="ctq-vende__list" id="ctq-plan-prueba-desc">
                 <li>Almacenamiento por 5 años.</li>
                 <li>Catálogos de clientes, productos y servicios.</li>
               </ul>
               <div class="ctq-vende__plan-aside">
-                <img src="https://www.contpaqi.com/hubfs/Vende/calendario.png" alt="" width="38" height="38">
-                <span>Al término del periodo de 20 días puedes seguir utilizando estos beneficios al contratar el servicio.</span>
+                <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                <span>Al terminar los 20 días, sigue con estos beneficios al contratar el servicio.</span>
               </div>
             </div>
 
-            <!-- Línea que delimita -->
-            <div class="ctq-vende__divider" role="presentation"><span>Obtienes por tu servicio gratuito</span></div>
-
-            <!-- Servicio gratuito (estado por defecto) -->
-            <div class="ctq-vende__plan is-active" data-plan="gratuito" role="radio" aria-checked="true" tabindex="0">
+            <!-- Servicio gratuito -->
+            <div class="ctq-vende__plan" data-plan="gratuito">
               <div class="ctq-vende__plan-head">
+                <input class="ctq-vende__input" type="radio" name="vende_plan" id="ctq-plan-gratuito" value="gratuito" aria-describedby="ctq-plan-gratuito-desc">
                 <span class="ctq-vende__radio" aria-hidden="true"></span>
-                <h4 class="ctq-vende__plan-name">Servicio Gratuito</h4>
+                <label class="ctq-vende__plan-name" for="ctq-plan-gratuito">Servicio Gratuito</label>
               </div>
-              <ul class="ctq-vende__list">
-                <li>Emisión y timbrado de facturas.</li>
-                <li>Cancelación.</li>
+              <ul class="ctq-vende__list" id="ctq-plan-gratuito-desc">
                 <li>Almacenamiento por 3 meses.</li>
               </ul>
               <div class="ctq-vende__plan-aside">
-                <img src="https://www.contpaqi.com/hubfs/Vende/regalo.png" alt="" width="38" height="38">
+                <i class="fas fa-gift" aria-hidden="true"></i>
                 <span>Funcionalidades esenciales para tu negocio.</span>
               </div>
             </div>
           </div>
 
-          <!-- Aviso dinámico de la selección -->
-          <div class="ctq-vende__notice" role="status" aria-live="polite">
-            <img src="https://www.contpaqi.com/hubfs/Vende/informacion.png" alt="" width="20" height="20">
-            <span data-vende-notice></span>
-          </div>
-
           <div class="ctq-vende__footer">
-            <label class="ctq-vende__check">
-              <input type="checkbox" data-vende-check>
-              <img class="ctq-vende__info" src="https://www.contpaqi.com/hubfs/Vende/informacion.png" alt="" width="20" height="20">
-              <span>Deseo utilizar el servicio <strong>CONTPAQi Vende&reg;</strong> en línea por 20 días (sin costo).</span>
-            </label>
+            <p class="ctq-vende__summary" role="status" aria-live="polite">
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+              <span data-vende-summary></span>
+            </p>
             <button type="button" class="ctq-vende__btn" data-vende-next>
-              Siguiente <span aria-hidden="true">&rarr;</span>
+              Siguiente <i class="fas fa-arrow-right" aria-hidden="true"></i>
             </button>
           </div>
         </div>
@@ -373,48 +383,40 @@
   if (!root || root.__ctqVende) return;      // evita doble inicialización
   root.__ctqVende = true;
 
-  var NOTICES = {
-    gratuito: 'Servicio Gratuito seleccionado. Elige la prueba gratuita si quieres disfrutar todos los beneficios por 20 días.',
-    prueba_20_dias: 'Prueba gratuita de 20 días seleccionada. Solo se aplica un beneficio a la vez; al terminar el periodo puedes seguir con ellos al contratar el servicio.'
+  var SUMMARY = {
+    prueba_20_dias: 'Usarás CONTPAQi Vende\u00AE en línea por 20 días, sin costo.',
+    gratuito: 'Continuarás con el Servicio Gratuito.'
   };
 
-  var check  = root.querySelector('[data-vende-check]');
-  var plans  = root.querySelectorAll('.ctq-vende__plan[data-plan]');
-  var notice = root.querySelector('[data-vende-notice]');
+  var radios  = root.querySelectorAll('input[name="vende_plan"]');
+  var cards   = root.querySelectorAll('.ctq-vende__plan[data-plan]');
+  var summary = root.querySelector('[data-vende-summary]');
   var lastFocus = null;
+  var inerted = [];
 
-  /* ---- Selección: el checkbox es la única fuente de verdad; las tarjetas lo controlan ---- */
-  function getPlan() { return check.checked ? 'prueba_20_dias' : 'gratuito'; }
+  /* ---- Selección: los radios nativos son la única fuente de verdad ---- */
+  function getPlan() {
+    for (var i = 0; i < radios.length; i++) if (radios[i].checked) return radios[i].value;
+    return 'prueba_20_dias';
+  }
 
   function select(plan) {
-    check.checked = (plan === 'prueba_20_dias');
+    for (var i = 0; i < radios.length; i++) radios[i].checked = (radios[i].value === plan);
     render();
   }
 
   function render() {
     var plan = getPlan();
     root.setAttribute('data-selection', plan);
-    for (var i = 0; i < plans.length; i++) {
-      var on = plans[i].getAttribute('data-plan') === plan;
-      plans[i].classList.toggle('is-active', on);
-      plans[i].setAttribute('aria-checked', on ? 'true' : 'false');
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].classList.toggle('is-active', cards[i].getAttribute('data-plan') === plan);
     }
-    if (notice) notice.textContent = NOTICES[plan];
+    if (summary) summary.textContent = SUMMARY[plan];
     var field = root.querySelector('[data-vende-plan-field]');   // campo oculto del Paso 2
     if (field) field.value = plan;
   }
 
-  check.addEventListener('change', render);
-  for (var i = 0; i < plans.length; i++) {
-    (function (card) {
-      card.addEventListener('click', function () { select(card.getAttribute('data-plan')); });
-      card.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(card.getAttribute('data-plan')); }
-        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); select('gratuito'); }
-        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); select('prueba_20_dias'); }
-      });
-    })(plans[i]);
-  }
+  for (var i = 0; i < radios.length; i++) radios[i].addEventListener('change', render);
 
   /* ---- Pasos (Siguiente / Atrás) ---- */
   function goToStep(n) {
@@ -437,18 +439,48 @@
     if (e.target.closest('[data-vende-close]') || e.target === root) close();
   });
 
+  /* ---- Imágenes diferidas: se cargan en la primera apertura ---- */
+  function loadImages() {
+    var imgs = root.querySelectorAll('img[data-src]');
+    for (var i = 0; i < imgs.length; i++) {
+      imgs[i].src = imgs[i].getAttribute('data-src');
+      imgs[i].removeAttribute('data-src');
+    }
+  }
+
+  /* ---- Fondo inert mientras el pop-up está abierto ---- */
+  function setBackgroundInert(on) {
+    if (on) {
+      var top = root;
+      while (top.parentElement && top.parentElement !== document.body) top = top.parentElement;
+      var kids = document.body.children;
+      for (var i = 0; i < kids.length; i++) {
+        var el = kids[i];
+        if (el === top || el.tagName === 'SCRIPT' || el.hasAttribute('inert')) continue;
+        el.setAttribute('inert', '');
+        inerted.push(el);
+      }
+    } else {
+      while (inerted.length) inerted.pop().removeAttribute('inert');
+    }
+  }
+
   /* ---- Abrir / cerrar + accesibilidad ---- */
   function open() {
     lastFocus = document.activeElement;
+    loadImages();
     goToStep(1);
     render();
     root.classList.add('is-open');
     document.documentElement.style.overflow = 'hidden';
-    root.querySelector('[data-vende-close]').focus();
+    setBackgroundInert(true);
+    var checked = root.querySelector('input[name="vende_plan"]:checked');
+    if (checked) checked.focus();
   }
   function close() {
     root.classList.remove('is-open');
     document.documentElement.style.overflow = '';
+    setBackgroundInert(false);
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
 
@@ -456,8 +488,8 @@
     if (!root.classList.contains('is-open')) return;
     if (e.key === 'Escape') { close(); return; }
     if (e.key === 'Tab') {                         // focus trap simple
-      var f = root.querySelectorAll('button:not([disabled]), input:not([disabled]), a[href], [role="radio"]');
-      var visible = Array.prototype.filter.call(f, function (el) { return el.offsetParent !== null; });
+      var f = root.querySelectorAll('button:not([disabled]), input:not([disabled]), a[href]');
+      var visible = Array.prototype.filter.call(f, function (el) { return el.offsetParent !== null || el.type === 'radio'; });
       if (!visible.length) return;
       var first = visible[0], last = visible[visible.length - 1];
       if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
