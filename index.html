@@ -231,34 +231,41 @@
     .hero__checks .icon { font-size: 20px; color: var(--check); }
 
     .mock {
-      width: 100%; max-width: 500px; min-width: 0; margin: 0 auto;
-      padding: clamp(14px, 3vw, 24px); background: #fff;
+      width: 100%; max-width: 450px; min-width: 0; margin: 0 auto;
+      padding: 12px 14px 6px; background: #fff;
       border: 1px solid var(--blue-100); border-radius: calc(var(--radius) * 2);
       box-shadow: 0 24px 48px -16px rgba(var(--secondary-glow), .32);
     }
-    .mock__navigation { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
-    .mock__counter { color: var(--primary); font-size: var(--fs-sm); font-weight: 700; font-variant-numeric: tabular-nums; }
-    .mock__arrows, .mock__dots { display: flex; align-items: center; gap: 4px; }
+    .mock__navigation, .mock__dots { display: flex; align-items: center; justify-content: center; }
+    .mock__navigation { margin-top: 4px; }
     .mock__arrow {
       display: grid; place-items: center; width: 44px; height: 44px;
-      border: 1px solid var(--primary); border-radius: 50%;
+      border-radius: 50%;
       color: var(--primary); font-size: 24px; line-height: 1;
     }
     .mock__arrow:hover { background: var(--primary); color: #fff; }
     .mock__arrow:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
     .mock__slides { display: grid; gap: 24px; }
     .mock__image {
-      display: grid; place-items: center; aspect-ratio: 16 / 8;
-      padding: 12px; background: var(--blue-50);
-      border-radius: var(--radius);
+      height: clamp(96px, 27vw, 142px); padding: 8px 14px;
+      background: linear-gradient(120deg, var(--blue-100), var(--blue-50));
+      border-radius: var(--radius); overflow: hidden;
     }
-    .mock__img { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
-    .mock__details { padding: 16px 2px 0; }
+    .mock__img { width: 100%; height: 100%; object-fit: contain; object-position: left center; }
+    .mock__slide--inicial .mock__image { background: linear-gradient(120deg, var(--primary), var(--primary-hover)); }
+    .mock__slide--inicial .mock__img { object-position: right center; }
+    .mock__details { padding: 8px 2px 0; }
     .mock__title { margin: 0 0 4px; color: var(--title); font-size: var(--fs-lg); line-height: 1.2; }
-    .mock__subtitle { margin-bottom: 12px; color: var(--primary); font-size: var(--fs-sm); font-weight: 700; }
-    .mock__price { margin-bottom: 14px; color: var(--body); }
+    .mock__subtitle { color: var(--primary); font-size: var(--fs-sm); font-weight: 700; }
+    .mock__action { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 12px; margin-top: 6px; }
+    .mock__action .btn { width: auto; padding-inline: 16px; font-size: var(--fs-sm); }
+    .mock__price { color: var(--body); font-size: var(--fs-sm); }
     .mock__price strong { color: var(--title); }
-    .mock__dots { justify-content: center; margin-top: 8px; }
+    .mock__timbres::before { content: " · "; }
+    @media (max-width: 380px) {
+      .mock__timbres { display: block; }
+      .mock__timbres::before { content: none; }
+    }
     .mock__dots .carousel__dot::after { background: var(--primary); }
     .mock [hidden] { display: none; }
     @media (min-width: 640px) {
@@ -268,8 +275,6 @@
     @media (min-width: 1024px) {
       .hero { padding: 112px 0 64px; }
       .hero__grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); }
-
-      .mock { max-width: 520px; }
     }
 
     /* =========================================================
@@ -395,6 +400,12 @@
 
     @media (min-width: 768px) {
       .plans__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; max-width: 960px; }
+    }
+    @media (768px <= width < 1024px) {
+      .plan--equipos { grid-column: 1 / -1; justify-self: center; width: calc((100% - 24px) / 2); }
+    }
+    @media (min-width: 1024px) {
+      .plans__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1120px; }
     }
 
     /* =========================================================
@@ -719,7 +730,7 @@
       "operatingSystem": "Navegador web con conexión a internet",
       "softwareRequirements": "Navegador web con conexión a internet",
       "inLanguage": "es-MX",
-      "description": "Software de facturación electrónica CFDI 4.0 en la nube, sin instalación. Vende Light incluye 50 timbres por $690 MXN al año y Vende Inicial incluye timbrado ilimitado y control de cobranza por $1,890 MXN al año. Precios más IVA.",
+      "description": "Software de facturación electrónica CFDI 4.0 en la nube, sin instalación. Light incluye 50 timbres por $690 MXN al año. Inicial incluye timbrado ilimitado y control de cobranza por $1,890 MXN al año. Equipos incluye timbrado ilimitado y varios RFC con 2 usuarios por $2,790 MXN al año. Precios más IVA.",
       "featureList": [
         "100% en la nube, sin instalación",
         "Light: 50 timbres por licencia anual",
@@ -727,7 +738,8 @@
         "Inicial: autofacturación para clientes con CONTPAQi® Mi Factura",
         "Inicial: control de cuentas por cobrar y estado de cuenta interactivo",
         "Inicial: factura global, complemento de pago y retenciones",
-        "Inicial: respaldo automático en la nube"
+        "Inicial: respaldo automático en la nube",
+        "Equipos: timbrado ilimitado y varios RFC con 2 usuarios"
       ],
       "publisher": {
         "@id": "https://www.contpaqi.com/#organization"
@@ -739,7 +751,7 @@
       "offers": [
         {
           "@type": "Offer",
-          "name": "CONTPAQi Vende® Light - licencia anual",
+          "name": "CONTPAQi Vende® - edición Light (licencia anual)",
           "price": "690.00",
           "priceCurrency": "MXN",
           "url": "https://www.cfdi.com.mx/#plan-light",
@@ -750,7 +762,7 @@
         },
         {
           "@type": "Offer",
-          "name": "CONTPAQi Vende® Inicial - licencia anual",
+          "name": "CONTPAQi Vende® - edición Inicial (licencia anual)",
           "price": "1890.00",
           "priceCurrency": "MXN",
           "url": "https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx",
@@ -758,6 +770,17 @@
             "@id": "https://www.contpaqi.com/#organization"
           },
           "description": "Licencia anual con timbrado ilimitado. Precio más IVA."
+        },
+        {
+          "@type": "Offer",
+          "name": "CONTPAQi Vende® - edición Equipos (licencia anual)",
+          "price": "2790.00",
+          "priceCurrency": "MXN",
+          "url": "https://www.cfdi.com.mx/#plan-equipos",
+          "seller": {
+            "@id": "https://www.contpaqi.com/#organization"
+          },
+          "description": "Licencia anual con timbrado ilimitado y varios RFC con 2 usuarios. Precio más IVA."
         }
       ],
       "mainEntityOfPage": {
@@ -774,7 +797,7 @@
           "name": "¿Cuánto cuesta CONTPAQi Vende® y qué incluye cada edición?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Vende Light cuesta $690 MXN al año más IVA e incluye 50 timbres. Vende Inicial cuesta $1,890 MXN al año más IVA e incluye timbrado ilimitado, herramientas de cobranza y CONTPAQi® Mi Factura."
+            "text": "Light cuesta $690 MXN al año e incluye 50 timbres. Inicial cuesta $1,890 MXN al año e incluye timbrado ilimitado, herramientas de cobranza y CONTPAQi® Mi Factura. Equipos cuesta $2,790 MXN al año e incluye timbrado ilimitado y la administración de varios RFC. Todos los precios son más IVA."
           }
         },
         {
@@ -782,15 +805,15 @@
           "name": "¿Puedo seguir usando mi cuenta de CFDI Facturación en Línea +?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. Puedes iniciar sesión con tus accesos habituales. CFDI Facturación en Línea + evoluciona a CONTPAQi Vende®. Si usabas la versión gratuita, puedes elegir Vende Light para seguir facturando con una licencia anual."
+            "text": "Sí. Puedes iniciar sesión con tus accesos habituales. CFDI Facturación en Línea + evoluciona a CONTPAQi Vende®. Si usabas la versión gratuita, puedes elegir la edición Light para seguir facturando con una licencia anual."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Qué edición incluye timbrado ilimitado?",
+          "name": "¿Qué ediciones incluyen timbrado ilimitado?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Vende Inicial incluye timbrado ilimitado durante la vigencia de la licencia anual. Vende Light incluye 50 timbres."
+            "text": "Inicial y Equipos incluyen timbrado ilimitado durante la vigencia de la licencia anual. Light incluye 50 timbres."
           }
         },
         {
@@ -798,7 +821,7 @@
           "name": "¿Puedo importar mis facturas anteriores?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. Puedes importar hasta 250 XML históricos con Vende Light y hasta 500 con Vende Inicial."
+            "text": "Sí. Puedes importar hasta 250 XML históricos con Light, 500 con Inicial y 1,000 con Equipos."
           }
         },
         {
@@ -806,12 +829,12 @@
           "name": "¿Qué respaldo tengo al contratar CONTPAQi Vende®?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "CONTPAQi® cuenta con más de 42 años de experiencia en software empresarial en México. Con Vende Inicial, tus comprobantes se respaldan automáticamente en la nube y puedes administrar tu información mediante un acceso protegido."
+            "text": "CONTPAQi® cuenta con más de 42 años de experiencia en software empresarial en México. Con la edición Inicial, tus comprobantes se respaldan automáticamente en la nube y puedes administrar tu información mediante un acceso protegido."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Qué comprobantes puedo emitir con Vende Inicial?",
+          "name": "¿Qué comprobantes puedo emitir con la edición Inicial?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Puedes emitir CFDI 4.0 de ingreso, egreso, pago y traslado, así como facturas PUE, PPD, globales y a clientes extranjeros. Usa los catálogos fiscales, las validaciones y la vista previa para revisar los datos antes de timbrar. Las actualizaciones fiscales se aplican automáticamente."
@@ -830,15 +853,15 @@
           "name": "¿Qué edición incluye autofacturación y factura global?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Vende Inicial incluye CONTPAQi® Mi Factura para que tus clientes generen sus CFDI. También puedes crear facturas globales a partir de tus notas de remisión."
+            "text": "La edición Inicial incluye CONTPAQi® Mi Factura para que tus clientes generen sus CFDI. También puedes crear facturas globales a partir de tus notas de remisión."
           }
         },
         {
           "@type": "Question",
-          "name": "¿Puedo enviar facturas y solicitar cancelaciones con Vende Inicial?",
+          "name": "¿Puedo enviar facturas y solicitar cancelaciones con la edición Inicial?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sí. Puedes compartir CFDI en XML y PDF por WhatsApp o correo, con plantillas de mensaje. También puedes solicitar cancelaciones y consultar su estatus desde Vende Inicial."
+            "text": "Sí. Puedes compartir CFDI en XML y PDF por WhatsApp o correo, con plantillas de mensaje. También puedes solicitar cancelaciones y consultar su estatus desde la edición Inicial."
           }
         },
         {
@@ -846,7 +869,7 @@
           "name": "¿Cuántos RFC y usuarios incluye cada licencia?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Vende Light y Vende Inicial incluyen 1 RFC y 1 usuario por licencia anual."
+            "text": "Light e Inicial incluyen 1 RFC y 1 usuario por licencia anual. Equipos permite administrar varios RFC con 2 usuarios."
           }
         },
         {
@@ -868,7 +891,7 @@
   ]
 }
   </script>
-  <!-- Modal de transición CFDI en línea + → Vende: estilos -->
+  <!-- Modal de transición CFDI en línea + → CONTPAQi Vende®: estilos -->
   <style>
 /* Todas las reglas están encapsuladas con .modal-transition. */
 
@@ -1196,13 +1219,13 @@
       <div class="container">
         <div class="hero__grid">
           <div class="hero__copy">
-            <!-- Logotipo oficial CONTPAQi Vende -->
+            <!-- Logotipo oficial CONTPAQi Vende® -->
             <div class="hero__product-logo">
               <img src="https://www.contpaqi.com/hs-fs/hubfs/Logotipos%202026/Administracion/CONTPAQi-Vende%C2%AE-2026.png?width=329&height=90&name=CONTPAQi-Vende%C2%AE-2026.png" alt="CONTPAQi Vende®" width="329" height="90" decoding="async">
             </div>
             <div class="badge"><span class="badge__dot"></span>CFDI 4.0 EN LA NUBE</div>
-            <h1 class="hero-title">Factura sin límite de timbres y agiliza tu cobranza con Vende Inicial</h1>
-            <p class="hero__lead c-desc-main">Factura desde tu navegador, sin instalar programas. Empieza con Vende Light por $690 MXN al año y 50 timbres, o elige Vende Inicial por $1,890 MXN al año. Precios más IVA.</p>
+            <h1 class="hero-title">Factura sin límite de timbres y agiliza tu cobranza con la edición Inicial</h1>
+            <p class="hero__lead c-desc-main">Factura desde tu navegador, sin instalar programas. La edición Light incluye 50 timbres por $690 MXN al año. Inicial incluye timbrado ilimitado por $1,890 MXN al año. Precios más IVA.</p>
             <div class="hero__cta">
               <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-lg" data-cta="hero-comprar">Comprar Inicial<i class="icon fa-solid fa-arrow-right" aria-hidden="true"></i>
               </a>
@@ -1212,7 +1235,7 @@
             </div>
             <!-- Acceso estable a CONTPAQi Nube. No fijar URLs OAuth con PKCE y state generados por sesion. -->
             <p class="hero__trial">¿Quieres conocerlo antes de comprar?
-              <a href="https://app.contpaqinube.com/" target="_blank" rel="noopener noreferrer" aria-label="Ir a CONTPAQi Nube para iniciar una prueba gratuita de Vende por 20 días (se abre en una pestaña nueva)">Prueba gratis por 20 días</a>
+              <a href="https://app.contpaqinube.com/" target="_blank" rel="noopener noreferrer" aria-label="Ir a CONTPAQi Nube para iniciar una prueba gratuita de CONTPAQi Vende® por 20 días (se abre en una pestaña nueva)">Prueba gratis por 20 días</a>
               <span class="hero__trial-detail"> · Incluye 15 timbres</span>
             </p>
             <ul class="hero__checks">
@@ -1222,48 +1245,47 @@
           </div>
 
           <div class="mock" id="hero-ediciones" role="region" aria-roledescription="carrusel" aria-label="Ediciones de CONTPAQi Vende®">
-            <div class="mock__navigation" hidden>
-              <p class="mock__counter" role="status" aria-atomic="true">
-                <span class="sr-only" data-slide-announcement>Vende Light, edición </span><span data-slide-counter>01 / 02</span>
-              </p>
-              <div class="mock__arrows">
-                <button class="mock__arrow" type="button" data-slide-step="-1" aria-label="Anterior" aria-controls="hero-ediciones-slides"><span aria-hidden="true">‹</span></button>
-                <button class="mock__arrow" type="button" data-slide-step="1" aria-label="Siguiente" aria-controls="hero-ediciones-slides"><span aria-hidden="true">›</span></button>
-              </div>
-            </div>
-
             <div class="mock__slides" id="hero-ediciones-slides">
               <article class="mock__slide" role="group" aria-roledescription="diapositiva" aria-labelledby="hero-light-title">
                 <div class="mock__image">
-                  <!-- TODO: reemplazar imagen Vende Light -->
-                  <img class="mock__img" src="https://www.contpaqi.com/hubfs/imagen%20(6).png" alt="Pantalla de CONTPAQi Vende® emitiendo una factura CFDI 4.0" fetchpriority="high" decoding="async">
+                  <!-- TODO: reemplazar imagen de la edición Light -->
+                  <img class="mock__img" src="https://www.contpaqi.com/hubfs/imagen%20(6).png" alt="Panel de CONTPAQi Vende® con gráficas de ventas" fetchpriority="high" decoding="async">
                 </div>
                 <div class="mock__details">
-                  <h2 class="mock__title" id="hero-light-title">CONTPAQi Vende® Light</h2>
-                  <p class="mock__subtitle">Ideal si vienes de CFDI en línea gratuito</p>
-                  <p class="mock__price"><strong>$690 MXN/año + IVA</strong> · 50 timbres</p>
-                  <a class="btn btn-md btn-outline-m" href="#planes" data-plan-target="plan-light" aria-label="Ver plan Vende Light">Ver plan</a>
+                  <h2 class="mock__title" id="hero-light-title">Light</h2>
+                  <p class="mock__subtitle">Si usabas CFDI en línea gratis</p>
+                  <div class="mock__action">
+                    <p class="mock__price"><strong>$690 MXN/año + IVA</strong> <span class="mock__timbres">50 timbres</span></p>
+                    <a class="btn btn-md btn-outline-m" href="#planes" data-plan-target="plan-light" aria-label="Ver plan Light">Ver plan</a>
+                  </div>
                 </div>
               </article>
 
-              <article class="mock__slide" role="group" aria-roledescription="diapositiva" aria-labelledby="hero-inicial-title">
+              <article class="mock__slide mock__slide--inicial" role="group" aria-roledescription="diapositiva" aria-labelledby="hero-inicial-title">
                 <div class="mock__image">
-                  <!-- TODO: reemplazar imagen Vende Inicial -->
-                  <img class="mock__img" src="https://www.contpaqi.com/hubfs/imagen%20(6).png" alt="Pantalla de CONTPAQi Vende® emitiendo una factura CFDI 4.0" loading="lazy" decoding="async">
+                  <!-- TODO: reemplazar imagen de la edición Inicial -->
+                  <img class="mock__img" src="https://www.contpaqi.com/hubfs/imagen%20(6).png" alt="Panel de CONTPAQi Vende® con gráficas de ventas" loading="lazy" decoding="async">
                 </div>
                 <div class="mock__details">
-                  <h2 class="mock__title" id="hero-inicial-title">CONTPAQi Vende® Inicial</h2>
+                  <h2 class="mock__title" id="hero-inicial-title">Inicial</h2>
                   <p class="mock__subtitle">Timbrado ilimitado y cobranza</p>
-                  <p class="mock__price"><strong>$1,890 MXN/año + IVA</strong></p>
-                  <a class="btn btn-md btn-outline-m" href="#planes" data-plan-target="plan-inicial" aria-label="Ver plan Vende Inicial">Ver plan</a>
+                  <div class="mock__action">
+                    <p class="mock__price"><strong>$1,890 MXN/año + IVA</strong></p>
+                    <a class="btn btn-md btn-outline-m" href="#planes" data-plan-target="plan-inicial" aria-label="Ver plan Inicial">Ver plan</a>
+                  </div>
                 </div>
               </article>
             </div>
 
-            <div class="mock__dots" role="group" aria-label="Elegir edición" hidden>
-              <button class="carousel__dot" type="button" aria-label="Mostrar Vende Light" aria-controls="hero-ediciones-slides" aria-current="true"></button>
-              <button class="carousel__dot" type="button" aria-label="Mostrar Vende Inicial" aria-controls="hero-ediciones-slides"></button>
+            <div class="mock__navigation" role="group" aria-label="Elegir edición" hidden>
+              <button class="mock__arrow" type="button" data-slide-step="-1" aria-label="Anterior" aria-controls="hero-ediciones-slides"><span aria-hidden="true">‹</span></button>
+              <div class="mock__dots">
+                <button class="carousel__dot" type="button" aria-label="Mostrar Light" aria-controls="hero-ediciones-slides" aria-current="true"></button>
+                <button class="carousel__dot" type="button" aria-label="Mostrar Inicial" aria-controls="hero-ediciones-slides"></button>
+              </div>
+              <button class="mock__arrow" type="button" data-slide-step="1" aria-label="Siguiente" aria-controls="hero-ediciones-slides"><span aria-hidden="true">›</span></button>
             </div>
+            <p class="sr-only" role="status" aria-atomic="true" data-slide-announcement></p>
           </div>
         </div>
       </div>
@@ -1337,14 +1359,14 @@
       <div class="container">
         <div class="section-head">
           <h2 class="section-main-title" id="planes-title">Elige tu plan de CONTPAQi Vende®</h2>
-          <p class="c-desc-main">Compara las dos licencias anuales según cuántas facturas emites.</p>
+          <p class="c-desc-main">Compara las licencias anuales según cuántas facturas emites y cuántos RFC necesitas administrar.</p>
         </div>
 
         <div class="plans__grid">
           <article class="plan" id="plan-light" aria-labelledby="plan-light-title" tabindex="-1">
             <div class="plan__head">
               <div class="plan__title-row">
-                <h3 class="section-sub-title" id="plan-light-title">Vende Light</h3>
+                <h3 class="section-sub-title" id="plan-light-title">Light</h3>
               </div>
               <p class="plan__desc">Para quienes vienen de CFDI Facturación en Línea + gratuito o emiten pocas facturas al mes.</p>
             </div>
@@ -1354,14 +1376,14 @@
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Importa hasta 250 XML históricos</span></li>
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Factura con 1 RFC y 1 usuario</span></li>
             </ul>
-            <!-- TODO: usar el enlace oficial de SaleDirect.aspx para Vende Light cuando esté disponible. -->
+            <!-- TODO: usar el enlace oficial de SaleDirect.aspx para la edición Light cuando esté disponible. -->
             <a href="https://www.contpaqi.com/lp/vende-venta-directa" target="_blank" rel="noopener noreferrer" class="btn btn-outline-m btn-xl" data-cta="plan-light-distribuidor">Solicitar Light a un distribuidor<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
           </article>
 
           <article class="plan plan--pro" id="plan-inicial" aria-labelledby="plan-inicial-title" tabindex="-1">
             <div class="plan__head">
               <div class="plan__title-row">
-                <h3 class="section-sub-title" id="plan-inicial-title">Vende Inicial</h3>
+                <h3 class="section-sub-title" id="plan-inicial-title">Inicial</h3>
                 <span class="tag">Recomendado</span>
               </div>
               <p class="plan__desc">Para quienes facturan con frecuencia y necesitan dar seguimiento a sus cobros.</p>
@@ -1374,12 +1396,29 @@
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Incluye CONTPAQi® Mi Factura para tus clientes</span></li>
             </ul>
             <p class="plan__legal">Aplican pagos a meses sin intereses.</p>
-            <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-xl" data-cta="plan-inicial-comprar">Comprar Vende Inicial<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            <a href="https://servicios.contpaqi.com/App/OnLineSell/SaleDirect.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-custom-pill btn-xl" data-cta="plan-inicial-comprar">Comprar Inicial<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+          </article>
+
+          <article class="plan plan--equipos" id="plan-equipos" aria-labelledby="plan-equipos-title" tabindex="-1">
+            <div class="plan__head">
+              <div class="plan__title-row">
+                <h3 class="section-sub-title" id="plan-equipos-title">Equipos</h3>
+              </div>
+              <p class="plan__desc">Administra varios RFC y suma herramientas para tu equipo comercial.</p>
+            </div>
+            <div class="plan__price"><strong>$2,790</strong><span> MXN al año + IVA</span></div>
+            <ul class="plan__list" role="list">
+              <li class="is-strong"><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Timbrado ilimitado durante tu licencia</span></li>
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Importa hasta 1,000 XML históricos</span></li>
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Administra varios RFC con 2 usuarios</span></li>
+              <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Gestiona ventas, addendas y complementos</span></li>
+            </ul>
+            <a href="https://www.contpaqi.com/lp/vende-venta-directa" target="_blank" rel="noopener noreferrer" class="btn btn-outline-m btn-xl" data-cta="plan-equipos-distribuidor">Solicitar Equipos a un distribuidor<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
           </article>
         </div>
         <!-- Alternativa discreta después de comparar los precios. -->
         <p class="plans__trial">¿Quieres conocerlo antes de comprar?
-          <a href="https://app.contpaqinube.com/" target="_blank" rel="noopener noreferrer" aria-label="Ir a CONTPAQi Nube para iniciar una prueba gratuita de Vende por 20 días (se abre en una pestaña nueva)">Prueba gratis por 20 días</a>
+          <a href="https://app.contpaqinube.com/" target="_blank" rel="noopener noreferrer" aria-label="Ir a CONTPAQi Nube para iniciar una prueba gratuita de CONTPAQi Vende® por 20 días (se abre en una pestaña nueva)">Prueba gratis por 20 días</a>
           <span class="plans__trial-detail"> · Incluye 15 timbres</span>
         </p>
         <p class="plans__dist">¿Prefieres atención personalizada? <strong>Compra con un distribuidor.</strong></p>
@@ -1400,7 +1439,7 @@
             <span class="step__num" aria-hidden="true">1</span>
             <div>
               <h3 class="product-title">Elige tu licencia</h3>
-              <p class="c-desc-main">Contrata Vende Light o Vende Inicial.</p>
+              <p class="c-desc-main">Contrata la edición que se ajuste a tu operación.</p>
             </div>
           </li>
           <li class="step">
@@ -1485,11 +1524,11 @@
         <div class="migration__grid">
           <div class="migration__copy">
             <h2 class="section-main-title text-white" id="migration-title">¿Usabas CFDI Facturación en Línea + gratis?</h2>
-            <p class="c-desc-main">Sigue emitiendo CFDI 4.0 desde tu navegador con CONTPAQi Vende® Light. Es una licencia anual para quienes emiten pocas facturas al mes.</p>
+            <p class="c-desc-main">Sigue emitiendo CFDI 4.0 desde tu navegador con la edición Light de CONTPAQi Vende®. Es una licencia anual para quienes emiten pocas facturas al mes.</p>
             <a class="btn btn-md" href="#plan-light" data-plan-target="plan-light" data-cta="migracion-plan-light">Ver plan Light</a>
           </div>
           <div class="migration__card">
-            <h3 class="section-sub-title">CONTPAQi Vende® Light</h3>
+            <h3 class="section-sub-title">Light</h3>
             <p class="plan__price"><strong>$690</strong><span> MXN al año + IVA</span></p>
             <ul class="plan__list" role="list">
               <li class="is-strong"><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>50 timbres incluidos en la licencia anual</span></li>
@@ -1519,39 +1558,39 @@
               <h3 class="faq-question">¿Cuánto cuesta CONTPAQi Vende® y qué incluye cada edición?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Vende Light cuesta $690 MXN al año más IVA e incluye 50 timbres. Vende Inicial cuesta $1,890 MXN al año más IVA e incluye timbrado ilimitado, herramientas de cobranza y CONTPAQi® Mi Factura.</p></div>
+            <div class="faq-answer"><p>Light cuesta $690 MXN al año e incluye 50 timbres. Inicial cuesta $1,890 MXN al año e incluye timbrado ilimitado, herramientas de cobranza y CONTPAQi® Mi Factura. Equipos cuesta $2,790 MXN al año e incluye timbrado ilimitado y la administración de varios RFC. Todos los precios son más IVA.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
               <h3 class="faq-question">¿Puedo seguir usando mi cuenta de CFDI Facturación en Línea +?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. Puedes iniciar sesión con tus accesos habituales. CFDI Facturación en Línea + evoluciona a CONTPAQi Vende®. Si usabas la versión gratuita, puedes elegir Vende Light para seguir facturando con una licencia anual.</p></div>
+            <div class="faq-answer"><p>Sí. Puedes iniciar sesión con tus accesos habituales. CFDI Facturación en Línea + evoluciona a CONTPAQi Vende®. Si usabas la versión gratuita, puedes elegir la edición Light para seguir facturando con una licencia anual.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Qué edición incluye timbrado ilimitado?</h3>
+              <h3 class="faq-question">¿Qué ediciones incluyen timbrado ilimitado?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Vende Inicial incluye timbrado ilimitado durante la vigencia de la licencia anual. Vende Light incluye 50 timbres.</p></div>
+            <div class="faq-answer"><p>Inicial y Equipos incluyen timbrado ilimitado durante la vigencia de la licencia anual. Light incluye 50 timbres.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
               <h3 class="faq-question">¿Puedo importar mis facturas anteriores?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. Puedes importar hasta 250 XML históricos con Vende Light y hasta 500 con Vende Inicial.</p></div>
+            <div class="faq-answer"><p>Sí. Puedes importar hasta 250 XML históricos con Light, 500 con Inicial y 1,000 con Equipos.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
               <h3 class="faq-question">¿Qué respaldo tengo al contratar CONTPAQi Vende®?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>CONTPAQi® cuenta con más de 42 años de experiencia en software empresarial en México. Con Vende Inicial, tus comprobantes se respaldan automáticamente en la nube y puedes administrar tu información mediante un acceso protegido.</p></div>
+            <div class="faq-answer"><p>CONTPAQi® cuenta con más de 42 años de experiencia en software empresarial en México. Con la edición Inicial, tus comprobantes se respaldan automáticamente en la nube y puedes administrar tu información mediante un acceso protegido.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Qué comprobantes puedo emitir con Vende Inicial?</h3>
+              <h3 class="faq-question">¿Qué comprobantes puedo emitir con la edición Inicial?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
             <div class="faq-answer"><p>Puedes emitir CFDI 4.0 de ingreso, egreso, pago y traslado, así como facturas PUE, PPD, globales y a clientes extranjeros. Usa los catálogos fiscales, las validaciones y la vista previa para revisar los datos antes de timbrar. Las actualizaciones fiscales se aplican automáticamente.</p></div>
@@ -1568,21 +1607,21 @@
               <h3 class="faq-question">¿Qué edición incluye autofacturación y factura global?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Vende Inicial incluye CONTPAQi® Mi Factura para que tus clientes generen sus CFDI. También puedes crear facturas globales a partir de tus notas de remisión.</p></div>
+            <div class="faq-answer"><p>La edición Inicial incluye CONTPAQi® Mi Factura para que tus clientes generen sus CFDI. También puedes crear facturas globales a partir de tus notas de remisión.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
-              <h3 class="faq-question">¿Puedo enviar facturas y solicitar cancelaciones con Vende Inicial?</h3>
+              <h3 class="faq-question">¿Puedo enviar facturas y solicitar cancelaciones con la edición Inicial?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Sí. Puedes compartir CFDI en XML y PDF por WhatsApp o correo, con plantillas de mensaje. También puedes solicitar cancelaciones y consultar su estatus desde Vende Inicial.</p></div>
+            <div class="faq-answer"><p>Sí. Puedes compartir CFDI en XML y PDF por WhatsApp o correo, con plantillas de mensaje. También puedes solicitar cancelaciones y consultar su estatus desde la edición Inicial.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
               <h3 class="faq-question">¿Cuántos RFC y usuarios incluye cada licencia?</h3>
               <i class="faq-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
             </summary>
-            <div class="faq-answer"><p>Vende Light y Vende Inicial incluyen 1 RFC y 1 usuario por licencia anual.</p></div>
+            <div class="faq-answer"><p>Light e Inicial incluyen 1 RFC y 1 usuario por licencia anual. Equipos permite administrar varios RFC con 2 usuarios.</p></div>
           </details>
           <details class="faq-item" name="faq">
             <summary class="faq-summary">
@@ -1604,7 +1643,7 @@
     <div class="container">
       <div class="cta__copy">
         <h2 id="cta-title" class="section-main-title text-white">Elige tu licencia para facturar con CONTPAQi Vende®</h2>
-        <p class="c-desc-main">Empieza con Vende Light por $690 MXN al año con 50 timbres, o elige Vende Inicial por $1,890 MXN al año con timbrado ilimitado. Precios más IVA.</p>
+        <p class="c-desc-main">Empieza con 50 timbres en la edición Light por $690 MXN al año o compara las ediciones con timbrado ilimitado. Precios más IVA.</p>
       </div>
       <div class="cta__actions">
         <a href="#planes" class="btn btn-custom-pill btn-lg" data-cta="cierre-planes">Ver planes y precios</a>
@@ -1664,7 +1703,7 @@
         </div>
       </div>
 
-      <p class="footer__legal">Precios públicos por licencia anual en moneda nacional. Los Signos Distintivos CONTPAQi® y PAQ® son marcas registradas propiedad de COMPUTACIÓN EN ACCIÓN, S.A. DE C.V., que distinguen, entre otros, programas de cómputo, su diseño y programación.</p>
+      <p class="footer__legal">Precios públicos por licencia anual en moneda nacional. El signo distintivo CONTPAQi® es una marca registrada propiedad de COMPUTACIÓN EN ACCIÓN, S.A. DE C.V. Distingue, entre otros, programas de cómputo, su diseño y programación.</p>
 
       <div class="footer__bottom">
         <p>© 2026 Computación en Acción, S.A. de C.V. Todos los derechos reservados.</p>
@@ -1803,10 +1842,8 @@
     (function () {
       var carousel = document.getElementById('hero-ediciones');
       var navigation = carousel.querySelector('.mock__navigation');
-      var dotsGroup = carousel.querySelector('.mock__dots');
       var slides = Array.from(carousel.querySelectorAll('.mock__slide'));
-      var dots = Array.from(dotsGroup.querySelectorAll('button'));
-      var counter = carousel.querySelector('[data-slide-counter]');
+      var dots = Array.from(navigation.querySelectorAll('.carousel__dot'));
       var announcement = carousel.querySelector('[data-slide-announcement]');
       var activeIndex = 0;
       var highlightedPlan;
@@ -1819,8 +1856,7 @@
           if (i === activeIndex) dot.setAttribute('aria-current', 'true');
           else dot.removeAttribute('aria-current');
         });
-        announcement.textContent = slides[activeIndex].querySelector('.mock__title').textContent + ', edición ';
-        counter.textContent = String(activeIndex + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+        announcement.textContent = 'Edición ' + slides[activeIndex].querySelector('.mock__title').textContent;
       }
 
       navigation.querySelectorAll('[data-slide-step]').forEach(function (button) {
@@ -1861,11 +1897,10 @@
 
       showSlide(0);
       navigation.hidden = false;
-      dotsGroup.hidden = false;
     })();
   </script>
 
-  <!-- Modal de transición CFDI en línea + → Vende -->
+  <!-- Modal de transición CFDI en línea + → CONTPAQi Vende® -->
   <dialog class="modal-transition" id="modal-transition-vende"
         aria-labelledby="modal-transition-title"
         aria-describedby="modal-transition-body">
@@ -1885,7 +1920,7 @@
 
     <h2 class="modal-transition__title" id="modal-transition-title">CFDI Facturación en Línea + evoluciona a CONTPAQi Vende®</h2>
 
-    <p class="modal-transition__body" id="modal-transition-body">Si ya facturas con CFDI Facturación en Línea +, ya sea con el servicio gratuito o con el de pago, elige una licencia para seguir facturando: <strong>Vende Light</strong> con 50 timbres o <strong>Vende Inicial</strong> con timbrado ilimitado.</p>
+    <p class="modal-transition__body" id="modal-transition-body">Si ya facturas con CFDI Facturación en Línea +, ya sea con el servicio gratuito o con el de pago, elige una licencia para seguir facturando: <strong>Light</strong> con 50 timbres o <strong>Inicial</strong> con timbrado ilimitado.</p>
     </div>
 
     <div class="modal-transition__actions">
