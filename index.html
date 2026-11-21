@@ -398,14 +398,26 @@
     .plan .btn-xl { white-space: normal; }
     .plan__legal { margin: 0 0 12px; font-size: var(--fs-sm); line-height: 1.4; color: var(--slate-500); }
 
+    .plan--equipos {
+      gap: 10px; padding: 16px 20px;
+      border-width: 1px; background: var(--slate-50); box-shadow: none;
+    }
+    .plan--equipos .plan__title-row { margin-bottom: 4px; }
+    .plan--equipos .plan__head, .plan--equipos .plan__price, .plan--equipos .plan__list { margin: 0; }
+    .plan--equipos .plan__price strong { font-size: var(--fs-xl); }
+    .plan--equipos .plan__list { gap: 6px 16px; font-size: var(--fs-sm); }
+    .plan--equipos .btn { padding-inline: 16px; white-space: normal; }
+
     @media (min-width: 768px) {
       .plans__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; max-width: 960px; }
-    }
-    @media (768px <= width < 1024px) {
-      .plan--equipos { grid-column: 1 / -1; justify-self: center; width: calc((100% - 24px) / 2); }
+      .plan--equipos {
+        grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center; column-gap: 24px;
+      }
+      .plan--equipos .plan__price { text-align: right; }
     }
     @media (min-width: 1024px) {
-      .plans__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1120px; }
+      .plan--equipos .plan__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     /* =========================================================
@@ -531,6 +543,12 @@
       border-radius: 50%; background: var(--blue-50); color: var(--primary); font-weight: 800;
     }
     .steps__cta { display: flex; justify-content: center; }
+    .steps__notice {
+      max-width: 1000px; margin: 28px auto 0; padding: 10px clamp(12px, 3vw, 24px);
+      border-inline: 2px dashed #0066B9; text-align: center;
+      color: #545454; font-size: 16px; font-weight: normal;
+    }
+    .steps__notice-title { margin-bottom: 1.5em; font: inherit; }
     @media (min-width: 768px) { .steps__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
     /* V3.5 · secciones con contenido más angosto (~15% menos que el hero) */
@@ -1413,7 +1431,7 @@
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Administra varios RFC con 2 usuarios</span></li>
               <li><i class="icon fa-solid fa-check" aria-hidden="true"></i><span>Gestiona ventas, addendas y complementos</span></li>
             </ul>
-            <a href="https://www.contpaqi.com/lp/vende-venta-directa" target="_blank" rel="noopener noreferrer" class="btn btn-outline-m btn-xl" data-cta="plan-equipos-distribuidor">Solicitar Equipos a un distribuidor<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
+            <a href="https://www.contpaqi.com/lp/vende-venta-directa" target="_blank" rel="noopener noreferrer" class="btn btn-outline-m btn-md" data-cta="plan-equipos-distribuidor">Solicitar Equipos a un distribuidor<span class="sr-only"> (se abre en una pestaña nueva)</span></a>
           </article>
         </div>
         <!-- Alternativa discreta después de comparar los precios. -->
@@ -1460,6 +1478,10 @@
         <div class="steps__cta">
           <a href="#planes" class="btn btn-md btn-outline-m" data-cta="pasos-planes">Ver planes</a>
         </div>
+        <aside class="steps__notice" aria-labelledby="steps-notice-title">
+          <h3 class="steps__notice-title" id="steps-notice-title">AVISO URGENTE:</h3>
+          <p>Estimado usuario, se le informa que el día 15 de febrero de 2027, vence el periodo de transición de noventa días naturales que nos fue otorgado por el SAT, derivado de la resolución de la revocación de la autorización para operar como proveedor de certificación de CFDI. Es importante comunicarle que, conforme a lo establecido en la regla 2.7.2.12., de la Resolución Miscelánea Fiscal vigente, el día 17 de diciembre de 2026, concluyen los primeros treinta días naturales que comprende dicho periodo y a partir de esta fecha, ya no se podrá realizar la certificación de CFDI, por lo que se le hace una atenta invitación para contratar a cualquiera de los proveedores de certificación de CFDI publicados como autorizados en el Portal del SAT en Internet.</p>
+        </aside>
       </div>
     </section>
 
